@@ -95,48 +95,46 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <!-- =============================================================== -->
-    <!-- DUAL HIGHLIGHT BOXES: "OLEH AHLINYA" & "HARGA TERJANGKAU" (BORDERLESS) -->
+    <!-- COMPACT HORIZONTAL GRID: "OLEH AHLINYA" & "HARGA TERJANGKAU" (SATU BARIS, SEJAJAR & BORDERLESS) -->
     <!-- =============================================================== -->
-    <div id="keunggulan" class="w-full max-w-7xl mx-auto mt-10 sm:mt-14 lg:mt-18 flex flex-col gap-6 sm:gap-8">
-      
-      <!-- Box 1: Oleh Ahlinya (Borderless) -->
-      <div class="keunggulan-card flex flex-col sm:flex-row items-stretch rounded-3xl bg-white overflow-hidden shadow-soft-card group">
-        <div class="w-full sm:w-2/5 aspect-[4/3] sm:aspect-auto overflow-hidden shrink-0">
+    <div id="keunggulan" class="w-full mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-[#A89870]/20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+        
+        <!-- Sisi Kiri: Foto Stylist + Teks Oleh Ahlinya -->
+        <div class="flex items-center gap-4 sm:gap-6">
           <img 
-            src="/images/expert_stylists.webp" 
-            alt="Perawatan rambut oleh tim terapis profesional Sonae Salon" 
-            class="w-full h-full object-cover object-center transition-opacity duration-300 group-hover:opacity-95"
+            src="/images/oleh_ahlinya.webp" 
+            alt="Terapis Profesional Sonae Salon Madiun" 
+            class="w-28 sm:w-36 md:w-44 lg:w-48 h-auto object-contain shrink-0 select-none drop-shadow-sm"
+          />
+          <div class="flex flex-col">
+            <h3 class="font-sans text-lg sm:text-xl lg:text-2xl font-bold text-[#141414] mb-2">
+              Oleh Ahlinya
+            </h3>
+            <p class="text-xs sm:text-[13px] lg:text-sm text-[#2E2E2E] leading-relaxed text-justify">
+              Semua perawatan dikerjakan oleh profesional yang berdedikasi pada keunggulan. Kami hanya menggunakan produk berkualitas premium bersertifikasi BPOM dan terus mengikuti tren serta perkembangan terbaru di industri kecantikan, demi perawatan dan hasil terbaik untuk pelanggan kami.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sisi Kanan: Teks Harga Terjangkau + Foto Model Rambut -->
+        <div class="flex items-center gap-4 sm:gap-6">
+          <div class="flex flex-col order-2 lg:order-1">
+            <h3 class="font-sans text-lg sm:text-xl lg:text-2xl font-bold text-[#141414] mb-2">
+              Harga Terjangkau
+            </h3>
+            <p class="text-xs sm:text-[13px] lg:text-sm text-[#2E2E2E] leading-relaxed text-justify">
+              Yang terbaik, layanan kami dihargai dengan bijak dan transparan sehingga perawatan diri berkualitas terjangkau untuk semua. Di Sonae Beauty Studio, tak perlu ragu—karena Anda pantas mendapatkannya. Perjalanan Anda menuju percaya diri dan tampil cantik dimulai di sini. Selamat datang di pengalaman Sonae!
+            </p>
+          </div>
+          <img 
+            src="/images/harga_terjangkau.webp" 
+            alt="Perawatan Rambut Harga Terjangkau di Sonae Salon Madiun" 
+            class="w-28 sm:w-36 md:w-44 lg:w-48 h-auto object-contain shrink-0 order-1 lg:order-2 select-none drop-shadow-sm"
           />
         </div>
-        <div class="p-6 sm:p-8 md:p-10 flex flex-col justify-center bg-white flex-1">
-          <h3 class="font-serif text-xl lg:text-2xl font-bold text-[#141414] mb-2">
-            Oleh Ahlinya
-          </h3>
-          <p class="text-sm text-[#444444] leading-relaxed text-justify">
-            Semua perawatan dikerjakan oleh profesional yang berdedikasi pada keunggulan. Kami hanya menggunakan produk berkualitas premium bersertifikasi BPOM dan terus mengikuti tren serta perkembangan terbaru di industri kecantikan, demi perawatan dan hasil terbaik untuk pelanggan kami.
-          </p>
-        </div>
-      </div>
 
-      <!-- Box 2: Harga Terjangkau (Borderless) -->
-      <div class="keunggulan-card flex flex-col sm:flex-row items-stretch rounded-3xl bg-white overflow-hidden shadow-soft-card group">
-        <div class="w-full sm:w-2/5 aspect-[4/3] sm:aspect-auto overflow-hidden shrink-0">
-          <img 
-            src="/images/affordable_care.webp" 
-            alt="Layanan harga terjangkau dan transparan di Sonae Salon" 
-            class="w-full h-full object-cover object-center transition-opacity duration-300 group-hover:opacity-95"
-          />
-        </div>
-        <div class="p-6 sm:p-8 md:p-10 flex flex-col justify-center bg-white flex-1">
-          <h3 class="font-serif text-xl lg:text-2xl font-bold text-[#141414] mb-2">
-            Harga Terjangkau
-          </h3>
-          <p class="text-sm text-[#444444] leading-relaxed text-justify">
-            Yang terbaik, layanan kami dihargai dengan bijak dan transparan sehingga perawatan diri berkualitas terjangkau untuk semua. Di Sonae Beauty Studio, tak perlu ragu—karena Anda pantas mendapatkannya. Perjalanan Anda menuju percaya diri dan tampil cantik dimulai di sini. Selamat datang di pengalaman Sonae!
-          </p>
-        </div>
       </div>
-
     </div>
 
   </section>
