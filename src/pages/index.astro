@@ -600,7 +600,7 @@ import Layout from '../layouts/Layout.astro';
   </div>
 
   <!-- MODAL: PREVIEW FOTO GALERI -->
-  <div id="photoModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <div id="photoModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4" style="display: none;">
     <div class="relative max-w-2xl w-full rounded-2xl overflow-hidden bg-white shadow-2xl">
       <button id="closePhotoModalBtn" class="absolute top-4 right-4 size-9 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 z-10 cursor-pointer">
         <span class="material-symbols-outlined text-[20px]">close</span>
@@ -659,7 +659,6 @@ import Layout from '../layouts/Layout.astro';
 
     // 2. Swiper for Customer Testimonials
     new Swiper('.testi-swiper', {
-      modules: [Navigation, Pagination, Autoplay],
       slidesPerView: 1,
       spaceBetween: 30,
       grabCursor: true,
@@ -756,7 +755,8 @@ import Layout from '../layouts/Layout.astro';
     const modalCategory = document.getElementById('modalCategory');
 
     document.querySelectorAll('.gallery-item').forEach(item => {
-      item.addEventListener('click', () => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
         const img = item.getAttribute('data-img') || '';
         const title = item.getAttribute('data-title') || '';
         const cat = item.getAttribute('data-type') || '';
@@ -765,15 +765,25 @@ import Layout from '../layouts/Layout.astro';
         if (modalCategory) modalCategory.textContent = cat;
         if (photoModal) {
           photoModal.classList.remove('hidden');
-          gsap.fromTo(photoModal, { opacity: 0 }, { opacity: 1, duration: 0.25 });
+          photoModal.style.display = 'flex';
+          photoModal.style.opacity = '1';
         }
       });
     });
 
     if (closePhotoModalBtn && photoModal) {
-      closePhotoModalBtn.onclick = () => photoModal.classList.add('hidden');
+      closePhotoModalBtn.onclick = (e) => {
+        e.preventDefault();
+        photoModal.classList.add('hidden');
+        photoModal.style.display = 'none';
+      };
+    }
+    if (photoModal) {
       photoModal.onclick = (e) => {
-        if (e.target === photoModal) photoModal.classList.add('hidden');
+        if (e.target === photoModal) {
+          photoModal.classList.add('hidden');
+          photoModal.style.display = 'none';
+        }
       };
     }
 
