@@ -239,55 +239,63 @@ import Layout from '../layouts/Layout.astro';
             </button>
           </div>
         </div>
-        <div class="swiper home-galeri-swiper w-full rounded-2xl overflow-hidden">
+        <div class="swiper home-galeri-swiper w-full rounded-2xl overflow-hidden shadow-soft-card">
           <div class="swiper-wrapper">
-            <div class="swiper-slide !w-auto">
-              <div class="w-[220px] sm:w-[260px] aspect-[4/5] rounded-xl overflow-hidden relative group bg-[#F3ECE3]">
+            
+            <div class="swiper-slide">
+              <div class="w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden relative group bg-[#F3ECE3] cursor-pointer">
                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXtN5iHIGhC6Juy-Up5-Cbr06SIg-gu4fPCNAGlq3QcxcXMM6EnKRBJaZWxDfTs8_pjTikDCAfM8M4CANajFU7OwLLJLu4ROWoqNbD57yQHC1qOKbXXdxndzJUgJCpfngpVNljvKS8gqzbSvIEoCbiOck0hQAfClbmmJqVyjyemlQpad71dNjxg4gtyDAwrW0gJR6T1Cx79Cd0Sxsd50X9GFY82dgehk3aLEJLUlefGbwXJOG71WvobQ" alt="Korean Smoothing" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-3 text-white">
-                  <span class="text-[10px] text-[#F6ECE6] uppercase font-bold">Hair</span>
-                  <p class="text-xs font-bold">Korean Smoothing Silk</p>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-5 sm:p-8 text-white">
+                  <span class="inline-block w-fit px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider mb-2 text-[#FAF2EB]">HAIR TREATMENT</span>
+                  <h3 class="font-serif text-lg sm:text-2xl lg:text-3xl font-bold mb-1">Korean Smoothing Silk Transformation</h3>
+                  <p class="text-xs sm:text-sm text-neutral-200 line-clamp-2 max-w-xl">Hasil rambut lurus alami, berkilau seperti sutra, dan bebas kaku dengan formula keratin BPOM premium.</p>
                 </div>
               </div>
             </div>
-            <div class="swiper-slide !w-auto">
-              <div class="w-[220px] sm:w-[260px] aspect-[4/5] rounded-xl overflow-hidden relative group bg-[#F3ECE3]">
+
+            <div class="swiper-slide">
+              <div class="w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden relative group bg-[#F3ECE3] cursor-pointer">
                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPrn_pyz6E9h9STC6Nt_R1gNRrTYHfb5jw79JbR7SaXgyqn6QUN6nkhD6iz7WMYsG80_LuHCTWaUNU52WqbiBpYRzoxF26jFAmw8-6w2aaqd_j5wg2EM7rDqqyMa1kp6ShY9tyVxl107lJYKb3t1fMJ0BGpkqe9CWscLLJBmnYeIbmmVrpOchPkKzTBlFz1vxw4oDTnj1N5oUqyIuDcPaDWiy5VWpS_cerFISJJ57LW7Kew98jd_qBIw" alt="Japanese Nail Art" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-3 text-white">
-                  <span class="text-[10px] text-[#F6ECE6] uppercase font-bold">Nails</span>
-                  <p class="text-xs font-bold">Japanese Gel Minimalist</p>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-5 sm:p-8 text-white">
+                  <span class="inline-block w-fit px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider mb-2 text-[#FAF2EB]">NAIL ART</span>
+                  <h3 class="font-serif text-lg sm:text-2xl lg:text-3xl font-bold mb-1">Japanese Gel Minimalist &amp; Foil Ornaments</h3>
+                  <p class="text-xs sm:text-sm text-neutral-200 line-clamp-2 max-w-xl">Seni lukis kuku presisi gaya Jepang dengan gel premium awet hingga 4-6 minggu tanpa merusak kuku asli.</p>
                 </div>
               </div>
             </div>
-            <div class="swiper-slide !w-auto">
-              <div class="w-[220px] sm:w-[260px] aspect-[4/5] rounded-xl overflow-hidden relative group bg-[#F3ECE3]">
+
+            <div class="swiper-slide">
+              <div class="w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden relative group bg-[#F3ECE3] cursor-pointer">
                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGMVVTUUs8R0mKOqbEvEGCY0S6yCb9TpsXiZ9ZrJrL-IPXb_VayqntABcIx5C0tvtJNVMDZVRTcYBsAcBuEAyc1NKrfcemX3MoA0hLGd3Sfc7sU1uOol_yWc-AfTIeGoVSZi2J5V5ymkV3WMFs0VCpZQxXXhIs3FaQ2cEpMKQWLB_c5n4dYZhKBU6AcZWepeG-BOVx6nw20tNFn5ZMYwbcMIDdD29njTzNfExSvDxTMxYPJJ4eBmmJOQ" alt="Lash Lift" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-3 text-white">
-                  <span class="text-[10px] text-[#F6ECE6] uppercase font-bold">Lashes</span>
-                  <p class="text-xs font-bold">Keratin Fan Lash Lift</p>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-5 sm:p-8 text-white">
+                  <span class="inline-block w-fit px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider mb-2 text-[#FAF2EB]">LASH &amp; BROW</span>
+                  <h3 class="font-serif text-lg sm:text-2xl lg:text-3xl font-bold mb-1">Keratin Fan Lash Lift &amp; Deep Black Tint</h3>
+                  <p class="text-xs sm:text-sm text-neutral-200 line-clamp-2 max-w-xl">Lentik alami sempurna membuka mata lebih segar dan bercahaya, tanpa perlu eyelash extension yang berat.</p>
                 </div>
               </div>
             </div>
-            <div class="swiper-slide !w-auto">
-              <div class="w-[220px] sm:w-[260px] aspect-[4/5] rounded-xl overflow-hidden relative group bg-[#F3ECE3]">
+
+            <div class="swiper-slide">
+              <div class="w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden relative group bg-[#F3ECE3] cursor-pointer">
                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8TFpqAihLlZzIZdZJPUwO0q7LEaUgzHW3P_e7mBYWN93PXjt8dBhqKdDG51afyNV-0Mt2AMVPTPSprdSzdUpDFwum1KCT6jTIjBomHS5LMR-3aAtifDvNzFYz36ZuEE2L5vudXNFxE3jwhyAdIHjiiz4Oib50pk9rlSfn9aqV8puC6nKtYggSozaERb5Vly1IGcGD_iAIET2e-t7N0txqI344dTJDyKXQ2Ty_mlhH8vWig_D4D6PLVQ" alt="Hair Flow" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-3 text-white">
-                  <span class="text-[10px] text-[#F6ECE6] uppercase font-bold">Hair</span>
-                  <p class="text-xs font-bold">Silky Hair Transformation</p>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-5 sm:p-8 text-white">
+                  <span class="inline-block w-fit px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider mb-2 text-[#FAF2EB]">HAIRCUT &amp; STYLING</span>
+                  <h3 class="font-serif text-lg sm:text-2xl lg:text-3xl font-bold mb-1">Signature Layered Haircut &amp; Bouncy Blowout</h3>
+                  <p class="text-xs sm:text-sm text-neutral-200 line-clamp-2 max-w-xl">Potongan rambut presisi yang membingkai wajah dengan indah, mudah diatur, dan bervolume natural.</p>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
 
-      <!-- Hint Instruction -->
-      <div class="flex items-center justify-between text-xs sm:text-sm text-[#5C544E] mb-6">
+      <!-- Hint Instruction (Teks Menampilkan 8 Karya Dihapus) -->
+      <div class="flex items-center justify-start text-xs sm:text-sm text-[#5C544E] mb-6">
         <p class="flex items-center gap-1.5 font-medium">
           <span class="material-symbols-outlined text-[18px] text-[#7F513C]">touch_app</span>
           <span>Klik foto untuk memperbesar tampilan</span>
         </p>
-        <span id="galleryCount" class="text-xs font-semibold text-[#7F513C]">Menampilkan 8 Karya</span>
       </div>
 
       <!-- Gallery Photo Grid -->
@@ -643,15 +651,15 @@ import Layout from '../layouts/Layout.astro';
   gsap.registerPlugin(ScrollTrigger);
 
   function initHome() {
-    // 1. Swiper for Gallery Highlights
+    // 1. Swiper for Gallery Highlights (1 per view on both Desktop and Mobile)
     new Swiper('.home-galeri-swiper', {
       modules: [Navigation, Autoplay],
-      slidesPerView: 'auto',
-      spaceBetween: 16,
+      slidesPerView: 1,
+      spaceBetween: 20,
       grabCursor: true,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 3500,
         disableOnInteraction: false,
         pauseOnMouseEnter: true
       },
@@ -783,11 +791,9 @@ import Layout from '../layouts/Layout.astro';
 
     // 7. Gallery Category Filter
     const filterSelect = document.getElementById('galleryFilterSelect') as HTMLSelectElement;
-    const galleryCount = document.getElementById('galleryCount');
     if (filterSelect) {
       filterSelect.onchange = () => {
         const val = filterSelect.value;
-        let count = 0;
         const visibleItems: HTMLElement[] = [];
         document.querySelectorAll('.gallery-item').forEach(item => {
           const el = item as HTMLElement;
@@ -795,12 +801,10 @@ import Layout from '../layouts/Layout.astro';
           if (val === 'all' || cat === val) {
             el.style.display = 'block';
             visibleItems.push(el);
-            count++;
           } else {
             el.style.display = 'none';
           }
         });
-        if (galleryCount) galleryCount.textContent = `Menampilkan ${count} Karya`;
         if (visibleItems.length > 0) {
           gsap.fromTo(visibleItems, 
             { opacity: 0, y: 15 }, 
