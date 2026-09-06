@@ -645,6 +645,9 @@ import Layout from '../layouts/Layout.astro';
 <script>
   import Swiper from 'swiper';
   import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -652,22 +655,38 @@ import Layout from '../layouts/Layout.astro';
 
   function initHome() {
     // 1. Swiper for Gallery Highlights (1 per view on both Desktop and Mobile)
-    new Swiper('.home-galeri-swiper', {
+    const galeriSwiper = new Swiper('.home-galeri-swiper', {
       modules: [Navigation, Autoplay],
       slidesPerView: 1,
       spaceBetween: 20,
       grabCursor: true,
       loop: true,
+      speed: 600,
       autoplay: {
         delay: 3500,
         disableOnInteraction: false,
-        pauseOnMouseEnter: true
+        pauseOnMouseEnter: false
       },
       navigation: {
         prevEl: '#homeGaleriPrev',
         nextEl: '#homeGaleriNext'
       }
     });
+
+    const homeGaleriPrev = document.getElementById('homeGaleriPrev');
+    const homeGaleriNext = document.getElementById('homeGaleriNext');
+    if (homeGaleriPrev) {
+      homeGaleriPrev.onclick = (e) => {
+        e.preventDefault();
+        galeriSwiper.slidePrev();
+      };
+    }
+    if (homeGaleriNext) {
+      homeGaleriNext.onclick = (e) => {
+        e.preventDefault();
+        galeriSwiper.slideNext();
+      };
+    }
 
     // 2. Swiper for Customer Testimonials
     new Swiper('.testi-swiper', {
@@ -815,6 +834,10 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 
-  document.addEventListener('DOMContentLoaded', initHome);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHome);
+  } else {
+    initHome();
+  }
   document.addEventListener('astro:page-load', initHome);
 </script>

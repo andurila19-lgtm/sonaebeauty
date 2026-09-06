@@ -274,6 +274,9 @@ import Layout from '../layouts/Layout.astro';
 <script>
   import Swiper from 'swiper';
   import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
   import { gsap } from 'gsap';
 
   function initGaleri() {
@@ -418,6 +421,10 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 
-  document.addEventListener('DOMContentLoaded', initGaleri);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGaleri);
+  } else {
+    initGaleri();
+  }
   document.addEventListener('astro:page-load', initGaleri);
 </script>
