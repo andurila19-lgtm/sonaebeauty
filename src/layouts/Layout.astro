@@ -51,7 +51,7 @@ const {
       "name": "Sonae Beauty Studio",
       "image": "https://sonaebeauty.vercel.app/images/logo_sonae_full.png",
       "slogan": "#semuaberhakcakep",
-      "telephone": "+6281234567890",
+      "telephone": "+6285743463333",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
@@ -72,7 +72,7 @@ const {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
           "opens": "10:00",
-          "closes": "18:00"
+          "closes": "18:30"
         }
       ],
       "aggregateRating": {
@@ -82,6 +82,25 @@ const {
       }
     }
   </script>
+  <!-- PWA & Mobile Web App Meta -->
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#BFAF86" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Sonae Salon" />
+  <link rel="apple-touch-icon" href="/images/icon-192.png" />
+
+  <!-- Google Tag Manager -->
+  <script is:inline>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-SONAE');
+  </script>
+  <!-- End Google Tag Manager -->
+
   <!-- Google Analytics 4 (GA4) -->
   <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-SONAESALON"></script>
   <script is:inline>
@@ -115,6 +134,11 @@ const {
   </script>
 </head>
 <body class="bg-[#FBF8F4] text-[#1A1816] font-sans antialiased selection:bg-[#F6ECE6] selection:text-[#633B2A] min-h-screen flex flex-col justify-between">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-SONAE"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <!-- Meta Pixel NoScript Fallback -->
   <noscript>
     <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=SONAE_FB_PIXEL_ID&ev=PageView&noscript=1" alt="Meta Pixel" />
@@ -128,5 +152,68 @@ const {
 
   <Footer />
 
+  <!-- PWA Install Banner (Muncul otomatis saat didukung browser mobile) -->
+  <div id="pwaInstallBanner" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-sm bg-white border border-[#E8DFD5] p-3.5 rounded-2xl shadow-xl z-50 hidden items-center justify-between gap-3">
+    <div class="flex items-center gap-2.5">
+      <img src="/images/icon-192.png" alt="Sonae App Icon" class="size-10 rounded-xl object-contain bg-[#FAF2EB] p-1 border border-[#E8DFD5]" />
+      <div class="flex flex-col">
+        <p class="text-xs font-bold text-[#141414]">Sonae Salon App</p>
+        <p class="text-[11px] text-[#5C544E]">Pasang di HP agar cepat booking</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-1.5">
+      <button id="pwaDismissBtn" aria-label="Tutup" class="size-8 rounded-lg text-[#5C544E] hover:bg-neutral-100 flex items-center justify-center text-xs cursor-pointer">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+      <button id="pwaInstallBtn" class="px-3.5 py-1.5 rounded-xl bg-[#7F513C] text-white font-bold text-xs hover:bg-[#633B2A] transition-all shadow-sm cursor-pointer">
+        Pasang
+      </button>
+    </div>
+  </div>
+
+  <script is:inline>
+    // 1. Registrasi Service Worker PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch((err) => {
+          console.warn('PWA SW error:', err);
+        });
+      });
+    }
+
+    // 2. Event Add to Home Screen (PWA Prompt)
+    let deferredPrompt;
+    const installBanner = document.getElementById('pwaInstallBanner');
+    const installBtn = document.getElementById('pwaInstallBtn');
+    const dismissBtn = document.getElementById('pwaDismissBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (installBanner && !localStorage.getItem('pwa_dismissed')) {
+        installBanner.classList.remove('hidden');
+        installBanner.style.display = 'flex';
+      }
+    });
+
+    if (installBtn) {
+      installBtn.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          if (installBanner) installBanner.style.display = 'none';
+        }
+        deferredPrompt = null;
+      });
+    }
+
+    if (dismissBtn) {
+      dismissBtn.addEventListener('click', () => {
+        if (installBanner) installBanner.style.display = 'none';
+        localStorage.setItem('pwa_dismissed', 'true');
+      });
+    }
+  </script>
 </body>
 </html>
