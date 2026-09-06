@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Buku Panduan Penggunaan & Operasional Sistem — Sonae Beauty Studio Madiun</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 14mm 14mm 14mm 14mm;
+      @bottom-right {
+        content: counter(page);
+        font-size: 9pt;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: #8E847C;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 10pt;
+      line-height: 1.55;
+      color: #1A1816;
+      background-color: #FFFFFF;
+    }
+
+    h1, h2, h3, h4, .font-serif {
+      font-family: 'Libre Baskerville', Georgia, serif;
+    }
+
+    .page {
+      padding: 6mm 0;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    /* Header Cover Banner */
+    .cover-banner {
+      background: linear-gradient(135deg, #FAF2EB 0%, #F5ECE3 100%);
+      border: 1.5pt solid #7F513C;
+      border-radius: 12pt;
+      padding: 16pt 18pt;
+      margin-bottom: 16pt;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cover-title {
+      font-size: 18pt;
+      font-weight: 700;
+      color: #7F513C;
+      line-height: 1.25;
+      margin-bottom: 4pt;
+    }
+
+    .cover-subtitle {
+      font-size: 10pt;
+      color: #5C544E;
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3pt 8pt;
+      border-radius: 20pt;
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5pt;
+    }
+
+    .badge-primary {
+      background-color: #7F513C;
+      color: #FFFFFF;
+    }
+
+    .badge-secondary {
+      background-color: #FAF2EB;
+      color: #7F513C;
+      border: 1pt solid #7F513C;
+    }
+
+    .badge-success {
+      background-color: #E8F8EE;
+      color: #1B8A44;
+      border: 1pt solid #1B8A44;
+    }
+
+    .badge-amber {
+      background-color: #FEF7EA;
+      color: #B26A00;
+      border: 1pt solid #B26A00;
+    }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8pt;
+      background-color: #FAF8F5;
+      border: 1pt solid #E8DFD5;
+      border-radius: 8pt;
+      padding: 8pt 12pt;
+      margin-bottom: 14pt;
+      font-size: 8.5pt;
+    }
+
+    .meta-item strong {
+      display: block;
+      color: #7F513C;
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5pt;
+    }
+
+    /* Section Styling */
+    h2.section-header {
+      font-size: 13pt;
+      font-weight: 700;
+      color: #7F513C;
+      border-bottom: 1.5pt solid #7F513C;
+      padding-bottom: 4pt;
+      margin-top: 14pt;
+      margin-bottom: 8pt;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h3.subsection-header {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #1A1816;
+      margin-top: 10pt;
+      margin-bottom: 4pt;
+    }
+
+    p {
+      margin-bottom: 6pt;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 14pt;
+      margin-bottom: 8pt;
+    }
+
+    li {
+      margin-bottom: 3pt;
+    }
+
+    /* Comparison Dual Cards */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10pt;
+      margin: 8pt 0 12pt 0;
+    }
+
+    .card-box {
+      border: 1pt solid #E8DFD5;
+      border-radius: 8pt;
+      padding: 10pt;
+      background-color: #FFFFFF;
+    }
+
+    .card-box.highlight {
+      border: 1.5pt solid #7F513C;
+      background-color: #FDFBF8;
+    }
+
+    .card-box h4 {
+      font-size: 10.5pt;
+      color: #7F513C;
+      margin-bottom: 4pt;
+    }
+
+    /* Table Styling */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8pt 0 12pt 0;
+      font-size: 8.5pt;
+    }
+
+    table.data-table th {
+      background-color: #FAF2EB;
+      color: #7F513C;
+      font-weight: 700;
+      text-align: left;
+      padding: 6pt 8pt;
+      border: 1pt solid #E8DFD5;
+      text-transform: uppercase;
+      font-size: 7.5pt;
+      letter-spacing: 0.5pt;
+    }
+
+    table.data-table td {
+      padding: 5pt 8pt;
+      border: 1pt solid #E8DFD5;
+      vertical-align: middle;
+    }
+
+    table.data-table tr:nth-child(even) {
+      background-color: #FCFBF9;
+    }
+
+    /* Callout Box */
+    .callout {
+      border-left: 3pt solid #7F513C;
+      background-color: #FAF6F1;
+      padding: 8pt 10pt;
+      border-radius: 0 6pt 6pt 0;
+      margin: 8pt 0;
+      font-size: 9pt;
+    }
+
+    .callout strong {
+      color: #7F513C;
+    }
+
+    /* Ticket Box Mockup */
+    .ticket-mockup {
+      border: 1.5pt dashed #7F513C;
+      background-color: #FFFDF9;
+      border-radius: 8pt;
+      padding: 10pt;
+      margin: 8pt 0;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 10pt;
+      align-items: center;
+    }
+
+    .ticket-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14pt;
+      font-weight: 700;
+      color: #7F513C;
+    }
+
+    /* Footer */
+    .doc-footer {
+      border-top: 1pt solid #E8DFD5;
+      margin-top: 16pt;
+      padding-top: 6pt;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: #8E847C;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    
+    <!-- Top Cover Header -->
+    <div class="cover-banner">
+      <div>
+        <span class="badge badge-primary">Dokumentasi Resmi &amp; SOP</span>
+        <h1 class="cover-title" style="margin-top: 6pt;">Sonae Beauty Studio Madiun</h1>
+        <p class="cover-subtitle">Buku Panduan Operasional Sistem Reservasi &amp; Dashboard Manajemen</p>
+      </div>
+      <div style="text-align: right;">
+        <span class="badge badge-secondary">Versi 1.0.0</span>
+        <div style="font-size: 8pt; color: #7F513C; font-weight: 700; margin-top: 4pt;">#semuaberhakcakep</div>
+      </div>
+    </div>
+
+    <!-- Metadata Bar -->
+    <div class="meta-bar">
+      <div class="meta-item">
+        <strong>Domain Resmi</strong>
+        https://sonaebeauty.reaksy.com
+      </div>
+      <div class="meta-item">
+        <strong>Lokasi Studio</strong>
+        Jl. Thamrin, Kartoharjo, Kota Madiun
+      </div>
+      <div class="meta-item">
+        <strong>Hotline WhatsApp</strong>
+        +62 857-4346-3333
+      </div>
+      <div class="meta-item">
+        <strong>Jam Operasional</strong>
+        10:00 - 20:00 WIB (Setiap Hari)
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <h2 class="section-header">
+      <span>1. Pendahuluan &amp; Arsitektur Sistem Reservasi</span>
+      <span class="badge badge-secondary">Overview</span>
+    </h2>
+    <p>
+      Website <strong>Sonae Beauty Studio Madiun</strong> dirancang untuk memberikan pengalaman reservasi perawatan rambut dan kecantikan berstandar modern, transparan, dan tanpa hambatan pembayaran uang muka (<strong>Tanpa DP</strong>). Sistem ini dilengkapi dengan <strong>Dual-Channel Booking</strong> yang memberikan kebebasan bagi pelanggan untuk memilih alur reservasi sesuai preferensi mereka.
+    </p>
+
+    <div class="comparison-grid">
+      <!-- Opsi A -->
+      <div class="card-box highlight">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4pt;">
+          <h4>Opsi A: Masuk Dashboard Admin</h4>
+          <span class="badge badge-primary">Rekomendasi</span>
+        </div>
+        <p style="font-size: 8.5pt;">
+          Data tamu secara otomatis dicatat ke dalam database browser kasir (<em>localStorage</em>). Tamu menerima <strong>Tiket Digital</strong> dengan kode unik instan untuk ditunjukkan saat tiba di salon.
+        </p>
+        <ul style="font-size: 8pt; margin-bottom: 0;">
+          <li>Menerbitkan kode reservasi unik: <code>SN-YYYYMMDD-XXXX</code></li>
+          <li>Langsung muncul di tabel antrean kasir <code>/admin</code></li>
+          <li>Tersedia tombol kirim ringkasan ke WA salon</li>
+        </ul>
+      </div>
+
+      <!-- Opsi B -->
+      <div class="card-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4pt;">
+          <h4>Opsi B: Chat WhatsApp OpenGraph Manual</h4>
+          <span class="badge badge-secondary">Jalur Cepat</span>
+        </div>
+        <p style="font-size: 8.5pt;">
+          Formulir langsung membuka aplikasi WhatsApp dengan format teks reservasi rapi beserta <strong>tautan OpenGraph</strong> yang memunculkan kartu pratinjau studio (gambar model, logo, dan profil salon).
+        </p>
+        <ul style="font-size: 8pt; margin-bottom: 0;">
+          <li>Cocok untuk konsultasi khusus warna rambut/kondisi rambut</li>
+          <li>Tampilan visual kaya (Rich Link Preview) di ruang chat WhatsApp</li>
+          <li>Format pesan rapi dan terstruktur otomatis</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <h2 class="section-header">
+      <span>2. Panduan Alur Tamu (Customer Booking Journey)</span>
+      <span class="badge badge-secondary">4 Langkah Mudah</span>
+    </h2>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width: 15%;">Langkah</th>
+          <th style="width: 35%;">Aktivitas Pelanggan</th>
+          <th style="width: 50%;">Hasil / Output Sistem</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Pilih Layanan</strong></td>
+          <td>Tamu memilih salah satu atau beberapa perawatan: Haircare (Smoothing, Haircut), Nail Art, Lash Lift, atau Head Spa.</td>
+          <td>Panel ringkasan (<em>Summary Card</em>) mengkalkulasi total biaya dan estimasi waktu secara real-time.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Pilih Jadwal</strong></td>
+          <td>Menentukan tanggal kedatangan dan slot jam: 10:00, 11:30, 13:00, 14:30, 16:00, atau 17:00 WIB.</td>
+          <td>Sistem mengunci preferensi tanggal dan jam kunjungan.</td>
+        </tr>
+        <tr>
+          <td><strong>3. Pilih Jalur</strong></td>
+          <td>Memilih tombol antara <em>"Masuk Dashboard Admin"</em> atau <em>"Chat WhatsApp Manual"</em>.</td>
+          <td>Label tombol dinamis, ikon, dan panduan disesuaikan otomatis.</td>
+        </tr>
+        <tr>
+          <td><strong>4. Konfirmasi</strong></td>
+          <td>Mengisi nama, nomor WhatsApp aktif, dan catatan (contoh: request hijab-friendly Ladies Room).</td>
+          <td>Jika Opsi A: Tiket digital terbuka dengan kode unik. Jika Opsi B: WhatsApp langsung terbuka.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ticket-mockup">
+      <div>
+        <span style="font-size: 8pt; font-weight: 700; color: #8E847C; text-transform: uppercase;">Contoh Tiket Digital Resmi Pelanggan:</span>
+        <div class="ticket-code">SN-20251018-8421</div>
+        <div style="font-size: 8.5pt; color: #1A1816; margin-top: 2pt;">
+          <strong>Tamu:</strong> Anindya Larasati • <strong>Layanan:</strong> Korean Keratin Smoothing &amp; Haircut<br>
+          <strong>Jadwal:</strong> Sabtu, 18 Oktober 2025 (13:00 WIB) • <strong>Total:</strong> Rp 435.000 (Bayar di Kasir)
+        </div>
+      </div>
+      <div style="text-align: center;">
+        <span class="badge badge-success" style="padding: 4pt 8pt; font-size: 8.5pt;">✓ Tersimpan di Sistem</span>
+      </div>
+    </div>
+
+    <!-- Feature: Cari Booking Anda -->
+    <h3 class="subsection-header">Fitur Pelacakan: "Cari Booking Anda"</h3>
+    <p>
+      Tamu yang sudah melakukan reservasi dapat mengecek status kapan saja dari halaman utama website (Beranda) dengan menekan <strong>Ikon Kaca Pembesar</strong> di kotak reservasi hero banner. Cukup masukkan nomor WhatsApp atau kode <code>SN-...</code>, sistem akan memunculkan rincian reservasi dan tautan konfirmasi WhatsApp admin.
+    </p>
+
+  </div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page page-break">
+    
+    <!-- Section 3 -->
+    <h2 class="section-header">
+      <span>3. Panduan Operasional Kasir &amp; Resepsionis (Portal Admin)</span>
+      <span class="badge badge-primary">SOP Internal</span>
+    </h2>
+    <p>
+      Portal Admin dilindungi gerbang keamanan (Login Screen) dan dapat diakses staf kasir melalui tautan <strong><code>https://sonaebeauty.reaksy.com/admin</code></strong>.
+    </p>
+
+    <!-- Box Akun Login -->
+    <div class="callout" style="border-left-color: #1B8A44; background-color: #F1FBF4; margin-bottom: 8pt;">
+      <strong>Kredensial Resmi Akun Kasir (Default Staff Login):</strong><br>
+      • <strong>Username:</strong> <code>admin</code> (atau <code>kasir</code>) &nbsp;|&nbsp; • <strong>Password:</strong> <code>sonae2025</code><br>
+      <em>Tersedia tombol "Isi Otomatis &amp; Langsung Masuk" pada halaman login untuk mempercepat akses kasir harian.</em>
+    </div>
+
+    <h3 class="subsection-header">A. Memahami 5 Kartu Indikator Kinerja (KPIs)</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Nama Indikator</th>
+          <th>Warna Badge</th>
+          <th>Arti &amp; Tindakan Resepsionis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Total Reservasi</strong></td>
+          <td><span class="badge badge-secondary">Cokelat</span></td>
+          <td>Akumulasi seluruh sesi perawatan yang tercatat dalam sistem.</td>
+        </tr>
+        <tr>
+          <td><strong>Menunggu Konfirmasi</strong></td>
+          <td><span class="badge badge-amber">Kuning / Amber</span></td>
+          <td><strong>Prioritas Utama!</strong> Tamu yang baru mendaftar dan menunggu balasan pesan konfirmasi dari resepsionis.</td>
+        </tr>
+        <tr>
+          <td><strong>Dikonfirmasi</strong></td>
+          <td><span class="badge badge-primary">Biru</span></td>
+          <td>Tamu yang sudah dihubungi, jadwal disepakati, dan terapis telah dialokasikan.</td>
+        </tr>
+        <tr>
+          <td><strong>Selesai</strong></td>
+          <td><span class="badge badge-success">Hijau</span></td>
+          <td>Perawatan telah rampung dan pembayaran telah dilunasi di kasir.</td>
+        </tr>
+        <tr>
+          <td><strong>Estimasi Omset</strong></td>
+          <td><span class="badge badge-secondary">Cokelat Tua</span></td>
+          <td>Proyeksi pendapatan kotor salon dari seluruh jadwal reservasi yang belum dibatalkan.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-header">B. Prosedur Konfirmasi Tamu 1-Klik via WhatsApp (SOP)</h3>
+    <div class="callout">
+      <strong>Standard Operating Procedure (SOP) Resepsionis:</strong>
+      <ol style="margin-top: 4pt; margin-bottom: 0;">
+        <li>Buka halaman <code>/admin</code> pada tablet kasir atau laptop resepsionis setiap pagi dan secara berkala.</li>
+        <li>Pada baris tamu yang berstatus <em>Menunggu Konfirmasi</em>, klik tombol hijau <strong>Chat WhatsApp</strong>.</li>
+        <li>WhatsApp akan otomatis terbuka dengan pesan sopan yang mencantumkan nama tamu, kode booking, jadwal, dan layanan.</li>
+        <li>Kirim pesan tersebut ke tamu. Setelah tamu mengiyakan, ubah dropdown status di tabel menjadi <strong>Terkonfirmasi</strong>.</li>
+      </ol>
+    </div>
+
+    <h3 class="subsection-header">C. Pencatatan Tamu Datang Langsung (Walk-in) / Reservasi Telepon</h3>
+    <p>
+      Jika ada tamu yang langsung datang ke studio di Jl. Thamrin tanpa memesan online:
+    </p>
+    <ol>
+      <li>Klik tombol <strong>"+ Reservasi Manual"</strong> di bagian kanan atas dashboard.</li>
+      <li>Ketikkan nama tamu, nomor WhatsApp, pilih tanggal, jam kedatangan, dan perawatan yang diambil.</li>
+      <li>Pilih status <strong>"Terkonfirmasi"</strong> (karena tamu sudah ada di salon) dan tambahkan catatan jika ada permintaan khusus.</li>
+      <li>Klik <strong>Simpan Reservasi</strong>. Data langsung masuk ke perhitungan omset dan antrean hari tersebut.</li>
+    </ol>
+
+    <h3 class="subsection-header">D. Ekspor Cadangan Data &amp; Cetak Rekapitulasi</h3>
+    <ul>
+      <li><strong>Tombol Ekspor Data:</strong> Mengunduh seluruh data reservasi dalam format file <code>.json</code>. Lakukan ekspor setiap hari Sabtu/Minggu malam sebagai arsip studio.</li>
+      <li><strong>Tombol Cetak:</strong> Membuka dialog print browser untuk mencetak daftar nama antrean hari ini ke printer thermal atau printer kasir.</li>
+    </ul>
+
+    <!-- Section 4 -->
+    <h2 class="section-header">
+      <span>4. Spesifikasi Teknis OpenGraph, SEO &amp; Keamanan</span>
+      <span class="badge badge-secondary">Technical Specs</span>
+    </h2>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Komponen</th>
+          <th>Spesifikasi Implementasi</th>
+          <th>Tujuan &amp; Dampak Bisnis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>OpenGraph Image</strong></td>
+          <td><code>https://sonaebeauty.reaksy.com/images/headline_models.png</code> (1200 x 630 px)</td>
+          <td>Menampilkan kartu visual salon berkualitas tinggi saat tautan dikirim di WhatsApp &amp; medsos.</td>
+        </tr>
+        <tr>
+          <td><strong>Schema.org</strong></td>
+          <td>LocalBusiness tipe <code>HairSalon</code> (Geo Lat: -7.6307637, Long: 111.532938)</td>
+          <td>Meningkatkan visibilitas pada Google Search, Google Maps, dan asisten AI lokal Madiun.</td>
+        </tr>
+        <tr>
+          <td><strong>Penyimpanan</strong></td>
+          <td>Browser Local Storage (Key: <code>sonae_bookings</code>)</td>
+          <td>Operasional kasir tetap berjalan lancar tanpa biaya sewa database bulanan eksternal.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <div>© 2025 Sonae Beauty Studio Madiun. Seluruh hak cipta dilindungi undang-undang.</div>
+      <div>Dokumen Resmi Manajemen Salon • Halaman 2 dari 2</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

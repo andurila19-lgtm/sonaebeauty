@@ -364,6 +364,72 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </section>
 
+        <!-- STEP 4 CONTAINER: PILIHAN JALUR RESERVASI (OPSI BOOKING) -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8DFD5] shadow-soft-card">
+          <div class="pb-6 mb-6 border-b border-[#E8DFD5]">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-[#7F513C] uppercase tracking-wider block mb-0.5">Bagian 04</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold uppercase tracking-wider">Dual Channel Booking</span>
+            </div>
+            <h2 class="font-serif text-2xl font-bold text-[#1A1816]">Pilih Jalur &amp; Metode Reservasi</h2>
+            <p class="text-xs sm:text-sm text-[#5C544E] mt-1">
+              Pilih cara Anda ingin memproses reservasi: langsung masuk ke sistem dashboard salon atau melalui chat WhatsApp manual.
+            </p>
+          </div>
+
+          <!-- Channel Selection Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="bookingChannelSelector">
+            
+            <!-- Option A: Direct into Admin Dashboard (Default) -->
+            <label class="channel-card active relative flex flex-col p-5 rounded-2xl border-2 border-[#7F513C] bg-[#FAF2EB]/40 cursor-pointer transition-all hover:shadow-md">
+              <div class="flex items-start justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="size-10 rounded-xl bg-[#7F513C] text-white flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[22px]">database</span>
+                  </div>
+                  <div>
+                    <h3 class="font-serif text-base font-bold text-[#1A1816]">Masuk Dashboard Admin</h3>
+                    <span class="inline-block px-2 py-0.5 rounded-full bg-green-100 text-green-800 text-[10px] font-bold uppercase tracking-wider">Rekomendasi Utama</span>
+                  </div>
+                </div>
+                <input type="radio" name="bookingChannel" value="dashboard" checked class="mt-1 size-5 accent-[#7F513C] cursor-pointer" />
+              </div>
+              <p class="text-xs text-[#5C544E] leading-relaxed mb-3">
+                Data Anda langsung masuk ke database antrean salon. Sistem menerbitkan <strong>Kode Booking Resmi Instan</strong> yang dapat Anda simpan atau konfirmasi sewaktu-waktu.
+              </p>
+              <div class="mt-auto pt-2 border-t border-[#E8DFD5] flex items-center gap-2 text-[11px] text-[#7F513C] font-semibold">
+                <span class="material-symbols-outlined text-[15px]">verified</span>
+                <span>Tercatat resmi di antrean kasir &amp; terapis</span>
+              </div>
+            </label>
+
+            <!-- Option B: Direct WhatsApp OpenGraph Manual -->
+            <label class="channel-card relative flex flex-col p-5 rounded-2xl border border-[#E8DFD5] bg-white cursor-pointer transition-all hover:shadow-md">
+              <div class="flex items-start justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="size-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[22px]">chat</span>
+                  </div>
+                  <div>
+                    <h3 class="font-serif text-base font-bold text-[#1A1816]">Chat WhatsApp Manual</h3>
+                    <span class="inline-block px-2 py-0.5 rounded-full bg-[#F3ECE3] text-[#5C544E] text-[10px] font-bold uppercase tracking-wider">OpenGraph Direct</span>
+                  </div>
+                </div>
+                <input type="radio" name="bookingChannel" value="whatsapp" class="mt-1 size-5 accent-[#25D366] cursor-pointer" />
+              </div>
+              <p class="text-xs text-[#5C544E] leading-relaxed mb-3">
+                Pesan langsung dikirimkan ke WhatsApp Customer Service Sonae Salon dengan format rapi dan tautan kartu pratampil resmi (OpenGraph Rich Card).
+              </p>
+              <div class="mt-auto pt-2 border-t border-[#E8DFD5] flex items-center gap-2 text-[11px] text-[#25D366] font-semibold">
+                <span class="material-symbols-outlined text-[15px]">share</span>
+                <span>Bisa konsultasi manual &amp; negosiasi slot</span>
+              </div>
+            </label>
+
+          </div>
+
+        </section>
+
       </div>
 
       <!-- RIGHT COLUMN: STICKY RINGKASAN RESERVASI (4 Cols) -->
@@ -375,7 +441,9 @@ import Layout from '../layouts/Layout.astro';
               <span class="material-symbols-outlined text-[20px] text-[#7F513C]">receipt_long</span>
               <h3 class="font-serif text-lg font-bold text-[#1A1816]">Ringkasan Reservasi</h3>
             </div>
-            <span class="px-2.5 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">Siap Konfirmasi</span>
+            <span id="channelBadgeIndicator" class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold">
+              Dashboard Admin
+            </span>
           </div>
 
           <!-- Studio Location Pin -->
@@ -429,8 +497,8 @@ import Layout from '../layouts/Layout.astro';
             type="button" 
             class="w-full py-4 rounded-xl bg-[#7F513C] hover:bg-[#633B2A] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-pill-button transition-all duration-200 active:opacity-90 cursor-pointer"
           >
-            <span>Konfirmasi ke WhatsApp</span>
-            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+            <span id="confirmBtnIcon" class="material-symbols-outlined text-[20px]">confirmation_number</span>
+            <span id="confirmBtnText">Konfirmasi &amp; Masuk Dashboard</span>
           </button>
 
           <!-- Flexibility Guarantee -->
@@ -439,11 +507,120 @@ import Layout from '../layouts/Layout.astro';
             <span><strong>Garansi Fleksibilitas:</strong> Bebas ubah jadwal atau batalkan gratis kapan saja via WhatsApp.</span>
           </div>
 
+          <!-- Quick Link to Admin -->
+          <div class="mt-3 pt-3 border-t border-[#E8DFD5]/60 text-center">
+            <a href="/admin" class="text-[11px] text-[#8E847C] hover:text-[#7F513C] transition-colors inline-flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">admin_panel_settings</span>
+              <span>Lihat Antrean di Dashboard Admin</span>
+            </a>
+          </div>
+
         </div>
       </div>
 
     </div>
 
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- MODAL KONFIRMASI BERHASIL / TIKET RESERVASI DIGITAL -->
+  <!-- ================================================================= -->
+  <div 
+    id="bookingSuccessModal" 
+    class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4 sm:p-6"
+    role="dialog" 
+    aria-modal="true"
+  >
+    <div class="w-full max-w-lg bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-[#E8DFD5] relative animate-fade-in">
+      
+      <!-- Top Decorative Ribbon & Close -->
+      <div class="flex items-center justify-between pb-4 border-b border-[#E8DFD5]">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-800 text-xs font-bold">
+          <span class="material-symbols-outlined text-[16px]">check_circle</span>
+          <span>Reservasi Berhasil Diajukan</span>
+        </div>
+        <button id="closeModalBtn" class="size-8 rounded-full bg-[#F3ECE3] hover:bg-[#E8DFD5] text-[#1A1816] flex items-center justify-center cursor-pointer transition-all">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <!-- Modal Body (Digital Ticket View) -->
+      <div class="py-6 text-center">
+        <div class="size-16 rounded-full bg-[#FAF2EB] text-[#7F513C] flex items-center justify-center mx-auto mb-4 border-2 border-[#7F513C]/20">
+          <span class="material-symbols-outlined text-[36px]">confirmation_number</span>
+        </div>
+        
+        <h3 class="font-serif text-2xl font-bold text-[#1A1816] mb-1">Terima Kasih, <span id="modalGuestName">Tamu</span>!</h3>
+        <p class="text-xs sm:text-sm text-[#5C544E] max-w-sm mx-auto mb-5">
+          Jadwal Anda telah tercatat resmi di sistem salon Sonae Beauty Studio Madiun.
+        </p>
+
+        <!-- Digital Booking Code Card -->
+        <div class="p-4 rounded-2xl bg-[#FBF8F4] border border-[#E8DFD5] mb-5 text-left">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-bold text-[#8E847C] uppercase tracking-wider">KODE RESERVASI RESMI</span>
+            <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold">Menunggu Konfirmasi</span>
+          </div>
+          <div class="flex items-center justify-between gap-2 bg-white p-3 rounded-xl border border-[#E8DFD5]">
+            <span id="modalBookingCode" class="font-mono text-lg sm:text-xl font-bold text-[#7F513C] tracking-wider">SN-20251018-0000</span>
+            <button id="copyCodeBtn" class="px-3 py-1.5 rounded-lg bg-[#FAF2EB] hover:bg-[#E8DFD5] text-[#7F513C] text-xs font-bold transition-all flex items-center gap-1 cursor-pointer">
+              <span class="material-symbols-outlined text-[14px]">content_copy</span>
+              <span id="copyBtnText">Salin</span>
+            </button>
+          </div>
+
+          <!-- Schedule & Summary in Ticket -->
+          <div class="mt-4 pt-3 border-t border-[#E8DFD5] space-y-1.5 text-xs text-[#5C544E]">
+            <div class="flex justify-between">
+              <span>Jadwal:</span>
+              <strong id="modalSchedule" class="text-[#1A1816]">Sabtu, 18 Oktober 2025 (13:00 WIB)</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Layanan:</span>
+              <strong id="modalServices" class="text-[#1A1816] text-right truncate max-w-[200px]">Korean Smoothing</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Estimasi Biaya:</span>
+              <strong id="modalTotal" class="text-[#7F513C] font-bold">Rp 435.000</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons in Modal -->
+        <div class="space-y-2.5">
+          <!-- WhatsApp Forward Button -->
+          <button 
+            id="modalNotifyWaBtn"
+            class="w-full py-3.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer"
+          >
+            <span class="material-symbols-outlined text-[18px]">chat</span>
+            <span>Kirim Notifikasi Cepat ke WhatsApp Admin</span>
+          </button>
+
+          <div class="grid grid-cols-2 gap-2">
+            <!-- Print Ticket Button -->
+            <button 
+              id="modalPrintBtn"
+              class="py-2.5 px-3 rounded-xl bg-[#F3ECE3] hover:bg-[#E8DFD5] text-[#1A1816] font-bold text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+            >
+              <span class="material-symbols-outlined text-[16px]">print</span>
+              <span>Cetak Tiket</span>
+            </button>
+
+            <!-- Go to Admin Dashboard Link -->
+            <a 
+              href="/admin" 
+              class="py-2.5 px-3 rounded-xl border border-[#E8DFD5] hover:bg-[#FAF2EB] text-[#7F513C] font-bold text-xs flex items-center justify-center gap-1.5 transition-all"
+            >
+              <span class="material-symbols-outlined text-[16px]">admin_panel_settings</span>
+              <span>Buka Dashboard</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 
 </Layout>
@@ -516,6 +693,7 @@ import Layout from '../layouts/Layout.astro';
     });
 
     // 4. Update Summary on Service Selection
+    let calculatedTotal = 435000;
     function updateSummary() {
       const checkedCards = document.querySelectorAll('.service-card input.service-checkbox:checked');
       let total = 0;
@@ -536,6 +714,7 @@ import Layout from '../layouts/Layout.astro';
         }
       });
 
+      calculatedTotal = total;
       if (summaryServicesList) {
         summaryServicesList.innerHTML = html || '<span class="text-xs text-[#8E847C]">Belum ada layanan dipilih</span>';
       }
@@ -560,19 +739,140 @@ import Layout from '../layouts/Layout.astro';
       });
     });
 
-    // 5. WhatsApp Booking Generator
+    // 5. Booking Channel Selector Switcher (Dashboard vs WhatsApp Manual)
+    const channelRadios = document.querySelectorAll('input[name="bookingChannel"]');
+    const channelCards = document.querySelectorAll('.channel-card');
     const confirmBtn = document.getElementById('confirmBookingBtn');
+    const confirmBtnText = document.getElementById('confirmBtnText');
+    const confirmBtnIcon = document.getElementById('confirmBtnIcon');
+    const channelBadgeIndicator = document.getElementById('channelBadgeIndicator');
+
+    let currentChannel = 'dashboard';
+
+    function setChannel(channel: string) {
+      currentChannel = channel;
+      channelCards.forEach(card => {
+        const radio = card.querySelector('input[type="radio"]') as HTMLInputElement;
+        if (radio && radio.value === channel) {
+          radio.checked = true;
+          card.classList.add('border-2', 'border-[#7F513C]', 'bg-[#FAF2EB]/40');
+          card.classList.remove('border-[#E8DFD5]', 'bg-white');
+        } else {
+          card.classList.remove('border-2', 'border-[#7F513C]', 'bg-[#FAF2EB]/40');
+          card.classList.add('border-[#E8DFD5]', 'bg-white');
+        }
+      });
+
+      if (channel === 'dashboard') {
+        if (confirmBtn) {
+          confirmBtn.className = "w-full py-4 rounded-xl bg-[#7F513C] hover:bg-[#633B2A] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-pill-button transition-all duration-200 active:opacity-90 cursor-pointer";
+        }
+        if (confirmBtnText) confirmBtnText.textContent = "Konfirmasi & Masuk Dashboard";
+        if (confirmBtnIcon) confirmBtnIcon.textContent = "confirmation_number";
+        if (channelBadgeIndicator) {
+          channelBadgeIndicator.textContent = "Dashboard Admin";
+          channelBadgeIndicator.className = "px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold";
+        }
+      } else {
+        if (confirmBtn) {
+          confirmBtn.className = "w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-sm transition-all duration-200 active:opacity-90 cursor-pointer";
+        }
+        if (confirmBtnText) confirmBtnText.textContent = "Kirim via WhatsApp (OpenGraph)";
+        if (confirmBtnIcon) confirmBtnIcon.textContent = "chat";
+        if (channelBadgeIndicator) {
+          channelBadgeIndicator.textContent = "WhatsApp OpenGraph";
+          channelBadgeIndicator.className = "px-2.5 py-0.5 rounded-full bg-green-100 text-green-800 text-[10px] font-bold";
+        }
+      }
+    }
+
+    channelRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        setChannel((e.target as HTMLInputElement).value);
+      });
+    });
+
+    channelCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const radio = card.querySelector('input[type="radio"]') as HTMLInputElement;
+        if (radio) {
+          setChannel(radio.value);
+        }
+      });
+    });
+
+    // 6. Modal Elements
+    const successModal = document.getElementById('bookingSuccessModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalGuestName = document.getElementById('modalGuestName');
+    const modalBookingCode = document.getElementById('modalBookingCode');
+    const modalSchedule = document.getElementById('modalSchedule');
+    const modalServices = document.getElementById('modalServices');
+    const modalTotal = document.getElementById('modalTotal');
+    const modalNotifyWaBtn = document.getElementById('modalNotifyWaBtn');
+    const copyCodeBtn = document.getElementById('copyCodeBtn');
+    const copyBtnText = document.getElementById('copyBtnText');
+    const modalPrintBtn = document.getElementById('modalPrintBtn');
+
+    if (closeModalBtn && successModal) {
+      closeModalBtn.addEventListener('click', () => {
+        successModal.classList.add('hidden');
+        successModal.classList.remove('flex');
+      });
+    }
+
+    if (copyCodeBtn && modalBookingCode && copyBtnText) {
+      copyCodeBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(modalBookingCode.textContent || '');
+        copyBtnText.textContent = 'Tersalin!';
+        setTimeout(() => {
+          if (copyBtnText) copyBtnText.textContent = 'Salin';
+        }, 2000);
+      });
+    }
+
+    if (modalPrintBtn) {
+      modalPrintBtn.addEventListener('click', () => {
+        window.print();
+      });
+    }
+
+    // 7. Save Booking Function to LocalStorage (Synced with Admin Dashboard)
+    function saveBookingRecord(record: any) {
+      try {
+        const stored = localStorage.getItem('sonae_bookings');
+        const bookings = stored ? JSON.parse(stored) : [];
+        bookings.unshift(record);
+        localStorage.setItem('sonae_bookings', JSON.stringify(bookings));
+      } catch (err) {
+        console.error('Error saving booking:', err);
+      }
+    }
+
+    // 8. Booking Submission Handler
     if (confirmBtn) {
       confirmBtn.addEventListener('click', () => {
         const nameInput = document.getElementById('guestNameInput') as HTMLInputElement;
         const phoneInput = document.getElementById('guestPhoneInput') as HTMLInputElement;
         const noteInput = document.getElementById('guestNoteInput') as HTMLTextAreaElement;
 
-        const name = nameInput?.value.trim() || 'Tamu Sonae';
-        const phone = phoneInput?.value.trim() || '-';
+        const name = nameInput?.value.trim();
+        const phone = phoneInput?.value.trim();
         const note = noteInput?.value.trim() || '-';
         const date = summaryDate?.textContent || 'Jadwal fleksibel';
         const time = summaryTime?.textContent || '13:00 WIB';
+
+        if (!name) {
+          alert('Silakan isi Nama Lengkap Anda terlebih dahulu.');
+          nameInput?.focus();
+          return;
+        }
+
+        if (!phone || phone.length < 9) {
+          alert('Silakan isi Nomor WhatsApp Aktif Anda yang valid.');
+          phoneInput?.focus();
+          return;
+        }
 
         const selectedServices: string[] = [];
         document.querySelectorAll('.service-card input.service-checkbox:checked').forEach(chk => {
@@ -587,22 +887,74 @@ import Layout from '../layouts/Layout.astro';
           return;
         }
 
-        const msg = 
+        // Generate unique booking code
+        const now = new Date();
+        const y = now.getFullYear();
+        const m = String(now.getMonth() + 1).padStart(2, '0');
+        const d = String(now.getDate()).padStart(2, '0');
+        const randomNum = Math.floor(1000 + Math.random() * 9000);
+        const bookingCode = `SN-${y}${m}${d}-${randomNum}`;
+
+        const bookingData = {
+          id: 'bk_' + Date.now(),
+          code: bookingCode,
+          guestName: name,
+          guestPhone: phone,
+          guestNote: note,
+          services: selectedServices,
+          total: calculatedTotal,
+          dateText: date,
+          timeText: time,
+          channel: currentChannel,
+          status: 'Menunggu Konfirmasi',
+          createdAt: new Date().toISOString()
+        };
+
+        // Always save to storage so admin dashboard has real-time incoming records
+        saveBookingRecord(bookingData);
+
+        // Preformatted WhatsApp message
+        const waMsg = 
 `Halo Sonae Beauty Studio Madiun! 👋
 Saya ingin mengonfirmasi reservasi perawatan:
 
+🔖 *Kode Reservasi:* ${bookingCode}
 📋 *Layanan:* ${selectedServices.join(', ')}
 📅 *Tanggal:* ${date}
 ⏰ *Waktu:* ${time}
+💰 *Total Estimasi:* Rp ${calculatedTotal.toLocaleString('id-ID')}
 
 👤 *Nama Tamu:* ${name}
 📱 *No. WhatsApp:* ${phone}
 📝 *Catatan:* ${note}
 
+🌐 *Tautan Reservasi:* https://sonaebeauty.reaksy.com/booking
 Mohon konfirmasi ketersediaan slotnya ya. Terima kasih! ✨`;
 
-        const waUrl = `https://wa.me/6285743463333?text=${encodeURIComponent(msg)}`;
-        window.open(waUrl, '_blank');
+        const waUrl = `https://wa.me/6285743463333?text=${encodeURIComponent(waMsg)}`;
+
+        if (currentChannel === 'whatsapp') {
+          // Open WhatsApp Manual Directly with OpenGraph link
+          window.open(waUrl, '_blank');
+        } else {
+          // Open Digital Ticket Modal for Admin Dashboard method
+          if (modalGuestName) modalGuestName.textContent = name;
+          if (modalBookingCode) modalBookingCode.textContent = bookingCode;
+          if (modalSchedule) modalSchedule.textContent = `${date} (${time})`;
+          if (modalServices) modalServices.textContent = selectedServices.join(', ');
+          if (modalTotal) modalTotal.textContent = `Rp ${calculatedTotal.toLocaleString('id-ID')}`;
+
+          if (modalNotifyWaBtn) {
+            modalNotifyWaBtn.onclick = () => {
+              window.open(waUrl, '_blank');
+            };
+          }
+
+          if (successModal) {
+            successModal.classList.remove('hidden');
+            successModal.classList.add('flex');
+          }
+        }
       });
     }
   });

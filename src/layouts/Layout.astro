@@ -6,14 +6,20 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
-  activePage?: 'beranda' | 'layanan' | 'harga' | 'ladies-room' | 'tentang-kami' | 'lokasi' | 'artikel' | 'galeri' | 'booking';
+  activePage?: 'beranda' | 'layanan' | 'harga' | 'ladies-room' | 'tentang-kami' | 'lokasi' | 'artikel' | 'galeri' | 'booking' | 'admin';
+  image?: string;
 }
 
 const {
   title = "Sonae Salon — Salon Rambut & Kecantikan Madiun: Smoothing, Nail Art, Lash Lift",
   description = "Selamat datang di Sonae Salon Madiun. Kami berkomitmen membantu kamu tampil dan merasa terbaik — mulai dari Korean smoothing, haircut, Japanese nail art, hingga keratin lash lift. #semuaberhakcakep",
-  activePage = "beranda"
+  activePage = "beranda",
+  image = "/images/headline_models.png"
 } = Astro.props;
+
+const siteUrl = "https://sonaebeauty.reaksy.com";
+const ogImageUrl = image.startsWith('http') ? image : `${siteUrl}${image.startsWith('/') ? '' : '/'}${image}`;
+const canonicalUrl = Astro.url.href.includes('localhost') ? `${siteUrl}${Astro.url.pathname}` : Astro.url.href;
 ---
 
 <!DOCTYPE html>
@@ -26,22 +32,41 @@ const {
   <meta name="author" content="Sonae Beauty Studio" />
   <meta name="keywords" content="salon madiun, smoothing madiun, salon kecantikan madiun, japanese nail art madiun, lash lift madiun, sonae salon" />
   
-  <!-- Canonical & OpenGraph -->
-  <link rel="canonical" href={Astro.url.href} />
+  <!-- Canonical & OpenGraph (Optimized for WhatsApp, Facebook, Telegram, Google) -->
+  <link rel="canonical" href={canonicalUrl} />
+  <meta property="og:site_name" content="Sonae Beauty Studio Madiun" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content={Astro.url.href} />
+  <meta property="og:url" content={canonicalUrl} />
   <meta property="og:locale" content="id_ID" />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:image:secure_url" content={ogImageUrl} />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Sonae Beauty Studio Madiun — Hair Sanctuary & Beauty Care" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/logo_emblem.png" />
 
-  <!-- Google Fonts: Libre Baskerville & Plus Jakarta Sans & Material Symbols -->
+  <!-- Preload Critical LCP Hero Image -->
+  <link rel="preload" as="image" href="/images/headline_models.webp" type="image/webp" fetchpriority="high" />
+
+  <!-- Google Fonts: Libre Baskerville & Plus Jakarta Sans & Material Symbols (Optimized Non-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+  </noscript>
 
   <!-- Schema.org LocalBusiness (GEO & AEO Optimization for Madiun) -->
   <script type="application/ld+json" is:inline>
@@ -49,7 +74,8 @@ const {
       "@context": "https://schema.org",
       "@type": "HairSalon",
       "name": "Sonae Beauty Studio",
-      "image": "https://sonaebeauty.vercel.app/images/logo_sonae_full.png",
+      "image": "https://sonaebeauty.reaksy.com/images/logo_sonae_full.png",
+      "url": "https://sonaebeauty.reaksy.com",
       "slogan": "#semuaberhakcakep",
       "telephone": "+6285743463333",
       "priceRange": "$$",

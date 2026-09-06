@@ -1,0 +1,1419 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Portal Admin & Dashboard Kasir — Sonae Beauty Studio Madiun"
+  description="Panel admin resmi manajemen antrean reservasi, buku kasir walk-in, 1-klik konfirmasi WhatsApp, dan pelaporan Sonae Beauty Studio Madiun."
+  activePage="admin"
+>
+
+  <!-- ================================================================= -->
+  <!-- 1. LOGIN SCREEN (AUTH GATE UNTUK KASIR & RESEPSIONIS) -->
+  <!-- ================================================================= -->
+  <div id="adminLoginScreen" class="min-h-[85vh] flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md bg-white rounded-3xl p-7 sm:p-9 shadow-2xl border border-[#E8DFD5] relative overflow-hidden">
+      
+      <!-- Top Decorative Accent -->
+      <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#7F513C] via-[#BFAF86] to-[#7F513C]"></div>
+
+      <!-- Studio Emblem & Header -->
+      <div class="text-center mb-7 pt-2">
+        <div class="size-14 rounded-2xl bg-[#FAF2EB] border border-[#7F513C]/20 flex items-center justify-center mx-auto mb-3 shadow-sm">
+          <img src="/images/logo_emblem.png" alt="Sonae Logo" class="size-9 object-contain" />
+        </div>
+        <span class="inline-block px-3 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold tracking-widest uppercase mb-1.5">
+          PORTAL KASIR &amp; RESEPSIONIS
+        </span>
+        <h1 class="font-serif text-2xl sm:text-3xl font-bold text-[#1A1816]">
+          Masuk ke Dashboard
+        </h1>
+        <p class="text-xs text-[#5C544E] mt-1">
+          Akses manajemen reservasi salon &amp; antrean Sonae Beauty Studio Madiun.
+        </p>
+      </div>
+
+      <!-- Error Notification Box -->
+      <div id="loginErrorAlert" class="hidden p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-semibold mb-5 flex items-center gap-2">
+        <span class="material-symbols-outlined text-[18px]">error</span>
+        <span id="loginErrorMessage">Username atau password yang Anda masukkan salah.</span>
+      </div>
+
+      <!-- Login Form -->
+      <form id="adminLoginForm" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-[#1A1816] uppercase tracking-wider mb-1">
+            Username / Email Staff
+          </label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8E847C] text-[18px]">person</span>
+            <input 
+              type="text" 
+              id="loginUsername" 
+              required 
+              placeholder="Contoh: admin atau kasir" 
+              class="w-full pl-10 pr-4 py-3 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] text-xs sm:text-sm text-[#1A1816] focus:outline-none focus:ring-2 focus:ring-[#7F513C]"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-[#1A1816] uppercase tracking-wider mb-1">
+            Password
+          </label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8E847C] text-[18px]">lock</span>
+            <input 
+              type="password" 
+              id="loginPassword" 
+              required 
+              placeholder="••••••••" 
+              class="w-full pl-10 pr-11 py-3 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] text-xs sm:text-sm text-[#1A1816] focus:outline-none focus:ring-2 focus:ring-[#7F513C]"
+            />
+            <button 
+              type="button" 
+              id="togglePasswordBtn" 
+              class="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#8E847C] hover:text-[#1A1816] cursor-pointer"
+              title="Lihat / Sembunyikan Password"
+            >
+              <span class="material-symbols-outlined text-[18px]" id="passwordToggleIcon">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between text-xs pt-1">
+          <label class="flex items-center gap-2 text-[#5C544E] cursor-pointer select-none">
+            <input type="checkbox" id="rememberMeCheckbox" checked class="rounded border-[#E8DFD5] text-[#7F513C] focus:ring-[#7F513C]" />
+            <span>Ingat sesi saya di perangkat ini</span>
+          </label>
+        </div>
+
+        <button 
+          type="submit" 
+          id="loginSubmitBtn"
+          class="w-full py-3.5 rounded-xl bg-[#7F513C] hover:bg-[#633B2A] text-white font-bold text-xs sm:text-sm transition-all shadow-pill-button flex items-center justify-center gap-2 cursor-pointer mt-2"
+        >
+          <span class="material-symbols-outlined text-[18px]">login</span>
+          <span>Masuk ke Dashboard</span>
+        </button>
+      </form>
+
+      <!-- Quick Demo Login Helper Box -->
+      <div class="mt-6 p-3.5 rounded-2xl bg-[#FAF2EB] border border-[#7F513C]/20 text-center">
+        <span class="text-[10px] font-bold text-[#7F513C] uppercase tracking-wider block mb-1">
+          🔑 Akun Default Kasir (Quick Login)
+        </span>
+        <p class="text-xs text-[#5C544E] mb-2">
+          Username: <code class="font-mono font-bold text-[#1A1816]">admin</code> • Password: <code class="font-mono font-bold text-[#1A1816]">sonae2025</code>
+        </p>
+        <button 
+          type="button" 
+          id="quickAutofillBtn" 
+          class="px-3 py-1.5 rounded-lg bg-white border border-[#7F513C]/30 text-[#7F513C] text-[11px] font-bold hover:bg-[#F3ECE3] transition-all cursor-pointer shadow-xs"
+        >
+          Isi Otomatis &amp; Langsung Masuk
+        </button>
+      </div>
+
+      <!-- Back to Website Link -->
+      <div class="mt-6 text-center">
+        <a href="/" class="text-xs font-semibold text-[#8E847C] hover:text-[#1A1816] transition-colors inline-flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">arrow_back</span>
+          <span>Kembali ke Website Sonae Salon</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- 2. AUTHENTICATED ADMIN DASHBOARD SCREEN -->
+  <!-- ================================================================= -->
+  <div id="adminDashboardScreen" class="hidden w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-8 sm:py-10">
+    
+    <!-- Top Global Bar (Staff Status, Real-time Clock, Logout) -->
+    <div class="bg-white rounded-2xl p-3.5 sm:p-4 border border-[#E8DFD5] shadow-xs flex flex-col sm:flex-row items-center justify-between gap-3 mb-6">
+      
+      <!-- Studio Brand & Active Branch -->
+      <div class="flex items-center gap-3">
+        <img src="/images/logo_emblem.png" alt="Sonae" class="size-8 rounded-lg object-contain bg-[#FAF2EB] p-1 border border-[#7F513C]/20" />
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-xs sm:text-sm text-[#1A1816]">Sonae Beauty Studio Madiun</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">
+              <span class="size-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+              <span>Sistem Online</span>
+            </span>
+          </div>
+          <p class="text-[11px] text-[#8E847C]">Jl. Thamrin, Kartoharjo • Kasir &amp; Antrean Live</p>
+        </div>
+      </div>
+
+      <!-- Real-time Clock & Staff Profile & Logout -->
+      <div class="flex items-center gap-3">
+        <!-- Live Clock -->
+        <div class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FAF2EB] text-[#7F513C] text-xs font-mono font-bold">
+          <span class="material-symbols-outlined text-[15px]">schedule</span>
+          <span id="liveClockWib">--:--:-- WIB</span>
+        </div>
+
+        <!-- Staff Badge -->
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#FBF8F4] border border-[#E8DFD5] text-xs">
+          <span class="size-6 rounded-full bg-[#7F513C] text-white flex items-center justify-center font-bold text-[10px]">
+            SA
+          </span>
+          <span class="font-bold text-[#1A1816]">Mbak Sarah (Kasir)</span>
+        </div>
+
+        <!-- Logout Button -->
+        <button 
+          id="adminLogoutBtn" 
+          type="button" 
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 text-xs font-bold transition-all cursor-pointer shadow-xs"
+          title="Keluar dari Portal Admin"
+        >
+          <span class="material-symbols-outlined text-[16px]">logout</span>
+          <span>Keluar</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Main Admin Controls Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#E8DFD5]">
+      <div>
+        <h1 class="font-serif text-3xl sm:text-4xl font-bold text-[#1A1816] tracking-tight">
+          Dashboard Reservasi Tamu
+        </h1>
+        <p class="text-xs sm:text-sm text-[#5C544E] mt-1">
+          Pantau antrean online &amp; walk-in, perbarui status layanan, dan kirim konfirmasi resmi ke WhatsApp tamu dalam 1 klik.
+        </p>
+      </div>
+
+      <!-- Action Buttons Bar -->
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+        
+        <!-- Download PDF User Guide Button -->
+        <a 
+          href="/PANDUAN_PENGGUNAAN_SONAE_BEAUTY.pdf" 
+          download="PANDUAN_PENGGUNAAN_SONAE_BEAUTY.pdf"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FAF2EB] hover:bg-[#E8DFD5] text-[#7F513C] border border-[#7F513C]/30 text-xs font-bold transition-all shadow-sm"
+          title="Unduh Panduan Penggunaan Salon dalam Bentuk PDF Resmi"
+        >
+          <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+          <span>Unduh Panduan (PDF)</span>
+        </a>
+
+        <!-- Export Excel (.xlsx) / CSV / JSON Group -->
+        <div class="relative inline-flex items-center" id="exportDropdownGroup">
+          <button 
+            id="exportExcelBtn" 
+            type="button" 
+            class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-l-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold transition-all shadow-sm cursor-pointer"
+            title="Ekspor Data ke Format Microsoft Excel (.xlsx)"
+          >
+            <span class="material-symbols-outlined text-[18px] text-emerald-600">table_chart</span>
+            <span>Ekspor Excel (.xlsx)</span>
+          </button>
+          <button
+            id="toggleExportMenuBtn"
+            type="button"
+            class="inline-flex items-center px-2 py-2.5 rounded-r-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-y border-r border-emerald-300 text-xs font-bold transition-all shadow-sm cursor-pointer"
+            title="Pilih Format Ekspor Lainnya (CSV / JSON)"
+          >
+            <span class="material-symbols-outlined text-[16px]">expand_more</span>
+          </button>
+          
+          <!-- Dropdown Options Menu -->
+          <div id="exportMenuDropdown" class="hidden absolute right-0 top-full mt-2 w-52 bg-white rounded-2xl shadow-xl border border-[#E8DFD5] py-2 z-30">
+            <button id="exportMenuXlsx" type="button" class="w-full text-left px-4 py-2.5 text-xs font-bold text-emerald-800 hover:bg-emerald-50 flex items-center gap-2 cursor-pointer transition-colors">
+              <span class="material-symbols-outlined text-[16px] text-emerald-600">table_chart</span>
+              <span>Microsoft Excel (.xlsx)</span>
+            </button>
+            <button id="exportMenuCsv" type="button" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-[#1A1816] hover:bg-[#F3ECE3] flex items-center gap-2 cursor-pointer transition-colors">
+              <span class="material-symbols-outlined text-[16px] text-blue-600">csv</span>
+              <span>Format CSV Excel (.csv)</span>
+            </button>
+            <button id="exportMenuJson" type="button" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-[#1A1816] hover:bg-[#F3ECE3] flex items-center gap-2 cursor-pointer transition-colors">
+              <span class="material-symbols-outlined text-[16px] text-amber-600">data_object</span>
+              <span>Cadangan Data (.json)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Print Recap Button -->
+        <button 
+          id="printRecapBtn" 
+          type="button" 
+          class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white hover:bg-[#F3ECE3] text-[#1A1816] border border-[#E8DFD5] text-xs font-bold transition-all shadow-sm cursor-pointer"
+          title="Cetak Rekap Jadwal Kasir"
+        >
+          <span class="material-symbols-outlined text-[18px] text-[#7F513C]">print</span>
+          <span>Cetak</span>
+        </button>
+
+        <!-- Add Walk-in Booking Button -->
+        <button 
+          id="openWalkinModalBtn" 
+          type="button" 
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#7F513C] hover:bg-[#633B2A] text-white text-xs font-bold transition-all shadow-pill-button cursor-pointer"
+        >
+          <span class="material-symbols-outlined text-[18px]">add_circle</span>
+          <span>+ Reservasi Manual</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Quick Stats Cards (5 KPIs) -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 my-8">
+      
+      <!-- Metric 1: Total Bookings -->
+      <div class="p-4 sm:p-5 rounded-2xl bg-white border border-[#E8DFD5] shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] font-bold text-[#8E847C] uppercase tracking-wider">Total Reservasi</span>
+          <span class="size-8 rounded-lg bg-[#FAF2EB] text-[#7F513C] flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+          </span>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span id="statTotalBookings" class="font-serif text-2xl sm:text-3xl font-bold text-[#1A1816]">0</span>
+          <span class="text-[11px] text-[#8E847C]">Sesi</span>
+        </div>
+      </div>
+
+      <!-- Metric 2: Pending Confirmation -->
+      <div class="p-4 sm:p-5 rounded-2xl bg-white border border-amber-200 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Menunggu</span>
+          <span class="size-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">pending</span>
+          </span>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span id="statPendingBookings" class="font-serif text-2xl sm:text-3xl font-bold text-amber-700">0</span>
+          <span class="text-[11px] text-amber-600 font-semibold">Perlu Aksi</span>
+        </div>
+      </div>
+
+      <!-- Metric 3: Confirmed -->
+      <div class="p-4 sm:p-5 rounded-2xl bg-white border border-blue-200 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] font-bold text-blue-700 uppercase tracking-wider">Dikonfirmasi</span>
+          <span class="size-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">verified</span>
+          </span>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span id="statConfirmedBookings" class="font-serif text-2xl sm:text-3xl font-bold text-blue-700">0</span>
+          <span class="text-[11px] text-blue-600 font-semibold">Siap Datang</span>
+        </div>
+      </div>
+
+      <!-- Metric 4: Completed -->
+      <div class="p-4 sm:p-5 rounded-2xl bg-white border border-green-200 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] font-bold text-green-700 uppercase tracking-wider">Selesai</span>
+          <span class="size-8 rounded-lg bg-green-50 text-green-600 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">task_alt</span>
+          </span>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span id="statCompletedBookings" class="font-serif text-2xl sm:text-3xl font-bold text-green-700">0</span>
+          <span class="text-[11px] text-green-600 font-semibold">Terselesaikan</span>
+        </div>
+      </div>
+
+      <!-- Metric 5: Revenue Forecast -->
+      <div class="col-span-2 md:col-span-1 p-4 sm:p-5 rounded-2xl bg-white border border-[#E8DFD5] shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] font-bold text-[#7F513C] uppercase tracking-wider">Estimasi Omset</span>
+          <span class="size-8 rounded-lg bg-[#FAF2EB] text-[#7F513C] flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">payments</span>
+          </span>
+        </div>
+        <div class="flex items-baseline gap-1">
+          <span id="statEstimatedRevenue" class="font-serif text-xl sm:text-2xl font-bold text-[#7F513C]">Rp 0</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Filter & Search Toolbar -->
+    <div class="bg-white rounded-3xl p-5 sm:p-6 border border-[#E8DFD5] shadow-soft-card mb-8">
+      
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        
+        <!-- Search Input -->
+        <div class="relative flex-1">
+          <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8E847C] text-[20px]">search</span>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Cari nama tamu, no. WhatsApp, atau kode booking (SN-...)" 
+            class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] text-xs sm:text-sm text-[#1A1816] focus:outline-none focus:ring-2 focus:ring-[#7F513C]"
+          />
+        </div>
+
+        <!-- Filter Dropdowns / Channel Selector -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+          
+          <!-- Channel Filter -->
+          <select id="channelFilter" class="px-3.5 py-2.5 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] text-xs font-semibold text-[#1A1816] focus:outline-none focus:ring-2 focus:ring-[#7F513C] cursor-pointer">
+            <option value="all">Semua Jalur Booking</option>
+            <option value="dashboard">Dashboard Admin</option>
+            <option value="whatsapp">WhatsApp Direct</option>
+          </select>
+
+          <!-- Reset Filter Button -->
+          <button id="resetFilterBtn" class="px-3.5 py-2.5 rounded-xl bg-[#F3ECE3] hover:bg-[#E8DFD5] text-[#5C544E] text-xs font-bold transition-all cursor-pointer">
+            Reset
+          </button>
+
+          <!-- Reload Dummy Seed Data Button -->
+          <button id="seedDataBtn" class="px-3 py-2.5 rounded-xl border border-dashed border-[#8E847C]/60 hover:bg-[#FAF2EB] text-[#7F513C] text-xs font-semibold transition-all cursor-pointer" title="Muat Data Contoh Realistis">
+            + Data Contoh
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- Status Tabs -->
+      <div class="flex items-center gap-2 overflow-x-auto pt-4 mt-4 border-t border-[#E8DFD5] no-scrollbar">
+        <button type="button" class="status-tab active px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#7F513C] text-white transition-all shrink-0 cursor-pointer" data-status="all">
+          Semua Status (<span id="countTabAll">0</span>)
+        </button>
+        <button type="button" class="status-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-status="Menunggu Konfirmasi">
+          Menunggu (<span id="countTabPending">0</span>)
+        </button>
+        <button type="button" class="status-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-status="Terkonfirmasi">
+          Terkonfirmasi (<span id="countTabConfirmed">0</span>)
+        </button>
+        <button type="button" class="status-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-status="Selesai">
+          Selesai (<span id="countTabCompleted">0</span>)
+        </button>
+        <button type="button" class="status-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-status="Dibatalkan">
+          Dibatalkan (<span id="countTabCancelled">0</span>)
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Bookings Table Container -->
+    <div class="bg-white rounded-3xl border border-[#E8DFD5] shadow-soft-card overflow-hidden">
+      
+      <div class="p-5 sm:p-6 border-b border-[#E8DFD5] flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="material-symbols-outlined text-[22px] text-[#7F513C]">table_rows</span>
+          <h2 class="font-serif text-lg sm:text-xl font-bold text-[#1A1816]">Daftar Antrean &amp; Jadwal Perawatan</h2>
+        </div>
+        <span id="filteredCountBadge" class="text-xs text-[#8E847C] font-semibold">Menampilkan 0 data</span>
+      </div>
+
+      <!-- Desktop Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm" id="bookingsTable">
+          <thead class="bg-[#FBF8F4] text-[#8E847C] text-[11px] uppercase tracking-wider font-bold border-b border-[#E8DFD5]">
+            <tr>
+              <th class="py-3.5 px-4 sm:px-6">Kode &amp; Waktu</th>
+              <th class="py-3.5 px-4">Tamu</th>
+              <th class="py-3.5 px-4">Layanan &amp; Biaya</th>
+              <th class="py-3.5 px-4">Jadwal Datang</th>
+              <th class="py-3.5 px-4">Jalur</th>
+              <th class="py-3.5 px-4">Status</th>
+              <th class="py-3.5 px-4 sm:px-6 text-right">Aksi Cepat</th>
+            </tr>
+          </thead>
+          <tbody id="bookingsTableBody" class="divide-y divide-[#E8DFD5] text-[#1A1816]">
+            <!-- Dynamic rows injected here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyStateContainer" class="hidden p-12 text-center">
+        <div class="size-16 rounded-full bg-[#FAF2EB] text-[#7F513C] flex items-center justify-center mx-auto mb-3">
+          <span class="material-symbols-outlined text-[32px]">event_busy</span>
+        </div>
+        <h3 class="font-serif text-lg font-bold text-[#1A1816] mb-1">Belum Ada Data Reservasi</h3>
+        <p class="text-xs text-[#5C544E] max-w-sm mx-auto mb-4">
+          Tidak ada data reservasi yang sesuai dengan kriteria filter saat ini.
+        </p>
+        <button id="emptySeedBtn" class="px-4 py-2 rounded-xl bg-[#7F513C] text-white text-xs font-bold hover:bg-[#633B2A] transition-all cursor-pointer">
+          + Muat Contoh Data Realistis
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Footer Guide Banner -->
+    <div class="mt-8 p-6 rounded-3xl bg-gradient-to-r from-[#FAF2EB] to-[#F3ECE3] border border-[#E8DFD5] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-start gap-3.5">
+        <div class="size-10 rounded-xl bg-[#7F513C] text-white flex items-center justify-center shrink-0 mt-0.5">
+          <span class="material-symbols-outlined text-[20px]">menu_book</span>
+        </div>
+        <div>
+          <h4 class="font-serif text-base font-bold text-[#1A1816]">Dokumentasi &amp; Panduan Lengkap Tersedia dalam Bentuk PDF</h4>
+          <p class="text-xs text-[#5C544E] mt-0.5">
+            Pelajari prosedur operasional standar (SOP) konfirmasi tamu, format WhatsApp OpenGraph, manajemen antrean, dan panduan kustomisasi harga salon.
+          </p>
+        </div>
+      </div>
+      <a 
+        href="/PANDUAN_PENGGUNAAN_SONAE_BEAUTY.pdf" 
+        download="PANDUAN_PENGGUNAAN_SONAE_BEAUTY.pdf"
+        class="px-5 py-3 rounded-xl bg-[#7F513C] hover:bg-[#633B2A] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all shrink-0"
+      >
+        <span class="material-symbols-outlined text-[18px]">download</span>
+        <span>Unduh File PDF Resmi</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- MODAL 1: TAMBAH RESERVASI MANUAL / WALK-IN -->
+  <!-- ================================================================= -->
+  <div id="walkinModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4 sm:p-6" role="dialog">
+    <div class="w-full max-w-lg bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-[#E8DFD5] relative max-h-[90vh] overflow-y-auto">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-[#E8DFD5] mb-5">
+        <div class="flex items-center gap-2.5">
+          <span class="material-symbols-outlined text-[22px] text-[#7F513C]">person_add</span>
+          <h3 class="font-serif text-lg font-bold text-[#1A1816]">Input Reservasi Manual / Walk-in</h3>
+        </div>
+        <button id="closeWalkinModalBtn" class="size-8 rounded-full bg-[#F3ECE3] hover:bg-[#E8DFD5] text-[#1A1816] flex items-center justify-center cursor-pointer transition-all">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <form id="walkinForm" class="space-y-4">
+        <div>
+          <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-1">Nama Tamu *</label>
+          <input type="text" id="walkinName" required placeholder="Contoh: Ibu Rina Kartika" class="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] text-xs sm:text-sm text-[#1A1816] focus:ring-2 focus:ring-[#7F513C] focus:outline-none" />
+        </div>
+
+        <div>
+          <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-1">No. WhatsApp *</label>
+          <input type="tel" id="walkinPhone" required placeholder="Contoh: 081234567890" class="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] text-xs sm:text-sm text-[#1A1816] focus:ring-2 focus:ring-[#7F513C] focus:outline-none" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-1">Tanggal *</label>
+            <input type="date" id="walkinDate" required class="w-full px-3 py-2.5 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] text-xs sm:text-sm text-[#1A1816] focus:ring-2 focus:ring-[#7F513C] focus:outline-none" />
+          </div>
+          <div>
+            <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-1">Jam Datang *</label>
+            <select id="walkinTime" class="w-full px-3 py-2.5 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] text-xs sm:text-sm text-[#1A1816] focus:ring-2 focus:ring-[#7F513C] focus:outline-none">
+              <option value="10:00 WIB">10:00 WIB</option>
+              <option value="11:30 WIB">11:30 WIB</option>
+              <option value="13:00 WIB" selected>13:00 WIB</option>
+              <option value="14:30 WIB">14:30 WIB</option>
+              <option value="16:00 WIB">16:00 WIB</option>
+              <option value="17:00 WIB">17:00 WIB</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-1">Pilih Perawatan Utama *</label>
+          <select id="walkinService" class="w-full px-3 py-2.5 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] text-xs sm:text-sm text-[#1A1816] focus:ring-2 focus:ring-[#7F513C] focus:outline-none">
+            <option value="Korean Keratin Smoothing &amp; Haircut|435000">Korean Keratin Smoothing &amp; Haircut (Rp 435.000)</option>
+            <option value="Japanese Custom Nail Art|175000">Japanese Custom Nail Art (Rp 175.000)</option>
+            <option value="Keratin Lash Lift &amp; Tint|145000">Keratin Lash Lift &amp; Tint (Rp 145.000)</option>
+            <option value="Signature Korean Haircut &amp; Blowdry|85000">Signature Korean Haircut &amp; Blowdry (Rp 85.000)</option>
+            <option value="Scalp Detox &amp; Japanese Head Spa|185000">Scalp Detox &amp; Japanese Head Spa (Rp 185.000)</option>
+            <option value="Ash Blonde Hair Coloring|375000">Ash Blonde Hair Coloring (Rp 375.000)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-1">Status Awal</label>
+          <select id="walkinStatus" class="w-full px-3 py-2.5 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] text-xs sm:text-sm text-[#1A1816] focus:ring-2 focus:ring-[#7F513C] focus:outline-none">
+            <option value="Terkonfirmasi" selected>Terkonfirmasi (Sudah Masuk Antrean)</option>
+            <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
+            <option value="Selesai">Selesai (Tamu Sudah Dilayani)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-1">Catatan Staf (Opsional)</label>
+          <textarea id="walkinNote" rows="2" placeholder="Contoh: Tamu langganan, request terapis Kak Devi..." class="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] text-xs sm:text-sm text-[#1A1816] focus:ring-2 focus:ring-[#7F513C] focus:outline-none"></textarea>
+        </div>
+
+        <div class="pt-3 border-t border-[#E8DFD5] flex items-center justify-end gap-2.5">
+          <button type="button" id="cancelWalkinBtn" class="px-4 py-2.5 rounded-xl bg-[#F3ECE3] hover:bg-[#E8DFD5] text-[#1A1816] text-xs font-bold transition-all cursor-pointer">
+            Batal
+          </button>
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-[#7F513C] hover:bg-[#633B2A] text-white text-xs font-bold transition-all shadow-pill-button cursor-pointer">
+            Simpan Reservasi
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- MODAL 2: DETAIL LENGKAP RESERVASI -->
+  <!-- ================================================================= -->
+  <div id="detailModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4 sm:p-6" role="dialog">
+    <div class="w-full max-w-md bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-[#E8DFD5] relative">
+      <div class="flex items-center justify-between pb-3 border-b border-[#E8DFD5] mb-4">
+        <h3 class="font-serif text-lg font-bold text-[#1A1816]">Rincian Lengkap Reservasi</h3>
+        <button id="closeDetailModalBtn" class="size-8 rounded-full bg-[#F3ECE3] hover:bg-[#E8DFD5] text-[#1A1816] flex items-center justify-center cursor-pointer transition-all">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs sm:text-sm" id="detailModalContent">
+        <!-- Injected dynamically -->
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-[#E8DFD5] flex items-center justify-between">
+        <button id="deleteDetailBtn" class="px-3.5 py-2 rounded-xl text-xs font-bold text-red-600 hover:bg-red-50 transition-all cursor-pointer flex items-center gap-1">
+          <span class="material-symbols-outlined text-[16px]">delete</span>
+          <span>Hapus</span>
+        </button>
+        <button id="detailWaBtn" class="px-4 py-2 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-sm">
+          <span class="material-symbols-outlined text-[16px]">chat</span>
+          <span>Hubungi Tamu (WA)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</Layout>
+
+<script>
+  import * as XLSX from 'xlsx';
+
+  interface BookingItem {
+    id: string;
+    code: string;
+    guestName: string;
+    guestPhone: string;
+    guestNote: string;
+    services: string[];
+    total: number;
+    dateText: string;
+    timeText: string;
+    channel: string;
+    status: 'Menunggu Konfirmasi' | 'Terkonfirmasi' | 'Selesai' | 'Dibatalkan';
+    createdAt: string;
+  }
+
+  // Realistic sample seed data if localStorage is empty
+  const SAMPLE_BOOKINGS: BookingItem[] = [
+    {
+      id: 'bk_sample_1',
+      code: 'SN-20251018-8421',
+      guestName: 'Anindya Larasati',
+      guestPhone: '081234567890',
+      guestNote: 'Rambut tebal sebahu, request terapis Kak Nadia.',
+      services: ['Korean Keratin Smoothing & Haircut'],
+      total: 435000,
+      dateText: 'Sabtu, 18 Oktober 2025',
+      timeText: '13:00 WIB',
+      channel: 'dashboard',
+      status: 'Menunggu Konfirmasi',
+      createdAt: new Date(Date.now() - 3600000).toISOString()
+    },
+    {
+      id: 'bk_sample_2',
+      code: 'SN-20251018-9102',
+      guestName: 'Dinda Rahmadani',
+      guestPhone: '085732198765',
+      guestNote: 'Ingin nail art gradasi nude & glitter.',
+      services: ['Japanese Custom Nail Art'],
+      total: 175000,
+      dateText: 'Sabtu, 18 Oktober 2025',
+      timeText: '14:30 WIB',
+      channel: 'whatsapp',
+      status: 'Terkonfirmasi',
+      createdAt: new Date(Date.now() - 7200000).toISOString()
+    },
+    {
+      id: 'bk_sample_3',
+      code: 'SN-20251019-1234',
+      guestName: 'Siti Sarah Wardoyo',
+      guestPhone: '082199887766',
+      guestNote: 'Booking untuk 2 orang (Lash lift + Head spa)',
+      services: ['Keratin Lash Lift & Tint', 'Scalp Detox & Japanese Head Spa'],
+      total: 330000,
+      dateText: 'Minggu, 19 Oktober 2025',
+      timeText: '10:00 WIB',
+      channel: 'dashboard',
+      status: 'Terkonfirmasi',
+      createdAt: new Date(Date.now() - 14400000).toISOString()
+    },
+    {
+      id: 'bk_sample_4',
+      code: 'SN-20251017-5561',
+      guestName: 'Jessica Aurelia',
+      guestPhone: '087811223344',
+      guestNote: 'Puas sekali dengan hasil smoothing sebelumnya.',
+      services: ['Signature Korean Haircut & Blowdry'],
+      total: 85000,
+      dateText: 'Jumat, 17 Oktober 2025',
+      timeText: '16:00 WIB',
+      channel: 'dashboard',
+      status: 'Selesai',
+      createdAt: new Date(Date.now() - 86400000).toISOString()
+    }
+  ];
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // =================================================================
+    // AUTHENTICATION & LOGIN GATE LOGIC
+    // =================================================================
+    const loginScreen = document.getElementById('adminLoginScreen');
+    const dashboardScreen = document.getElementById('adminDashboardScreen');
+    const loginForm = document.getElementById('adminLoginForm') as HTMLFormElement;
+    const loginUsername = document.getElementById('loginUsername') as HTMLInputElement;
+    const loginPassword = document.getElementById('loginPassword') as HTMLInputElement;
+    const rememberMeCheckbox = document.getElementById('rememberMeCheckbox') as HTMLInputElement;
+    const loginErrorAlert = document.getElementById('loginErrorAlert');
+    const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+    const passwordToggleIcon = document.getElementById('passwordToggleIcon');
+    const quickAutofillBtn = document.getElementById('quickAutofillBtn');
+    const logoutBtn = document.getElementById('adminLogoutBtn');
+
+    // Check existing session
+    function isAuthenticated(): boolean {
+      return (
+        localStorage.getItem('sonae_admin_auth') === 'true' ||
+        sessionStorage.getItem('sonae_admin_auth') === 'true'
+      );
+    }
+
+    function showDashboard() {
+      if (loginScreen) loginScreen.classList.add('hidden');
+      if (dashboardScreen) dashboardScreen.classList.remove('hidden');
+      startLiveClock();
+    }
+
+    function showLogin() {
+      if (dashboardScreen) dashboardScreen.classList.add('hidden');
+      if (loginScreen) loginScreen.classList.remove('hidden');
+      if (loginPassword) loginPassword.value = '';
+    }
+
+    if (isAuthenticated()) {
+      showDashboard();
+    } else {
+      showLogin();
+    }
+
+    // Toggle Password Visibility
+    if (togglePasswordBtn && loginPassword && passwordToggleIcon) {
+      togglePasswordBtn.addEventListener('click', () => {
+        const isPassword = loginPassword.type === 'password';
+        loginPassword.type = isPassword ? 'text' : 'password';
+        passwordToggleIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+      });
+    }
+
+    // Quick Autofill Demo Credentials
+    if (quickAutofillBtn && loginUsername && loginPassword) {
+      quickAutofillBtn.addEventListener('click', () => {
+        loginUsername.value = 'admin';
+        loginPassword.value = 'sonae2025';
+        submitLogin('admin', 'sonae2025');
+      });
+    }
+
+    // Handle Login Submission
+    function submitLogin(u: string, p: string) {
+      const user = u.trim().toLowerCase();
+      const pass = p.trim();
+
+      // Accepted staff credentials
+      const isValid = 
+        (user === 'admin' && (pass === 'sonae2025' || pass === 'admin123')) ||
+        (user === 'kasir' && (pass === 'sonae2025' || pass === 'kasir123')) ||
+        (user === 'admin@sonaebeauty.com' && pass === 'sonae2025');
+
+      if (isValid) {
+        if (loginErrorAlert) loginErrorAlert.classList.add('hidden');
+        const remember = rememberMeCheckbox?.checked;
+        if (remember) {
+          localStorage.setItem('sonae_admin_auth', 'true');
+        } else {
+          sessionStorage.setItem('sonae_admin_auth', 'true');
+        }
+        showDashboard();
+      } else {
+        if (loginErrorAlert) {
+          loginErrorAlert.classList.remove('hidden');
+          // Shake effect
+          loginErrorAlert.classList.add('animate-bounce');
+          setTimeout(() => loginErrorAlert.classList.remove('animate-bounce'), 800);
+        }
+      }
+    }
+
+    if (loginForm) {
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        submitLogin(loginUsername?.value || '', loginPassword?.value || '');
+      });
+    }
+
+    // Handle Logout
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        if (confirm('Yakin ingin keluar dari sesi Dashboard Kasir Sonae?')) {
+          localStorage.removeItem('sonae_admin_auth');
+          sessionStorage.removeItem('sonae_admin_auth');
+          showLogin();
+        }
+      });
+    }
+
+    // Live Real-time Clock (WIB)
+    function startLiveClock() {
+      const clockEl = document.getElementById('liveClockWib');
+      function update() {
+        if (clockEl) {
+          const now = new Date();
+          clockEl.textContent = now.toLocaleTimeString('id-ID') + ' WIB';
+        }
+      }
+      update();
+      setInterval(update, 1000);
+    }
+
+    // =================================================================
+    // DASHBOARD DATA MANAGEMENT (BOOKINGS, FILTERS, EXPORT)
+    // =================================================================
+    let bookings: BookingItem[] = [];
+
+    function loadBookings(): BookingItem[] {
+      try {
+        const data = localStorage.getItem('sonae_bookings');
+        if (data) {
+          return JSON.parse(data);
+        } else {
+          localStorage.setItem('sonae_bookings', JSON.stringify(SAMPLE_BOOKINGS));
+          return [...SAMPLE_BOOKINGS];
+        }
+      } catch (err) {
+        console.error('Error loading bookings:', err);
+        return [...SAMPLE_BOOKINGS];
+      }
+    }
+
+    function saveBookings() {
+      try {
+        localStorage.setItem('sonae_bookings', JSON.stringify(bookings));
+      } catch (err) {
+        console.error('Error saving bookings:', err);
+      }
+    }
+
+    bookings = loadBookings();
+
+    // DOM References
+    const tableBody = document.getElementById('bookingsTableBody');
+    const emptyState = document.getElementById('emptyStateContainer');
+    const bookingsTable = document.getElementById('bookingsTable');
+    const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+    const channelFilter = document.getElementById('channelFilter') as HTMLSelectElement;
+    const statusTabs = document.querySelectorAll('.status-tab');
+    const resetFilterBtn = document.getElementById('resetFilterBtn');
+    const filteredCountBadge = document.getElementById('filteredCountBadge');
+
+    // KPI Counters
+    const statTotal = document.getElementById('statTotalBookings');
+    const statPending = document.getElementById('statPendingBookings');
+    const statConfirmed = document.getElementById('statConfirmedBookings');
+    const statCompleted = document.getElementById('statCompletedBookings');
+    const statRevenue = document.getElementById('statEstimatedRevenue');
+
+    // Tab Counters
+    const countTabAll = document.getElementById('countTabAll');
+    const countTabPending = document.getElementById('countTabPending');
+    const countTabConfirmed = document.getElementById('countTabConfirmed');
+    const countTabCompleted = document.getElementById('countTabCompleted');
+    const countTabCancelled = document.getElementById('countTabCancelled');
+
+    let currentStatusFilter = 'all';
+    let currentSearchQuery = '';
+    let currentChannelFilter = 'all';
+
+    function updateKPIs() {
+      const total = bookings.length;
+      const pending = bookings.filter(b => b.status === 'Menunggu Konfirmasi').length;
+      const confirmed = bookings.filter(b => b.status === 'Terkonfirmasi').length;
+      const completed = bookings.filter(b => b.status === 'Selesai').length;
+      const cancelled = bookings.filter(b => b.status === 'Dibatalkan').length;
+      const totalRev = bookings.filter(b => b.status !== 'Dibatalkan').reduce((sum, b) => sum + (b.total || 0), 0);
+
+      if (statTotal) statTotal.textContent = String(total);
+      if (statPending) statPending.textContent = String(pending);
+      if (statConfirmed) statConfirmed.textContent = String(confirmed);
+      if (statCompleted) statCompleted.textContent = String(completed);
+      if (statRevenue) statRevenue.textContent = `Rp ${totalRev.toLocaleString('id-ID')}`;
+
+      if (countTabAll) countTabAll.textContent = String(total);
+      if (countTabPending) countTabPending.textContent = String(pending);
+      if (countTabConfirmed) countTabConfirmed.textContent = String(confirmed);
+      if (countTabCompleted) countTabCompleted.textContent = String(completed);
+      if (countTabCancelled) countTabCancelled.textContent = String(cancelled);
+    }
+
+    function renderTable() {
+      if (!tableBody) return;
+
+      const filtered = bookings.filter(b => {
+        if (currentStatusFilter !== 'all' && b.status !== currentStatusFilter) return false;
+        if (currentChannelFilter !== 'all' && b.channel !== currentChannelFilter) return false;
+
+        if (currentSearchQuery) {
+          const q = currentSearchQuery.toLowerCase();
+          const matchName = b.guestName.toLowerCase().includes(q);
+          const matchPhone = b.guestPhone.toLowerCase().includes(q);
+          const matchCode = b.code.toLowerCase().includes(q);
+          const matchService = b.services.join(' ').toLowerCase().includes(q);
+          if (!matchName && !matchPhone && !matchCode && !matchService) return false;
+        }
+
+        return true;
+      });
+
+      if (filteredCountBadge) {
+        filteredCountBadge.textContent = `Menampilkan ${filtered.length} dari ${bookings.length} reservasi`;
+      }
+
+      if (filtered.length === 0) {
+        if (emptyState) emptyState.classList.remove('hidden');
+        if (bookingsTable) bookingsTable.classList.add('hidden');
+        tableBody.innerHTML = '';
+        return;
+      }
+
+      if (emptyState) emptyState.classList.add('hidden');
+      if (bookingsTable) bookingsTable.classList.remove('hidden');
+
+      let html = '';
+      filtered.forEach(item => {
+        let statusClass = 'bg-amber-100 text-amber-800 border-amber-300';
+        if (item.status === 'Terkonfirmasi') statusClass = 'bg-blue-100 text-blue-800 border-blue-300';
+        if (item.status === 'Selesai') statusClass = 'bg-green-100 text-green-800 border-green-300';
+        if (item.status === 'Dibatalkan') statusClass = 'bg-red-100 text-red-800 border-red-300';
+
+        const isDashboard = item.channel === 'dashboard';
+        const channelBadge = isDashboard
+          ? `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold">
+              <span class="material-symbols-outlined text-[12px]">database</span>
+              <span>Web Admin</span>
+            </span>`
+          : `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-green-100 text-green-800 text-[10px] font-bold">
+              <span class="material-symbols-outlined text-[12px]">chat</span>
+              <span>WA Direct</span>
+            </span>`;
+
+        const replyMsg = `Halo Kak ${item.guestName}! 👋
+Kami dari *Sonae Beauty Studio Madiun*.
+
+Mengenai reservasi perawatan:
+🔖 *Kode Reservasi:* ${item.code}
+📅 *Jadwal:* ${item.dateText} (${item.timeText})
+📋 *Layanan:* ${item.services.join(', ')}
+
+${item.status === 'Terkonfirmasi' 
+  ? 'Status reservasi Anda telah *TERKONFIRMASI*. Kami siap menyambut kehadiran Anda di studio kami di Jl. Thamrin, Madiun! ✨' 
+  : 'Kami ingin mengonfirmasi ketersediaan slot Anda. Apakah jadwal ini sudah sesuai Kak? Terima kasih! ✨'}`;
+
+        const cleanPhone = item.guestPhone.replace(/[^0-9]/g, '');
+        const intlPhone = cleanPhone.startsWith('0') ? '62' + cleanPhone.slice(1) : cleanPhone;
+        const waUrl = `https://wa.me/${intlPhone}?text=${encodeURIComponent(replyMsg)}`;
+
+        html += `
+          <tr class="hover:bg-[#FAF2EB]/30 transition-colors" data-id="${item.id}">
+            <td class="py-4 px-4 sm:px-6">
+              <span class="font-mono font-bold text-[#7F513C] block">${item.code}</span>
+              <span class="text-[10px] text-[#8E847C] block mt-0.5">
+                ${new Date(item.createdAt).toLocaleDateString('id-ID', { hour: '2-digit', minute: '2-digit' })}
+              </span>
+            </td>
+
+            <td class="py-4 px-4">
+              <span class="font-bold text-[#1A1816] block">${item.guestName}</span>
+              <div class="flex items-center gap-1 text-[11px] text-[#5C544E] mt-0.5">
+                <span class="material-symbols-outlined text-[13px] text-[#25D366]">chat</span>
+                <a href="${waUrl}" target="_blank" class="hover:text-[#7F513C] underline">${item.guestPhone}</a>
+              </div>
+              ${item.guestNote && item.guestNote !== '-' ? `<span class="text-[10px] text-[#8E847C] italic block truncate max-w-[160px] mt-0.5">"${item.guestNote}"</span>` : ''}
+            </td>
+
+            <td class="py-4 px-4">
+              <span class="font-semibold text-[#1A1816] block max-w-[180px] truncate">${item.services.join(', ')}</span>
+              <span class="font-bold text-[#7F513C] text-xs block mt-0.5">Rp ${item.total.toLocaleString('id-ID')}</span>
+            </td>
+
+            <td class="py-4 px-4">
+              <span class="font-semibold text-[#1A1816] block text-xs">${item.dateText}</span>
+              <span class="text-[11px] text-[#5C544E] block">${item.timeText}</span>
+            </td>
+
+            <td class="py-4 px-4">
+              ${channelBadge}
+            </td>
+
+            <td class="py-4 px-4">
+              <select class="status-select px-2.5 py-1 rounded-lg border text-[11px] font-bold ${statusClass} focus:outline-none cursor-pointer" data-id="${item.id}">
+                <option value="Menunggu Konfirmasi" ${item.status === 'Menunggu Konfirmasi' ? 'selected' : ''}>Menunggu</option>
+                <option value="Terkonfirmasi" ${item.status === 'Terkonfirmasi' ? 'selected' : ''}>Terkonfirmasi</option>
+                <option value="Selesai" ${item.status === 'Selesai' ? 'selected' : ''}>Selesai</option>
+                <option value="Dibatalkan" ${item.status === 'Dibatalkan' ? 'selected' : ''}>Dibatalkan</option>
+              </select>
+            </td>
+
+            <td class="py-4 px-4 sm:px-6 text-right">
+              <div class="flex items-center justify-end gap-1.5">
+                <a 
+                  href="${waUrl}" 
+                  target="_blank" 
+                  class="p-2 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white transition-all shadow-sm flex items-center justify-center" 
+                  title="Balas &amp; Konfirmasi ke WhatsApp Tamu"
+                >
+                  <span class="material-symbols-outlined text-[16px]">chat</span>
+                </a>
+
+                <button 
+                  type="button" 
+                  class="view-detail-btn p-2 rounded-lg bg-[#F3ECE3] hover:bg-[#E8DFD5] text-[#1A1816] transition-all flex items-center justify-center cursor-pointer" 
+                  data-id="${item.id}"
+                  title="Lihat Detail Lengkap"
+                >
+                  <span class="material-symbols-outlined text-[16px]">visibility</span>
+                </button>
+
+                <button 
+                  type="button" 
+                  class="delete-booking-btn p-2 rounded-lg text-red-500 hover:bg-red-50 transition-all flex items-center justify-center cursor-pointer" 
+                  data-id="${item.id}"
+                  title="Hapus Reservasi"
+                >
+                  <span class="material-symbols-outlined text-[16px]">delete</span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      });
+
+      tableBody.innerHTML = html;
+      attachRowEvents();
+    }
+
+    function attachRowEvents() {
+      document.querySelectorAll('.status-select').forEach(select => {
+        select.addEventListener('change', (e) => {
+          const target = e.target as HTMLSelectElement;
+          const id = target.getAttribute('data-id');
+          const newStatus = target.value as BookingItem['status'];
+          const item = bookings.find(b => b.id === id);
+          if (item) {
+            item.status = newStatus;
+            saveBookings();
+            updateKPIs();
+            renderTable();
+          }
+        });
+      });
+
+      document.querySelectorAll('.view-detail-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-id');
+          const item = bookings.find(b => b.id === id);
+          if (item) openDetailModal(item);
+        });
+      });
+
+      document.querySelectorAll('.delete-booking-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-id');
+          if (confirm('Yakin ingin menghapus data reservasi ini dari sistem?')) {
+            bookings = bookings.filter(b => b.id !== id);
+            saveBookings();
+            updateKPIs();
+            renderTable();
+          }
+        });
+      });
+    }
+
+    // Detail Modal Handling
+    const detailModal = document.getElementById('detailModal');
+    const closeDetailModalBtn = document.getElementById('closeDetailModalBtn');
+    const detailModalContent = document.getElementById('detailModalContent');
+    const detailWaBtn = document.getElementById('detailWaBtn');
+    const deleteDetailBtn = document.getElementById('deleteDetailBtn');
+
+    function openDetailModal(item: BookingItem) {
+      if (detailModalContent) {
+        detailModalContent.innerHTML = `
+          <div class="p-3.5 rounded-2xl bg-[#FAF2EB] border border-[#7F513C]/20 mb-3">
+            <span class="text-[10px] font-bold text-[#8E847C] uppercase tracking-wider block">KODE RESERVASI</span>
+            <span class="font-mono text-lg font-bold text-[#7F513C] block">${item.code}</span>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between border-b border-[#E8DFD5] pb-2">
+              <span class="text-[#8E847C]">Nama Tamu:</span>
+              <span class="font-bold text-[#1A1816]">${item.guestName}</span>
+            </div>
+            <div class="flex justify-between border-b border-[#E8DFD5] pb-2">
+              <span class="text-[#8E847C]">No. WhatsApp:</span>
+              <span class="font-bold text-[#1A1816]">${item.guestPhone}</span>
+            </div>
+            <div class="flex justify-between border-b border-[#E8DFD5] pb-2">
+              <span class="text-[#8E847C]">Jadwal Datang:</span>
+              <span class="font-bold text-[#1A1816]">${item.dateText} (${item.timeText})</span>
+            </div>
+            <div class="flex justify-between border-b border-[#E8DFD5] pb-2">
+              <span class="text-[#8E847C]">Perawatan:</span>
+              <span class="font-bold text-[#1A1816] text-right">${item.services.join(', ')}</span>
+            </div>
+            <div class="flex justify-between border-b border-[#E8DFD5] pb-2">
+              <span class="text-[#8E847C]">Total Estimasi:</span>
+              <span class="font-bold text-[#7F513C]">Rp ${item.total.toLocaleString('id-ID')}</span>
+            </div>
+            <div class="flex justify-between border-b border-[#E8DFD5] pb-2">
+              <span class="text-[#8E847C]">Jalur Booking:</span>
+              <span class="font-bold text-[#1A1816]">${item.channel === 'dashboard' ? 'Dashboard Admin' : 'WhatsApp OpenGraph Direct'}</span>
+            </div>
+            <div class="flex justify-between border-b border-[#E8DFD5] pb-2">
+              <span class="text-[#8E847C]">Status Saat Ini:</span>
+              <span class="font-bold text-[#7F513C]">${item.status}</span>
+            </div>
+            <div class="pt-1">
+              <span class="text-[#8E847C] block mb-1">Catatan Tambahan:</span>
+              <p class="p-2.5 rounded-xl bg-[#FBF8F4] border border-[#E8DFD5] text-[#1A1816] text-xs italic">
+                ${item.guestNote || 'Tidak ada catatan khusus.'}
+              </p>
+            </div>
+          </div>
+        `;
+      }
+
+      if (detailWaBtn) {
+        const cleanPhone = item.guestPhone.replace(/[^0-9]/g, '');
+        const intlPhone = cleanPhone.startsWith('0') ? '62' + cleanPhone.slice(1) : cleanPhone;
+        const msg = `Halo Kak ${item.guestName}! Kami dari Sonae Beauty Studio Madiun mengenai kode reservasi ${item.code}...`;
+        detailWaBtn.onclick = () => {
+          window.open(`https://wa.me/${intlPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+        };
+      }
+
+      if (deleteDetailBtn) {
+        deleteDetailBtn.onclick = () => {
+          if (confirm('Hapus reservasi ini?')) {
+            bookings = bookings.filter(b => b.id !== item.id);
+            saveBookings();
+            updateKPIs();
+            renderTable();
+            detailModal?.classList.add('hidden');
+            detailModal?.classList.remove('flex');
+          }
+        };
+      }
+
+      if (detailModal) {
+        detailModal.classList.remove('hidden');
+        detailModal.classList.add('flex');
+      }
+    }
+
+    if (closeDetailModalBtn && detailModal) {
+      closeDetailModalBtn.addEventListener('click', () => {
+        detailModal.classList.add('hidden');
+        detailModal.classList.remove('flex');
+      });
+    }
+
+    // Walkin Modal Handling
+    const walkinModal = document.getElementById('walkinModal');
+    const openWalkinModalBtn = document.getElementById('openWalkinModalBtn');
+    const closeWalkinModalBtn = document.getElementById('closeWalkinModalBtn');
+    const cancelWalkinBtn = document.getElementById('cancelWalkinBtn');
+    const walkinForm = document.getElementById('walkinForm') as HTMLFormElement;
+    const walkinDate = document.getElementById('walkinDate') as HTMLInputElement;
+
+    if (walkinDate) {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      walkinDate.value = `${yyyy}-${mm}-${dd}`;
+    }
+
+    function openWalkin() {
+      if (walkinModal) {
+        walkinModal.classList.remove('hidden');
+        walkinModal.classList.add('flex');
+      }
+    }
+
+    function closeWalkin() {
+      if (walkinModal) {
+        walkinModal.classList.add('hidden');
+        walkinModal.classList.remove('flex');
+      }
+    }
+
+    if (openWalkinModalBtn) openWalkinModalBtn.addEventListener('click', openWalkin);
+    if (closeWalkinModalBtn) closeWalkinModalBtn.addEventListener('click', closeWalkin);
+    if (cancelWalkinBtn) cancelWalkinBtn.addEventListener('click', closeWalkin);
+
+    if (walkinForm) {
+      walkinForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameInput = document.getElementById('walkinName') as HTMLInputElement;
+        const phoneInput = document.getElementById('walkinPhone') as HTMLInputElement;
+        const serviceSelect = document.getElementById('walkinService') as HTMLSelectElement;
+        const timeSelect = document.getElementById('walkinTime') as HTMLSelectElement;
+        const statusSelect = document.getElementById('walkinStatus') as HTMLSelectElement;
+        const noteInput = document.getElementById('walkinNote') as HTMLTextAreaElement;
+
+        const [svcName, svcPrice] = (serviceSelect?.value || 'Layanan|0').split('|');
+
+        const now = new Date();
+        const y = now.getFullYear();
+        const m = String(now.getMonth() + 1).padStart(2, '0');
+        const d = String(now.getDate()).padStart(2, '0');
+        const randomNum = Math.floor(1000 + Math.random() * 9000);
+        const code = `SN-${y}${m}${d}-${randomNum}`;
+
+        const dateVal = walkinDate?.value ? new Date(walkinDate.value) : new Date();
+        const dateFormatted = dateVal.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+        const newBooking: BookingItem = {
+          id: 'bk_' + Date.now(),
+          code,
+          guestName: nameInput?.value.trim() || 'Tamu Walk-in',
+          guestPhone: phoneInput?.value.trim() || '-',
+          guestNote: noteInput?.value.trim() || 'Walk-in / Reservasi Kasir',
+          services: [svcName],
+          total: parseInt(svcPrice || '0', 10),
+          dateText: dateFormatted,
+          timeText: timeSelect?.value || '13:00 WIB',
+          channel: 'dashboard',
+          status: (statusSelect?.value as BookingItem['status']) || 'Terkonfirmasi',
+          createdAt: new Date().toISOString()
+        };
+
+        bookings.unshift(newBooking);
+        saveBookings();
+        updateKPIs();
+        renderTable();
+        closeWalkin();
+        walkinForm.reset();
+        alert(`Reservasi berhasil disimpan dengan kode ${code}!`);
+      });
+    }
+
+    // Filter Listeners
+    statusTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        statusTabs.forEach(t => {
+          t.classList.remove('active', 'bg-[#7F513C]', 'text-white');
+          t.classList.add('bg-[#F3ECE3]', 'text-[#5C544E]');
+        });
+        tab.classList.add('active', 'bg-[#7F513C]', 'text-white');
+        tab.classList.remove('bg-[#F3ECE3]', 'text-[#5C544E]');
+
+        currentStatusFilter = tab.getAttribute('data-status') || 'all';
+        renderTable();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        currentSearchQuery = searchInput.value.trim();
+        renderTable();
+      });
+    }
+
+    if (channelFilter) {
+      channelFilter.addEventListener('change', () => {
+        currentChannelFilter = channelFilter.value;
+        renderTable();
+      });
+    }
+
+    if (resetFilterBtn) {
+      resetFilterBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        if (channelFilter) channelFilter.value = 'all';
+        currentSearchQuery = '';
+        currentChannelFilter = 'all';
+        currentStatusFilter = 'all';
+
+        statusTabs.forEach((t, idx) => {
+          if (idx === 0) {
+            t.classList.add('active', 'bg-[#7F513C]', 'text-white');
+            t.classList.remove('bg-[#F3ECE3]', 'text-[#5C544E]');
+          } else {
+            t.classList.remove('active', 'bg-[#7F513C]', 'text-white');
+            t.classList.add('bg-[#F3ECE3]', 'text-[#5C544E]');
+          }
+        });
+
+        renderTable();
+      });
+    }
+
+    // Seed Data Listeners
+    const seedDataBtn = document.getElementById('seedDataBtn');
+    const emptySeedBtn = document.getElementById('emptySeedBtn');
+    function triggerSeed() {
+      bookings = [...SAMPLE_BOOKINGS];
+      saveBookings();
+      updateKPIs();
+      renderTable();
+      alert('Data contoh reservasi berhasil dimuat!');
+    }
+    if (seedDataBtn) seedDataBtn.addEventListener('click', triggerSeed);
+    if (emptySeedBtn) emptySeedBtn.addEventListener('click', triggerSeed);
+
+    // =================================================================
+    // EXPORT HANDLERS: EXCEL (.xlsx), CSV, & JSON
+    // =================================================================
+    const exportExcelBtn = document.getElementById('exportExcelBtn');
+    const toggleExportMenuBtn = document.getElementById('toggleExportMenuBtn');
+    const exportMenuDropdown = document.getElementById('exportMenuDropdown');
+    const exportMenuXlsx = document.getElementById('exportMenuXlsx');
+    const exportMenuCsv = document.getElementById('exportMenuCsv');
+    const exportMenuJson = document.getElementById('exportMenuJson');
+
+    // Toggle Dropdown Menu
+    if (toggleExportMenuBtn && exportMenuDropdown) {
+      toggleExportMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        exportMenuDropdown.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', () => {
+        exportMenuDropdown.classList.add('hidden');
+      });
+    }
+
+    // Function to generate Excel .xlsx
+    function downloadExcelXlsx() {
+      if (!bookings || bookings.length === 0) {
+        alert('Tidak ada data reservasi untuk diekspor.');
+        return;
+      }
+
+      const rows = bookings.map((b, idx) => ({
+        'No': idx + 1,
+        'Kode Booking': b.code,
+        'Nama Tamu': b.guestName,
+        'No. WhatsApp': b.guestPhone,
+        'Jadwal Tanggal': b.dateText,
+        'Jam Kunjungan': b.timeText,
+        'Layanan Perawatan': b.services.join(', '),
+        'Estimasi Total Biaya (Rp)': b.total,
+        'Jalur Booking': b.channel === 'dashboard' ? 'Dashboard Web Admin' : 'WhatsApp Direct',
+        'Status Antrean': b.status,
+        'Catatan Khusus': b.guestNote || '-',
+        'Waktu Registrasi': new Date(b.createdAt).toLocaleString('id-ID')
+      }));
+
+      const worksheet = XLSX.utils.json_to_sheet(rows);
+
+      worksheet['!cols'] = [
+        { wch: 6 },
+        { wch: 20 },
+        { wch: 24 },
+        { wch: 18 },
+        { wch: 26 },
+        { wch: 14 },
+        { wch: 38 },
+        { wch: 26 },
+        { wch: 24 },
+        { wch: 22 },
+        { wch: 32 },
+        { wch: 22 }
+      ];
+
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Data Reservasi Sonae');
+
+      const dateStr = new Date().toISOString().slice(0, 10);
+      XLSX.writeFile(workbook, `Data_Reservasi_Sonae_Studio_${dateStr}.xlsx`);
+    }
+
+    // Function to generate CSV with UTF-8 BOM
+    function downloadCsv() {
+      if (!bookings || bookings.length === 0) {
+        alert('Tidak ada data reservasi untuk diekspor.');
+        return;
+      }
+
+      const headers = ['No', 'Kode Booking', 'Nama Tamu', 'No WhatsApp', 'Tanggal', 'Jam', 'Layanan', 'Total Biaya', 'Jalur', 'Status', 'Catatan', 'Waktu Input'];
+      const csvRows = [headers.join(',')];
+
+      bookings.forEach((b, idx) => {
+        const row = [
+          idx + 1,
+          `"${b.code}"`,
+          `"${(b.guestName || '').replace(/"/g, '""')}"`,
+          `"${b.guestPhone}"`,
+          `"${b.dateText}"`,
+          `"${b.timeText}"`,
+          `"${(b.services.join('; ')).replace(/"/g, '""')}"`,
+          b.total,
+          `"${b.channel}"`,
+          `"${b.status}"`,
+          `"${(b.guestNote || '-').replace(/"/g, '""')}"`,
+          `"${new Date(b.createdAt).toLocaleString('id-ID')}"`
+        ];
+        csvRows.push(row.join(','));
+      });
+
+      const blob = new Blob(['\uFEFF' + csvRows.join('\r\n')], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Data_Reservasi_Sonae_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    // Function to generate JSON backup
+    function downloadJson() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(bookings, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `reservasi_sonae_${new Date().toISOString().slice(0,10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    if (exportExcelBtn) exportExcelBtn.addEventListener('click', downloadExcelXlsx);
+    if (exportMenuXlsx) exportMenuXlsx.addEventListener('click', downloadExcelXlsx);
+    if (exportMenuCsv) exportMenuCsv.addEventListener('click', downloadCsv);
+    if (exportMenuJson) exportMenuJson.addEventListener('click', downloadJson);
+
+    // Print Recap Listener
+    const printBtn = document.getElementById('printRecapBtn');
+    if (printBtn) {
+      printBtn.addEventListener('click', () => {
+        window.print();
+      });
+    }
+
+    // Initial render
+    updateKPIs();
+    renderTable();
+  });
+</script>
