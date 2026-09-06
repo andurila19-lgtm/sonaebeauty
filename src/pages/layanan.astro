@@ -1,0 +1,472 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Daftar Layanan & Transparansi Harga — Sonae Salon Madiun"
+  description="Semua harga tercantum jelas tanpa biaya tersembunyi. Layanan Korean smoothing keratin, Japanese gel nail art, lash lift, dan head spa aromaterapi."
+  activePage="layanan"
+>
+
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-8 sm:py-12">
+    
+    <!-- Top Editorial Header & Assurance Bar -->
+    <div class="w-full bg-[#FAF2EB] rounded-3xl p-6 sm:p-10 border border-[#E8DFD5] mb-10 text-center flex flex-col items-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#7F513C] text-xs font-bold uppercase tracking-wider mb-3 shadow-sm">
+        <span class="size-2 rounded-full bg-[#7F513C]"></span>
+        <span>Menu Resmi &amp; Transparansi Penuh</span>
+      </div>
+      <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1816] max-w-3xl mb-3">
+        Daftar Layanan &amp; Transparansi Harga
+      </h1>
+      <p class="text-sm sm:text-base text-[#5C544E] max-w-2xl mx-auto mb-8 leading-relaxed">
+        Semua harga tercantum jelas tanpa biaya tersembunyi. Termasuk konsultasi awal gratis dan sterilisasi instrumen sebelum setiap sesi.
+      </p>
+
+      <!-- Trust Badges Strip -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-4xl">
+        <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white text-left shadow-sm border border-[#E8DFD5]">
+          <span class="material-symbols-outlined text-[#7F513C] text-[24px]">verified</span>
+          <div>
+            <div class="text-xs sm:text-sm font-bold text-[#1A1816]">Harga Final</div>
+            <div class="text-[11px] text-[#5C544E]">Tanpa biaya admin / tuslah</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white text-left shadow-sm border border-[#E8DFD5]">
+          <span class="material-symbols-outlined text-[#7F513C] text-[24px]">sanitizer</span>
+          <div>
+            <div class="text-xs sm:text-sm font-bold text-[#1A1816]">Steril UV-C</div>
+            <div class="text-[11px] text-[#5C544E]">Higienis di setiap tamu</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white text-left shadow-sm border border-[#E8DFD5]">
+          <span class="material-symbols-outlined text-[#7F513C] text-[24px]">forum</span>
+          <div>
+            <div class="text-xs sm:text-sm font-bold text-[#1A1816]">Free Konsultasi</div>
+            <div class="text-[11px] text-[#5C544E]">Analisis rambut &amp; kuku</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white text-left shadow-sm border border-[#E8DFD5]">
+          <span class="material-symbols-outlined text-[#7F513C] text-[24px]">local_cafe</span>
+          <div>
+            <div class="text-xs sm:text-sm font-bold text-[#1A1816]">Welcome Drink</div>
+            <div class="text-[11px] text-[#5C544E]">Seduhan herbal artisan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Category Filter Tabs (BISA DI-SCROLL LANCAR: TOUCH, MOUSE DRAG & WHEEL) -->
+    <div class="sticky top-16 sm:top-20 z-30 bg-[#FBF8F4]/95 backdrop-blur-md py-3 mb-8 border-b border-[#E8DFD5]">
+      <div class="relative w-full flex items-center">
+        <!-- Tombol Scroll Kiri -->
+        <button 
+          id="scrollLeftLayanan" 
+          type="button"
+          aria-label="Scroll Kategori ke Kiri" 
+          class="hidden sm:flex absolute -left-2 sm:-left-3 z-20 size-8 rounded-full bg-white/95 backdrop-blur-sm border border-[#E8DFD5] text-[#141414] hover:bg-[#7F513C] hover:text-white items-center justify-center shadow-md transition-all cursor-pointer"
+        >
+          <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+        </button>
+
+        <!-- Scrollable Track -->
+        <div 
+          id="layananTabsContainer" 
+          class="flex items-center gap-2 scroll-touch-x no-scrollbar py-1 px-1 w-full cursor-grab active:cursor-grabbing select-none"
+        >
+          <button class="layanan-tab active px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-[#7F513C] text-white shadow-sm transition-all shrink-0 cursor-pointer" data-filter="all">
+            Semua Layanan
+          </button>
+          <button class="layanan-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-filter="hair">
+            Hair Care &amp; Styling
+          </button>
+          <button class="layanan-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-filter="spa">
+            Treatment &amp; Hair Spa
+          </button>
+          <button class="layanan-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-filter="nail">
+            Nail Art &amp; Care
+          </button>
+          <button class="layanan-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-filter="lash">
+            Lash &amp; Beauty Face
+          </button>
+        </div>
+
+        <!-- Tombol Scroll Kanan -->
+        <button 
+          id="scrollRightLayanan" 
+          type="button"
+          aria-label="Scroll Kategori ke Kanan" 
+          class="hidden sm:flex absolute -right-2 sm:-right-3 z-20 size-8 rounded-full bg-white/95 backdrop-blur-sm border border-[#E8DFD5] text-[#141414] hover:bg-[#7F513C] hover:text-white items-center justify-center shadow-md transition-all cursor-pointer"
+        >
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Services Stream List -->
+    <div class="space-y-12" id="layananMenuContainer">
+      
+      <!-- CATEGORY 1: HAIR CARE & STYLING -->
+      <article class="layanan-section space-y-4" data-category="hair">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between pb-3 border-b border-[#E8DFD5] gap-2">
+          <div>
+            <span class="text-xs font-bold text-[#7F513C] uppercase tracking-wider block">Kategori 01</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#1A1816]">Hair Care &amp; Styling</h2>
+          </div>
+          <span class="text-xs text-[#5C544E] flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px] text-[#7F513C]">spa</span>
+            <span>Formula BPOM &amp; Bebas Amonia Keras</span>
+          </span>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Item 1 -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DFD5] shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                <h3 class="font-serif text-lg font-bold text-[#1A1816]">Sonae Signature Haircut &amp; Styling Blow</h3>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[12px]">schedule</span> 45 Menit
+                </span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold">Populer</span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed">
+                Konsultasi bentuk wajah, cuci rambut aromaterapi, potong presisi, dan styling blow lembut natural.
+              </p>
+            </div>
+            <div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-[#E8DFD5]">
+              <div class="text-left md:text-right">
+                <span class="text-[10px] text-[#8E847C] uppercase block">Biaya Layanan</span>
+                <span class="font-sans text-lg sm:text-xl font-bold text-[#7F513C]">Rp 85.000</span>
+              </div>
+              <a href="/booking" class="px-5 py-2.5 rounded-xl bg-[#7F513C] text-white text-xs font-bold hover:bg-[#633B2A] transition-all shrink-0">
+                Booking
+              </a>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DFD5] shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                <h3 class="font-serif text-lg font-bold text-[#1A1816]">Korean Keratin Smoothing Silk</h3>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[12px]">schedule</span> 150 Menit
+                </span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold">Best Seller</span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed">
+                Meluruskan rambut natural tanpa kaku seperti sapu ijuk, menutrisi kutikula rambut kering dan mengembang tahan hingga 6 bulan.
+              </p>
+            </div>
+            <div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-[#E8DFD5]">
+              <div class="text-left md:text-right">
+                <span class="text-[10px] text-[#8E847C] uppercase block">Tergantung Panjang</span>
+                <span class="font-sans text-lg sm:text-xl font-bold text-[#7F513C]">Rp 350.000 – Rp 550.000</span>
+              </div>
+              <a href="/booking" class="px-5 py-2.5 rounded-xl bg-[#7F513C] text-white text-xs font-bold hover:bg-[#633B2A] transition-all shrink-0">
+                Booking
+              </a>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DFD5] shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                <h3 class="font-serif text-lg font-bold text-[#1A1816]">Botanical Balayage &amp; Dimensional Color</h3>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[12px]">schedule</span> 180 Menit
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed">
+                Pewarnaan gradasi lembut dengan produk ammonia-free dan bonding complex untuk menjaga kekuatan rantai protein rambut.
+              </p>
+            </div>
+            <div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-[#E8DFD5]">
+              <div class="text-left md:text-right">
+                <span class="text-[10px] text-[#8E847C] uppercase block">Include Plex Protection</span>
+                <span class="font-sans text-lg sm:text-xl font-bold text-[#7F513C]">Rp 450.000 – Rp 700.000</span>
+              </div>
+              <a href="/booking" class="px-5 py-2.5 rounded-xl bg-[#7F513C] text-white text-xs font-bold hover:bg-[#633B2A] transition-all shrink-0">
+                Booking
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CATEGORY 2: TREATMENT & HAIR SPA -->
+      <article class="layanan-section space-y-4" data-category="spa">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between pb-3 border-b border-[#E8DFD5] gap-2">
+          <div>
+            <span class="text-xs font-bold text-[#7F513C] uppercase tracking-wider block">Kategori 02</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#1A1816]">Treatment &amp; Hair Spa</h2>
+          </div>
+          <span class="text-xs text-[#5C544E] flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px] text-[#7F513C]">self_improvement</span>
+            <span>Relaksasi Batang Rambut &amp; Kulit Kepala</span>
+          </span>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Item 4 -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DFD5] shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                <h3 class="font-serif text-lg font-bold text-[#1A1816]">Japanese Scalp Detox &amp; Aromatherapy Spa</h3>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[12px]">schedule</span> 90 Menit
+                </span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold">Relaksasi Total</span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed">
+                Pembersihan folikel rambut mendalam, pijat relaksasi leher dan bahu dengan essential oil lavender, disiram water circulator hangat.
+              </p>
+            </div>
+            <div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-[#E8DFD5]">
+              <div class="text-left md:text-right">
+                <span class="text-[10px] text-[#8E847C] uppercase block">Biaya Layanan</span>
+                <span class="font-sans text-lg sm:text-xl font-bold text-[#7F513C]">Rp 275.000</span>
+              </div>
+              <a href="/booking" class="px-5 py-2.5 rounded-xl bg-[#7F513C] text-white text-xs font-bold hover:bg-[#633B2A] transition-all shrink-0">
+                Booking
+              </a>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DFD5] shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                <h3 class="font-serif text-lg font-bold text-[#1A1816]">Intense Damage Recovery Hair Mask</h3>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[12px]">schedule</span> 60 Menit
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed">
+                Perawatan masker berprotein tinggi untuk rambut patah, kering akibat bleaching, atau bercabang.
+              </p>
+            </div>
+            <div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-[#E8DFD5]">
+              <div class="text-left md:text-right">
+                <span class="text-[10px] text-[#8E847C] uppercase block">Biaya Layanan</span>
+                <span class="font-sans text-lg sm:text-xl font-bold text-[#7F513C]">Rp 160.000</span>
+              </div>
+              <a href="/booking" class="px-5 py-2.5 rounded-xl bg-[#7F513C] text-white text-xs font-bold hover:bg-[#633B2A] transition-all shrink-0">
+                Booking
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CATEGORY 3: NAIL ART & CARE -->
+      <article class="layanan-section space-y-4" data-category="nail">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between pb-3 border-b border-[#E8DFD5] gap-2">
+          <div>
+            <span class="text-xs font-bold text-[#7F513C] uppercase tracking-wider block">Kategori 03</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#1A1816]">Nail Art &amp; Care</h2>
+          </div>
+          <span class="text-xs text-[#5C544E] flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px] text-[#7F513C]">brush</span>
+            <span>Alat Steril Autoclave &amp; Gel Impor Jepang</span>
+          </span>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Item 6 -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DFD5] shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                <h3 class="font-serif text-lg font-bold text-[#1A1816]">Japanese Gel Nail Art Custom Design</h3>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[12px]">schedule</span> 60 Menit
+                </span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold">Artisan</span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed">
+                Dry manicure presisi tanpa perih, cat gel Jepang awet tahan hingga 4 minggu tanpa terkelupas, aksen ornamen hand-painted estetik.
+              </p>
+            </div>
+            <div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-[#E8DFD5]">
+              <div class="text-left md:text-right">
+                <span class="text-[10px] text-[#8E847C] uppercase block">Biaya Layanan</span>
+                <span class="font-sans text-lg sm:text-xl font-bold text-[#7F513C]">Rp 145.000</span>
+              </div>
+              <a href="/booking" class="px-5 py-2.5 rounded-xl bg-[#7F513C] text-white text-xs font-bold hover:bg-[#633B2A] transition-all shrink-0">
+                Booking
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CATEGORY 4: LASH & BEAUTY FACE -->
+      <article class="layanan-section space-y-4" data-category="lash">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between pb-3 border-b border-[#E8DFD5] gap-2">
+          <div>
+            <span class="text-xs font-bold text-[#7F513C] uppercase tracking-wider block">Kategori 04</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#1A1816]">Lash &amp; Beauty Face</h2>
+          </div>
+          <span class="text-xs text-[#5C544E] flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px] text-[#7F513C]">visibility</span>
+            <span>Serum Keratin Alami &amp; Bebas Perih</span>
+          </span>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Item 7 -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DFD5] shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                <h3 class="font-serif text-lg font-bold text-[#1A1816]">Keratin Lash Lift &amp; Tint Black</h3>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[12px]">schedule</span> 60 Menit
+                </span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold">Best Seller</span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed">
+                Melentikkan bulu mata alami dari pangkal tanpa ekstensi sintetis. Mata tampak segar dan cerah alami tahan 6–8 minggu.
+              </p>
+            </div>
+            <div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-[#E8DFD5]">
+              <div class="text-left md:text-right">
+                <span class="text-[10px] text-[#8E847C] uppercase block">Tarif Layanan</span>
+                <span class="font-sans text-lg sm:text-xl font-bold text-[#7F513C]">Rp 150.000</span>
+              </div>
+              <a href="/booking" class="px-5 py-2.5 rounded-xl bg-[#7F513C] text-white text-xs font-bold hover:bg-[#633B2A] transition-all shrink-0">
+                Booking
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Bottom CTA Banner -->
+    <div class="mt-14 w-full rounded-3xl bg-[#FAF2EB] p-8 sm:p-12 border border-[#E8DFD5] text-center flex flex-col items-center">
+      <h3 class="font-serif text-2xl sm:text-3xl font-bold text-[#1A1816] mb-2">
+        Butuh Rekomendasi atau Konsultasi Khusus?
+      </h3>
+      <p class="text-sm sm:text-base text-[#5C544E] max-w-xl mb-6">
+        Terapis kami siap mendengarkan kondisi rambut atau kulit Anda sebelum memulai treatment.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-[#25D366] text-white font-bold text-sm hover:bg-green-600 transition-all flex items-center gap-2 shadow-sm">
+          <span class="material-symbols-outlined text-[20px]">chat</span>
+          <span>Konsultasi WhatsApp</span>
+        </a>
+        <a href="/booking" class="px-6 py-3 rounded-xl bg-[#7F513C] text-white font-bold text-sm hover:bg-[#633B2A] transition-all shadow-pill-button">
+          Pilih Slot Booking Online
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+
+  function initLayanan() {
+    gsap.from('.layanan-section', {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'power2.out'
+    });
+
+    const container = document.getElementById('layananTabsContainer');
+    const btnLeft = document.getElementById('scrollLeftLayanan');
+    const btnRight = document.getElementById('scrollRightLayanan');
+    const tabs = document.querySelectorAll('.layanan-tab');
+    const sections = document.querySelectorAll('.layanan-section');
+
+    // 1. Tombol Navigasi Scroll
+    if (container && btnLeft && btnRight) {
+      btnLeft.addEventListener('click', () => {
+        container.scrollBy({ left: -220, behavior: 'smooth' });
+      });
+      btnRight.addEventListener('click', () => {
+        container.scrollBy({ left: 220, behavior: 'smooth' });
+      });
+
+      // 2. Mouse Wheel ke Horizontal Scroll otomatis
+      container.addEventListener('wheel', (e) => {
+        if (e.deltaY !== 0) {
+          e.preventDefault();
+          container.scrollLeft += e.deltaY;
+        }
+      }, { passive: false });
+
+      // 3. Mouse Drag-to-Scroll (Bisa ditarik kursor seperti di smartphone)
+      let isDown = false;
+      let startX = 0;
+      let scrollLeftPos = 0;
+
+      container.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeftPos = container.scrollLeft;
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDown = false;
+      });
+
+      container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        container.scrollLeft = scrollLeftPos - walk;
+      });
+    }
+
+    // 4. Tab Click Logic + Auto Scroll into center view
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('active', 'bg-[#7F513C]', 'text-white', 'shadow-sm');
+          t.classList.add('bg-[#F3ECE3]', 'text-[#5C544E]');
+        });
+
+        tab.classList.add('active', 'bg-[#7F513C]', 'text-white', 'shadow-sm');
+        tab.classList.remove('bg-[#F3ECE3]', 'text-[#5C544E]');
+
+        // Scroll tombol aktif ke tengah tampilan secara halus
+        tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+        const filter = tab.getAttribute('data-filter');
+        const visibleSections: HTMLElement[] = [];
+
+        sections.forEach(sec => {
+          const el = sec as HTMLElement;
+          if (filter === 'all' || el.getAttribute('data-category') === filter) {
+            el.style.display = 'block';
+            visibleSections.push(el);
+          } else {
+            el.style.display = 'none';
+          }
+        });
+
+        if (visibleSections.length > 0) {
+          gsap.fromTo(visibleSections, 
+            { opacity: 0, y: 15 },
+            { opacity: 1, y: 0, duration: 0.35, stagger: 0.08, ease: 'power2.out' }
+          );
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initLayanan);
+  document.addEventListener('astro:page-load', initLayanan);
+</script>

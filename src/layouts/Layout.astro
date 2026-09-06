@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  activePage?: 'beranda' | 'layanan' | 'harga' | 'ladies-room' | 'tentang-kami' | 'lokasi' | 'artikel' | 'galeri' | 'booking';
+}
+
+const {
+  title = "Sonae Salon — Salon Rambut & Kecantikan Madiun: Smoothing, Nail Art, Lash Lift",
+  description = "Selamat datang di Sonae Salon Madiun. Kami berkomitmen membantu kamu tampil dan merasa terbaik — mulai dari Korean smoothing, haircut, Japanese nail art, hingga keratin lash lift. #semuaberhakcakep",
+  activePage = "beranda"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content="Sonae Beauty Studio" />
+  <meta name="keywords" content="salon madiun, smoothing madiun, salon kecantikan madiun, japanese nail art madiun, lash lift madiun, sonae salon" />
+  
+  <!-- Canonical & OpenGraph -->
+  <link rel="canonical" href={Astro.url.href} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url.href} />
+  <meta property="og:locale" content="id_ID" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/logo_emblem.png" />
+
+  <!-- Google Fonts: Libre Baskerville & Plus Jakarta Sans & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Schema.org LocalBusiness (GEO & AEO Optimization for Madiun) -->
+  <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "HairSalon",
+      "name": "Sonae Beauty Studio",
+      "image": "https://sonaebeauty.vercel.app/images/logo_sonae_full.png",
+      "slogan": "#semuaberhakcakep",
+      "telephone": "+6281234567890",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Thamrin, Klegen, Kec. Kartoharjo",
+        "addressLocality": "Kota Madiun",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "63117",
+        "addressCountry": "ID"
+      },
+      "hasMap": "https://www.google.com/maps/place/Sonae+Beauty+Studio/@-7.6319626,111.5320524,16z/data=!4m16!1m9!3m8!1s0x2e79bf6d3ff89189:0xd9554dae719bd9ac!2sSonae+Beauty+Studio!8m2!3d-7.6307637!4d111.532938!9m1!1b1!16s%2Fg%2F11h02l60vl!3m5!1s0x2e79bf6d3ff89189:0xd9554dae719bd9ac!8m2!3d-7.6307637!4d111.532938!16s%2Fg%2F11h02l60vl?entry=ttu",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -7.6307637,
+        "longitude": 111.532938
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "752"
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#FBF8F4] text-[#1A1816] font-sans antialiased selection:bg-[#F6ECE6] selection:text-[#633B2A] min-h-screen flex flex-col justify-between">
+  
+  <Navbar activePage={activePage} />
+  
+  <main class="w-full pt-[64px] sm:pt-[72px] lg:pt-[60px] flex flex-col items-center flex-1">
+    <slot />
+  </main>
+
+  <Footer />
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Lokasi & Petunjuk Arah — Sonae Beauty Studio Jl. Thamrin Madiun"
+  description="Panduan lokasi resmi Sonae Beauty Studio di Jl. Thamrin, Klegen, Kec. Kartoharjo, Kota Madiun 63117. Fasilitas parkir privat luas, rute petunjuk arah dari Stasiun Madiun & Mall Sun City, jam buka salon."
+  activePage="lokasi"
+>
+
+  <!-- ================================================================= -->
+  <!-- HERO LOKASI -->
+  <!-- ================================================================= -->
+  <section class="relative w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-8 sm:pt-12 pb-8">
+    <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-[#FAF2EB] text-[#7F513C] font-bold text-xs tracking-wider uppercase mb-3">
+        SANCTUARY KOTA MADIUN
+      </span>
+      <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#141414] mb-3">
+        Lokasi Studio &amp; Akses Nyaman
+      </h1>
+      <p class="text-sm sm:text-base text-[#444444] leading-relaxed">
+        Terletak di jalan utama Jl. Thamrin, Klegen, Kec. Kartoharjo, Kota Madiun yang asri, tenang, dan strategis di pusat kota dengan fasilitas parkir kendaraan mobil dan motor yang aman dan privat.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- MAP & ADDRESS SHOWCASE CARD (BORDERLESS) -->
+  <!-- ================================================================= -->
+  <section class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-6">
+    <div class="rounded-3xl bg-white p-6 sm:p-10 shadow-soft-card flex flex-col lg:flex-row gap-8 items-center">
+      
+      <!-- Interactive Map Frame -->
+      <div class="w-full lg:w-1/2 aspect-[16/11] rounded-2xl overflow-hidden shadow-sm relative group bg-[#F3ECE3] border border-[#E8DFD5]">
+        <iframe
+          src="https://maps.google.com/maps?q=-7.6307637,111.532938+(Sonae%20Beauty%20Studio)&t=&z=16&ie=UTF8&iwloc=B&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Peta Lokasi Sonae Beauty Studio Madiun"
+          class="w-full h-full min-h-[280px]"
+        ></iframe>
+        <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-3.5 rounded-xl shadow-md flex items-center justify-between pointer-events-auto border border-[#EFEBE4]">
+          <div>
+            <p class="font-serif font-bold text-sm text-[#1A1816]">Sonae Beauty Studio</p>
+            <p class="text-[11px] text-[#5C544E]">Jl. Thamrin, Klegen, Madiun 63117</p>
+          </div>
+          <a 
+            href="https://www.google.com/maps/place/Sonae+Beauty+Studio/@-7.6319626,111.5320524,16z/data=!4m16!1m9!3m8!1s0x2e79bf6d3ff89189:0xd9554dae719bd9ac!2sSonae+Beauty+Studio!8m2!3d-7.6307637!4d111.532938!9m1!1b1!16s%2Fg%2F11h02l60vl!3m5!1s0x2e79bf6d3ff89189:0xd9554dae719bd9ac!8m2!3d-7.6307637!4d111.532938!16s%2Fg%2F11h02l60vl?entry=ttu" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="px-4 py-2 rounded-xl bg-[#7F513C] text-white text-xs font-bold hover:bg-[#633B2A] transition-all flex items-center gap-1.5 cursor-pointer shadow-sm shrink-0"
+          >
+            <span class="material-symbols-outlined text-[16px]">navigation</span>
+            <span>Navigasi Maps</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Studio Details & Operating Hours -->
+      <div class="w-full lg:w-1/2 flex flex-col justify-center space-y-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#7F513C] block mb-1">
+            ALAMAT RESMI
+          </span>
+          <h3 class="font-serif text-2xl font-bold text-[#1A1816] mb-2">
+            Jl. Thamrin, Klegen, Madiun
+          </h3>
+          <p class="text-xs sm:text-sm text-[#555555] leading-relaxed">
+            Jl. Thamrin, Klegen, Kec. Kartoharjo, Kota Madiun, Jawa Timur 63117.<br/>
+            (Patokan: Berada di koridor Jl. Thamrin yang asri, seberang deretan ruko kuliner &amp; mudah dijangkau dari seluruh penjuru Kota Madiun).
+          </p>
+        </div>
+
+        <div class="space-y-3 bg-[#FAF2EB] p-4 rounded-2xl text-xs sm:text-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-[#555555] font-medium">Selasa — Minggu:</span>
+            <span class="font-bold text-[#1A1816]">10.00 — 18.00 WIB</span>
+          </div>
+          <div class="flex items-center justify-between pt-2 border-t border-[#E8DFD5]">
+            <span class="text-[#7A2B2B] font-medium">Senin:</span>
+            <span class="font-semibold text-[#7A2B2B]">Tutup (Sterilisasi Alat &amp; Studio)</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 pt-1">
+          <a href="/booking" class="px-7 py-3.5 rounded-xl bg-[#BFAF86] text-[#141414] font-bold text-xs hover:brightness-95 shadow-sm transition-all">
+            Reservasi Jadwal Datang
+          </a>
+          <a href="https://www.google.com/maps/place/Sonae+Beauty+Studio/@-7.6319626,111.5320524,16z/data=!4m16!1m9!3m8!1s0x2e79bf6d3ff89189:0xd9554dae719bd9ac!2sSonae+Beauty+Studio!8m2!3d-7.6307637!4d111.532938!9m1!1b1!16s%2Fg%2F11h02l60vl!3m5!1s0x2e79bf6d3ff89189:0xd9554dae719bd9ac!8m2!3d-7.6307637!4d111.532938!16s%2Fg%2F11h02l60vl?entry=ttu" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-white text-[#141414] font-semibold text-xs hover:bg-[#FAF2EB] shadow-sm transition-all flex items-center gap-2 border border-[#E8DFD5]">
+            <span class="material-symbols-outlined text-[#7F513C] text-[18px]">place</span>
+            <span>Buka Google Maps</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- RUTE & PETUNJUK DARI LANDMARK MADIUN -->
+  <!-- ================================================================= -->
+  <section class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-10">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#7F513C] block mb-1">RUTE PERJALANAN</span>
+      <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#141414]">Menuju Sonae dari Pusat Landmark Madiun</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <div class="rounded-3xl bg-white p-6 shadow-soft-card">
+        <div class="flex items-center gap-2 text-[#7F513C] font-bold text-xs mb-2">
+          <span class="material-symbols-outlined text-[20px]">train</span>
+          <span>DARI STASIUN BESAR MADIUN</span>
+        </div>
+        <h4 class="font-serif font-bold text-base text-[#141414] mb-2">Estimasi 7 Menit (2.5 km)</h4>
+        <p class="text-xs text-[#555555] leading-relaxed">
+          Ambil arah selatan menuju Jl. Kompol Sunaryo, lalu ke Jl. Pahlawan, belok kiri menuju Jl. Cokroaminoto, dan lanjutkan lurus hingga tiba di Jl. Thamrin di sebelah kanan jalan.
+        </p>
+      </div>
+
+      <div class="rounded-3xl bg-white p-6 shadow-soft-card">
+        <div class="flex items-center gap-2 text-[#7F513C] font-bold text-xs mb-2">
+          <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+          <span>DARI SUN CITY MALL MADIUN</span>
+        </div>
+        <h4 class="font-serif font-bold text-base text-[#141414] mb-2">Estimasi 5 Menit (1.8 km)</h4>
+        <p class="text-xs text-[#555555] leading-relaxed">
+          Dari Jl. S. Parman, ikuti jalur ke Jl. Thamrin. Lurus sekitar 500 meter melewati persimpangan, studio Sonae terletak di deretan jalan utama yang teduh.
+        </p>
+      </div>
+
+      <div class="rounded-3xl bg-white p-6 shadow-soft-card">
+        <div class="flex items-center gap-2 text-[#7F513C] font-bold text-xs mb-2">
+          <span class="material-symbols-outlined text-[20px]">park</span>
+          <span>DARI ALUN-ALUN KOTA MADIUN</span>
+        </div>
+        <h4 class="font-serif font-bold text-base text-[#141414] mb-2">Estimasi 6 Menit (2.1 km)</h4>
+        <p class="text-xs text-[#555555] leading-relaxed">
+          Menuju arah timur via Jl. Kolonel Marhadi, lalu belok ke Jl. Musi dan tembus ke Jl. Thamrin. Lokasi salon sangat mudah dikenali dengan plang nama elegan Sonae.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- FASILITAS STUDIO -->
+  <!-- ================================================================= -->
+  <section class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-10">
+    <div class="rounded-3xl bg-[#F4EFEA] p-6 sm:p-10 md:p-12 shadow-soft-card">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#7F513C] block mb-1">KENYAMANAN KEDATANGAN</span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#141414]">Fasilitas Studio untuk Pelanggan</h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="bg-white rounded-2xl p-6 shadow-sm flex flex-col items-center">
+          <span class="material-symbols-outlined text-3xl text-[#7F513C] mb-2">local_parking</span>
+          <h4 class="font-serif font-bold text-sm text-[#141414] mb-1">Parkir Privat Luas</h4>
+          <p class="text-[11px] text-[#666666]">Aman untuk mobil &amp; motor</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm flex flex-col items-center">
+          <span class="material-symbols-outlined text-3xl text-[#7F513C] mb-2">wifi</span>
+          <h4 class="font-serif font-bold text-sm text-[#141414] mb-1">Wi-Fi Cepat Gratis</h4>
+          <p class="text-[11px] text-[#666666]">Nyaman sambil WFH/me time</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm flex flex-col items-center">
+          <span class="material-symbols-outlined text-3xl text-[#7F513C] mb-2">coffee</span>
+          <h4 class="font-serif font-bold text-sm text-[#141414] mb-1">Welcome Drinks</h4>
+          <p class="text-[11px] text-[#666666]">Teh herbal hangat &amp; kopi</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm flex flex-col items-center">
+          <span class="material-symbols-outlined text-3xl text-[#7F513C] mb-2">ac_unit</span>
+          <h4 class="font-serif font-bold text-sm text-[#141414] mb-1">Full AC &amp; Aromaterapi</h4>
+          <p class="text-[11px] text-[#666666]">Sejuk, tenang, dan wangi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

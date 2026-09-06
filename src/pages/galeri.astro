@@ -1,0 +1,423 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Galeri Hasil Portofolio — Sonae Salon Madiun"
+  description="Koleksi foto transformasi nyata hasil perawatan Korean smoothing, nail art, lash lift, dan suasana salon Sonae di Jl. Thamrin Madiun."
+  activePage="galeri"
+>
+
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-8 sm:py-12">
+    
+    <!-- Top Editorial Header & Intro -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#E8DFD5]">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF2EB] text-[#7F513C] text-xs font-bold uppercase tracking-wider mb-3 shadow-sm">
+          <span class="size-2 rounded-full bg-[#7F513C] animate-pulse"></span>
+          <span>Dokumentasi Eksklusif Madiun</span>
+        </div>
+        <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1816] tracking-tight mb-2">
+          Ruang Studio &amp; Hasil Karya Kami
+        </h1>
+        <p class="text-sm sm:text-base text-[#5C544E] leading-relaxed">
+          Setiap helai rambut dan kuku dikerjakan dengan cinta, presisi, dan higienitas tinggi demi kepuasan paripurna Anda.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 text-xs font-semibold text-[#5C544E] p-3 rounded-2xl bg-white border border-[#E8DFD5] shadow-sm shrink-0">
+        <span class="material-symbols-outlined text-[18px] text-[#C68D37]">verified</span>
+        <span>100% Foto Riil di Studio Sonae</span>
+      </div>
+    </div>
+    
+    <!-- ============================================================= -->
+    <!-- SWIPER FEATURED SHOWCASE CAROUSEL (SMOOTH TOUCH & DRAG) -->
+    <!-- ============================================================= -->
+    <div class="w-full my-8">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#7F513C] block">HIGHLIGHTS</span>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-[#1A1816]">Sorotan Transformasi Pilihan</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="galeriSwiperPrev" aria-label="Slide sebelumnya" class="size-9 rounded-full bg-white border border-[#E8DFD5] text-[#1A1816] hover:bg-[#7F513C] hover:text-white flex items-center justify-center transition-colors shadow-sm cursor-pointer">
+            <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+          </button>
+          <button id="galeriSwiperNext" aria-label="Slide berikutnya" class="size-9 rounded-full bg-white border border-[#E8DFD5] text-[#1A1816] hover:bg-[#7F513C] hover:text-white flex items-center justify-center transition-colors shadow-sm cursor-pointer">
+            <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Swiper Container -->
+      <div class="swiper galeri-featured-swiper w-full rounded-3xl overflow-hidden shadow-soft-card bg-white p-3 sm:p-4">
+        <div class="swiper-wrapper">
+          
+          <div class="swiper-slide !w-auto">
+            <div class="w-[280px] sm:w-[320px] aspect-[4/5] rounded-2xl overflow-hidden relative group bg-[#F3ECE3]">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXtN5iHIGhC6Juy-Up5-Cbr06SIg-gu4fPCNAGlq3QcxcXMM6EnKRBJaZWxDfTs8_pjTikDCAfM8M4CANajFU7OwLLJLu4ROWoqNbD57yQHC1qOKbXXdxndzJUgJCpfngpVNljvKS8gqzbSvIEoCbiOck0hQAfClbmmJqVyjyemlQpad71dNjxg4gtyDAwrW0gJR6T1Cx79Cd0Sxsd50X9GFY82dgehk3aLEJLUlefGbwXJOG71WvobQ" alt="Korean Smoothing Keratin" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-[#F6ECE6]">Hair Care</span>
+                <p class="font-serif font-bold text-base">Korean Smoothing Keratin</p>
+                <p class="text-xs text-neutral-200 mt-0.5">Lurus berkilau natural tanpa kaku</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide !w-auto">
+            <div class="w-[280px] sm:w-[320px] aspect-[4/5] rounded-2xl overflow-hidden relative group bg-[#F3ECE3]">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPrn_pyz6E9h9STC6Nt_R1gNRrTYHfb5jw79JbR7SaXgyqn6QUN6nkhD6iz7WMYsG80_LuHCTWaUNU52WqbiBpYRzoxF26jFAmw8-6w2aaqd_j5wg2EM7rDqqyMa1kp6ShY9tyVxl107lJYKb3t1fMJ0BGpkqe9CWscLLJBmnYeIbmmVrpOchPkKzTBlFz1vxw4oDTnj1N5oUqyIuDcPaDWiy5VWpS_cerFISJJ57LW7Kew98jd_qBIw" alt="Japanese Gel Nail Art" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-[#F6ECE6]">Nail Art</span>
+                <p class="font-serif font-bold text-base">Japanese Gel Ornaments</p>
+                <p class="text-xs text-neutral-200 mt-0.5">Desain elegan kuku sehat tahan 4 minggu</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide !w-auto">
+            <div class="w-[280px] sm:w-[320px] aspect-[4/5] rounded-2xl overflow-hidden relative group bg-[#F3ECE3]">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGMVVTUUs8R0mKOqbEvEGCY0S6yCb9TpsXiZ9ZrJrL-IPXb_VayqntABcIx5C0tvtJNVMDZVRTcYBsAcBuEAyc1NKrfcemX3MoA0hLGd3Sfc7sU1uOol_yWc-AfTIeGoVSZi2J5V5ymkV3WMFs0VCpZQxXXhIs3FaQ2cEpMKQWLB_c5n4dYZhKBU6AcZWepeG-BOVx6nw20tNFn5ZMYwbcMIDdD29njTzNfExSvDxTMxYPJJ4eBmmJOQ" alt="Keratin Lash Lift" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-[#Lash Care]">Lash Care</span>
+                <p class="font-serif font-bold text-base">Keratin Lash Lift &amp; Tint</p>
+                <p class="text-xs text-neutral-200 mt-0.5">Lentik sempurna natural tanpa extension</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide !w-auto">
+            <div class="w-[280px] sm:w-[320px] aspect-[4/5] rounded-2xl overflow-hidden relative group bg-[#F3ECE3]">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8TFpqAihLlZzIZdZJPUwO0q7LEaUgzHW3P_e7mBYWN93PXjt8dBhqKdDG51afyNV-0Mt2AMVPTPSprdSzdUpDFwum1KCT6jTIjBomHS5LMR-3aAtifDvNzFYz36ZuEE2L5vudXNFxE3jwhyAdIHjiiz4Oib50pk9rlSfn9aqV8puC6nKtYggSozaERb5Vly1IGcGD_iAIET2e-t7N0txqI344dTJDyKXQ2Ty_mlhH8vWig_D4D6PLVQ" alt="Hair Transformation" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-[#F6ECE6]">Result</span>
+                <p class="font-serif font-bold text-base">Silk Flow Smoothing</p>
+                <p class="text-xs text-neutral-200 mt-0.5">Transformasi helai lembut bervolume</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination !relative !bottom-0 mt-4"></div>
+      </div>
+    </div>
+
+    <!-- Category Filter Tabs (BISA DI-SCROLL LANCAR: TOUCH, MOUSE DRAG & WHEEL) -->
+    <div class="relative w-full flex items-center my-4">
+      <button 
+        id="scrollLeftGaleri" 
+        type="button"
+        aria-label="Scroll Kategori ke Kiri" 
+        class="hidden sm:flex absolute -left-2 sm:-left-3 z-20 size-8 rounded-full bg-white/95 backdrop-blur-sm border border-[#E8DFD5] text-[#141414] hover:bg-[#7F513C] hover:text-white items-center justify-center shadow-md transition-all cursor-pointer"
+      >
+        <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+      </button>
+
+      <div class="flex items-center gap-2 scroll-touch-x py-3 px-1 no-scrollbar w-full cursor-grab active:cursor-grabbing select-none" id="galeriFilterBar">
+        <button class="galeri-tab active px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-[#7F513C] text-white shadow-sm transition-all shrink-0 cursor-pointer" data-filter="all">
+          Semua Portofolio
+        </button>
+        <button class="galeri-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-filter="hair">
+          Hair Styling &amp; Color
+        </button>
+        <button class="galeri-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-filter="nail">
+          Japanese Nail Art
+        </button>
+        <button class="galeri-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-filter="lash">
+          Lash &amp; Treatment
+        </button>
+        <button class="galeri-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0 cursor-pointer" data-filter="studio">
+          Interior &amp; Sanctuary Studio
+        </button>
+      </div>
+
+      <button 
+        id="scrollRightGaleri" 
+        type="button"
+        aria-label="Scroll Kategori ke Kanan" 
+        class="hidden sm:flex absolute -right-2 sm:-right-3 z-20 size-8 rounded-full bg-white/95 backdrop-blur-sm border border-[#E8DFD5] text-[#141414] hover:bg-[#7F513C] hover:text-white items-center justify-center shadow-md transition-all cursor-pointer"
+      >
+        <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+      </button>
+    </div>
+
+    <!-- Gallery Grid (Responsive: 2 cols mobile, 3-4 cols desktop) -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6" id="galeriGridContainer">
+      
+      <!-- Card 1: Korean Smoothing -->
+      <div class="galeri-item group relative aspect-square rounded-2xl overflow-hidden bg-[#F3ECE3] shadow-sm cursor-pointer border border-[#E8DFD5]" data-category="hair" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuDXtN5iHIGhC6Juy-Up5-Cbr06SIg-gu4fPCNAGlq3QcxcXMM6EnKRBJaZWxDfTs8_pjTikDCAfM8M4CANajFU7OwLLJLu4ROWoqNbD57yQHC1qOKbXXdxndzJUgJCpfngpVNljvKS8gqzbSvIEoCbiOck0hQAfClbmmJqVyjyemlQpad71dNjxg4gtyDAwrW0gJR6T1Cx79Cd0Sxsd50X9GFY82dgehk3aLEJLUlefGbwXJOG71WvobQ" data-title="Korean Smoothing Keratin Silk" data-desc="Rambut lurus jatuh natural dan lembut tanpa kaku">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXtN5iHIGhC6Juy-Up5-Cbr06SIg-gu4fPCNAGlq3QcxcXMM6EnKRBJaZWxDfTs8_pjTikDCAfM8M4CANajFU7OwLLJLu4ROWoqNbD57yQHC1qOKbXXdxndzJUgJCpfngpVNljvKS8gqzbSvIEoCbiOck0hQAfClbmmJqVyjyemlQpad71dNjxg4gtyDAwrW0gJR6T1Cx79Cd0Sxsd50X9GFY82dgehk3aLEJLUlefGbwXJOG71WvobQ" alt="Korean Smoothing Keratin" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95"/>
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider font-semibold text-[#F6ECE6] block">Hair Care</span>
+            <h3 class="font-serif text-sm font-bold">Korean Smoothing Silk</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Japanese Nail Art -->
+      <div class="galeri-item group relative aspect-square rounded-2xl overflow-hidden bg-[#F3ECE3] shadow-sm cursor-pointer border border-[#E8DFD5]" data-category="nail" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuBPrn_pyz6E9h9STC6Nt_R1gNRrTYHfb5jw79JbR7SaXgyqn6QUN6nkhD6iz7WMYsG80_LuHCTWaUNU52WqbiBpYRzoxF26jFAmw8-6w2aaqd_j5wg2EM7rDqqyMa1kp6ShY9tyVxl107lJYKb3t1fMJ0BGpkqe9CWscLLJBmnYeIbmmVrpOchPkKzTBlFz1vxw4oDTnj1N5oUqyIuDcPaDWiy5VWpS_cerFISJJ57LW7Kew98jd_qBIw" data-title="Japanese Gel Nail Art Ornaments" data-desc="Dry manicure bersih dengan sentuhan aksen emas minimalis">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPrn_pyz6E9h9STC6Nt_R1gNRrTYHfb5jw79JbR7SaXgyqn6QUN6nkhD6iz7WMYsG80_LuHCTWaUNU52WqbiBpYRzoxF26jFAmw8-6w2aaqd_j5wg2EM7rDqqyMa1kp6ShY9tyVxl107lJYKb3t1fMJ0BGpkqe9CWscLLJBmnYeIbmmVrpOchPkKzTBlFz1vxw4oDTnj1N5oUqyIuDcPaDWiy5VWpS_cerFISJJ57LW7Kew98jd_qBIw" alt="Japanese Gel Nail Art" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95"/>
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider font-semibold text-[#F6ECE6] block">Nail Art</span>
+            <h3 class="font-serif text-sm font-bold">Japanese Gel Art</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Modern Shaggy Bob Haircut -->
+      <div class="galeri-item group relative aspect-square rounded-2xl overflow-hidden bg-[#F3ECE3] shadow-sm cursor-pointer border border-[#E8DFD5]" data-category="hair" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuCo_FjcFDs0a7cahDMOn6Ao4TSc34aI9LAWhVSVjk7dQ5LsjAbwn6h4dfSoLZD7sgYSzhNvkkJb8ftfLejj8tezNqKPfpLwXeNsKol9Msid-AdWfyE44Le2xJysgufpv__9QDJrLjlIc0D6zWPavs4F_hlhjH8f8rxoxejQ_JJ0tOJGzIKN6cwDeKU6N8bG-Qey7hxRTltrwWwoQO3gxTeNvq2nrjh84hOUNlPB1SLHaXJjCFDZsHmlbA" data-title="Modern Shaggy Bob &amp; Curtain Bangs" data-desc="Potongan rambut presisi membingkai proporsi wajah dengan cantik">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo_FjcFDs0a7cahDMOn6Ao4TSc34aI9LAWhVSVjk7dQ5LsjAbwn6h4dfSoLZD7sgYSzhNvkkJb8ftfLejj8tezNqKPfpLwXeNsKol9Msid-AdWfyE44Le2xJysgufpv__9QDJrLjlIc0D6zWPavs4F_hlhjH8f8rxoxejQ_JJ0tOJGzIKN6cwDeKU6N8bG-Qey7hxRTltrwWwoQO3gxTeNvq2nrjh84hOUNlPB1SLHaXJjCFDZsHmlbA" alt="Shaggy Bob Haircut" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95"/>
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider font-semibold text-[#F6ECE6] block">Haircut</span>
+            <h3 class="font-serif text-sm font-bold">Signature Bob Styling</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Keratin Lash Lift -->
+      <div class="galeri-item group relative aspect-square rounded-2xl overflow-hidden bg-[#F3ECE3] shadow-sm cursor-pointer border border-[#E8DFD5]" data-category="lash" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuAGMVVTUUs8R0mKOqbEvEGCY0S6yCb9TpsXiZ9ZrJrL-IPXb_VayqntABcIx5C0tvtJNVMDZVRTcYBsAcBuEAyc1NKrfcemX3MoA0hLGd3Sfc7sU1uOol_yWc-AfTIeGoVSZi2J5V5ymkV3WMFs0VCpZQxXXhIs3FaQ2cEpMKQWLB_c5n4dYZhKBU6AcZWepeG-BOVx6nw20tNFn5ZMYwbcMIDdD29njTzNfExSvDxTMxYPJJ4eBmmJOQ" data-title="Keratin Lash Lift &amp; Tint Black" data-desc="Lentik natural tahan hingga 8 minggu tanpa ekstensi sintetis">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGMVVTUUs8R0mKOqbEvEGCY0S6yCb9TpsXiZ9ZrJrL-IPXb_VayqntABcIx5C0tvtJNVMDZVRTcYBsAcBuEAyc1NKrfcemX3MoA0hLGd3Sfc7sU1uOol_yWc-AfTIeGoVSZi2J5V5ymkV3WMFs0VCpZQxXXhIs3FaQ2cEpMKQWLB_c5n4dYZhKBU6AcZWepeG-BOVx6nw20tNFn5ZMYwbcMIDdD29njTzNfExSvDxTMxYPJJ4eBmmJOQ" alt="Keratin Lash Lift" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95"/>
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider font-semibold text-[#F6ECE6] block">Lash Care</span>
+            <h3 class="font-serif text-sm font-bold">Keratin Lash Lift</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Head Spa Wash Station -->
+      <div class="galeri-item group relative aspect-square rounded-2xl overflow-hidden bg-[#F3ECE3] shadow-sm cursor-pointer border border-[#E8DFD5]" data-category="studio" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuD6Stb-pxeScLnhxyvMRuTfzQBhAeMz8ypmzeBgLN_LrxjRc1htq-q7R8o6dSSsXDJbzWPZRhBK_Wp8Qp6WWAc5kAqTdKz5x2caVTsMk5QrQIWJSmXC0lJaj07U4dZGvqwJjY3nZQxndOQRQeex1fzdPAgMbLvXoqP0qoj4VdUu28ZLT7_zOjcRdolcAKr6_89ZzENGDYYfD_tmuTO2v2iOixclELzMiOD4-n4_cf2n5dWjbqRhjO0UJw" data-title="Ruang Head Spa &amp; Wash Privat" data-desc="Kursi pijat ergonomis dengan pencahayaan hangat menenangkan">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6Stb-pxeScLnhxyvMRuTfzQBhAeMz8ypmzeBgLN_LrxjRc1htq-q7R8o6dSSsXDJbzWPZRhBK_Wp8Qp6WWAc5kAqTdKz5x2caVTsMk5QrQIWJSmXC0lJaj07U4dZGvqwJjY3nZQxndOQRQeex1fzdPAgMbLvXoqP0qoj4VdUu28ZLT7_zOjcRdolcAKr6_89ZzENGDYYfD_tmuTO2v2iOixclELzMiOD4-n4_cf2n5dWjbqRhjO0UJw" alt="Head Spa Wash Station" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95"/>
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider font-semibold text-[#F6ECE6] block">Studio</span>
+            <h3 class="font-serif text-sm font-bold">Head Spa Wash Room</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Sterilization Tools Setup -->
+      <div class="galeri-item group relative aspect-square rounded-2xl overflow-hidden bg-[#F3ECE3] shadow-sm cursor-pointer border border-[#E8DFD5]" data-category="studio" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuAnYV_nJDT43tHCE7KFCcgL_wjJ9zWBKiXQEWk375V_ubQzRuHwQwV9gTAvijNoYoi3U2xzjczAJYaMM-AKhcUqjZRDvQxN4Htqq7kpWy8MB1Yz2aLPFJ6j55vvxLIcaWSZfuDwZS-cyKad5waKGJwQXWss3MloU8xod9MKOBWS9sm1ywhcnjLcZgXV_tKA7pykSufchASDfjY9JKKbMhcIHQSGYGZ2vBvAYbyzfjdWn665ncjvJJp71Q" data-title="Peralatan Steril Medis Autoclave" data-desc="Setiap instrumen dibuka tersegel baru di hadapan setiap tamu">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnYV_nJDT43tHCE7KFCcgL_wjJ9zWBKiXQEWk375V_ubQzRuHwQwV9gTAvijNoYoi3U2xzjczAJYaMM-AKhcUqjZRDvQxN4Htqq7kpWy8MB1Yz2aLPFJ6j55vvxLIcaWSZfuDwZS-cyKad5waKGJwQXWss3MloU8xod9MKOBWS9sm1ywhcnjLcZgXV_tKA7pykSufchASDfjY9JKKbMhcIHQSGYGZ2vBvAYbyzfjdWn665ncjvJJp71Q" alt="Sterile Tools Setup" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95"/>
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider font-semibold text-[#F6ECE6] block">Hygiene</span>
+            <h3 class="font-serif text-sm font-bold">Instrumen Steril Tersegel</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7: Glossy Hair Transformation -->
+      <div class="galeri-item group relative aspect-square rounded-2xl overflow-hidden bg-[#F3ECE3] shadow-sm cursor-pointer border border-[#E8DFD5]" data-category="hair" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuD8TFpqAihLlZzIZdZJPUwO0q7LEaUgzHW3P_e7mBYWN93PXjt8dBhqKdDG51afyNV-0Mt2AMVPTPSprdSzdUpDFwum1KCT6jTIjBomHS5LMR-3aAtifDvNzFYz36ZuEE2L5vudXNFxE3jwhyAdIHjiiz4Oib50pk9rlSfn9aqV8puC6nKtYggSozaERb5Vly1IGcGD_iAIET2e-t7N0txqI344dTJDyKXQ2Ty_mlhH8vWig_D4D6PLVQ" data-title="Transformasi Kilau Rambut Sehat" data-desc="Hasil nyata kilau sutra tahan lama setelah keratin treatment">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8TFpqAihLlZzIZdZJPUwO0q7LEaUgzHW3P_e7mBYWN93PXjt8dBhqKdDG51afyNV-0Mt2AMVPTPSprdSzdUpDFwum1KCT6jTIjBomHS5LMR-3aAtifDvNzFYz36ZuEE2L5vudXNFxE3jwhyAdIHjiiz4Oib50pk9rlSfn9aqV8puC6nKtYggSozaERb5Vly1IGcGD_iAIET2e-t7N0txqI344dTJDyKXQ2Ty_mlhH8vWig_D4D6PLVQ" alt="Hair Transformation" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95"/>
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider font-semibold text-[#F6ECE6] block">Result</span>
+            <h3 class="font-serif text-sm font-bold">Glossy Hair Flow</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8: Relaxing Waiting Lounge -->
+      <div class="galeri-item group relative aspect-square rounded-2xl overflow-hidden bg-[#F3ECE3] shadow-sm cursor-pointer border border-[#E8DFD5]" data-category="studio" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuB0DC8M0YNvQcIZbokBDeodjx0WheR7uk4c7l1CD_cz78XBgyg7Wh4AVCWJO578BYA7w4hVpNM2tp2BZCJ3xsTEG9NJm7yXOvJmXPY7pQoC1472sM-Kwmp-Lh6SPJIuzPwQoje4T5EjTBfgl4qboiO7SnPkGpO7wdVGuZrSGugy7RrTtpIIGILHZnK1CkM7WkkPNeSJzVXYuDDOVqwoi-UhiGLaPCRafHtDo4TGwuVx3EATy0Qd3V_I3g" data-title="Sudut Ruang Tunggu Estetik Sonae" data-desc="Area tunggu santai bernuansa bumi yang menyejukkan hati">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0DC8M0YNvQcIZbokBDeodjx0WheR7uk4c7l1CD_cz78XBgyg7Wh4AVCWJO578BYA7w4hVpNM2tp2BZCJ3xsTEG9NJm7yXOvJmXPY7pQoC1472sM-Kwmp-Lh6SPJIuzPwQoje4T5EjTBfgl4qboiO7SnPkGpO7wdVGuZrSGugy7RrTtpIIGILHZnK1CkM7WkkPNeSJzVXYuDDOVqwoi-UhiGLaPCRafHtDo4TGwuVx3EATy0Qd3V_I3g" alt="Sanctuary Corner" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95"/>
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider font-semibold text-[#F6ECE6] block">Sanctuary</span>
+            <h3 class="font-serif text-sm font-bold">Linen Waiting Lounge</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Booking CTA Banner -->
+    <div class="w-full mt-14 rounded-3xl bg-[#BFAF86] p-8 sm:p-12 text-[#141414] shadow-soft-card flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold mb-2">Ingin Hasil Rambut &amp; Kuku Seperti di Foto?</h2>
+        <p class="text-sm text-[#333333] max-w-xl">Konsultasikan gratis kondisi rambutmu atau langsung reservasi slot kedatangan bersama terapis spesialis Sonae.</p>
+      </div>
+      <a href="/booking" class="px-8 py-4 rounded-xl bg-white text-[#141414] font-bold text-sm sm:text-base hover:bg-neutral-100 shadow-md transition-all shrink-0">
+        Buat Janji Sekarang
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Photo Lightbox Modal -->
+  <div id="galeriModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative max-w-xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl">
+      <button id="closeGaleriModal" aria-label="Tutup" class="absolute top-4 right-4 z-10 size-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black transition-all cursor-pointer">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+      <div class="aspect-square w-full bg-black">
+        <img id="gModalImg" src="" alt="" class="w-full h-full object-contain" />
+      </div>
+      <div class="p-6 bg-white flex items-center justify-between gap-4">
+        <div>
+          <h3 id="gModalTitle" class="font-serif font-bold text-lg text-[#1A1816]"></h3>
+          <p id="gModalDesc" class="text-xs text-[#5C544E] mt-1"></p>
+        </div>
+        <a href="/booking" class="px-5 py-2.5 rounded-xl bg-[#7F513C] text-white text-xs font-bold hover:bg-[#633B2A] transition-all shrink-0 text-center">
+          Booking Layanan Ini
+        </a>
+      </div>
+    </div>
+  </div>
+
+</Layout>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+  import { gsap } from 'gsap';
+
+  function initGaleri() {
+    // 1. Initialize Swiper Featured Showcase
+    new Swiper('.galeri-featured-swiper', {
+      modules: [Navigation, Pagination, Autoplay],
+      slidesPerView: 'auto',
+      spaceBetween: 16,
+      grabCursor: true,
+      loop: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      navigation: {
+        prevEl: '#galeriSwiperPrev',
+        nextEl: '#galeriSwiperNext'
+      },
+      pagination: {
+        el: '.galeri-featured-swiper .swiper-pagination',
+        clickable: true
+      }
+    });
+
+    // 2. GSAP entrance animation for gallery cards
+    gsap.from('.galeri-item', {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      stagger: 0.08,
+      ease: 'power2.out'
+    });
+
+    // 3. Filter Tabs Horizontal Scroll & Logic
+    const container = document.getElementById('galeriFilterBar');
+    const btnLeft = document.getElementById('scrollLeftGaleri');
+    const btnRight = document.getElementById('scrollRightGaleri');
+    const tabs = document.querySelectorAll('.galeri-tab');
+    const items = document.querySelectorAll('.galeri-item');
+
+    if (container && btnLeft && btnRight) {
+      btnLeft.addEventListener('click', () => {
+        container.scrollBy({ left: -220, behavior: 'smooth' });
+      });
+      btnRight.addEventListener('click', () => {
+        container.scrollBy({ left: 220, behavior: 'smooth' });
+      });
+
+      container.addEventListener('wheel', (e) => {
+        if (e.deltaY !== 0) {
+          e.preventDefault();
+          container.scrollLeft += e.deltaY;
+        }
+      }, { passive: false });
+
+      let isDown = false;
+      let startX = 0;
+      let scrollLeftPos = 0;
+
+      container.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeftPos = container.scrollLeft;
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDown = false;
+      });
+
+      container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        container.scrollLeft = scrollLeftPos - walk;
+      });
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('active', 'bg-[#7F513C]', 'text-white', 'shadow-sm');
+          t.classList.add('bg-[#F3ECE3]', 'text-[#5C544E]');
+        });
+        tab.classList.add('active', 'bg-[#7F513C]', 'text-white', 'shadow-sm');
+        tab.classList.remove('bg-[#F3ECE3]', 'text-[#5C544E]');
+
+        tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+        const filter = tab.getAttribute('data-filter');
+        const visibleItems: HTMLElement[] = [];
+
+        items.forEach(it => {
+          const el = it as HTMLElement;
+          const cat = el.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            el.style.display = 'block';
+            visibleItems.push(el);
+          } else {
+            el.style.display = 'none';
+          }
+        });
+
+        if (visibleItems.length > 0) {
+          gsap.fromTo(visibleItems, 
+            { opacity: 0, y: 15 },
+            { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: 'power2.out' }
+          );
+        }
+      });
+    });
+
+    // 4. Modal Zoom Logic
+    const modal = document.getElementById('galeriModal');
+    const closeBtn = document.getElementById('closeGaleriModal');
+    const mImg = document.getElementById('gModalImg') as HTMLImageElement;
+    const mTitle = document.getElementById('gModalTitle');
+    const mDesc = document.getElementById('gModalDesc');
+
+    items.forEach(it => {
+      it.addEventListener('click', () => {
+        const img = it.getAttribute('data-img') || '';
+        const title = it.getAttribute('data-title') || '';
+        const desc = it.getAttribute('data-desc') || '';
+
+        if (mImg) mImg.src = img;
+        if (mTitle) mTitle.textContent = title;
+        if (mDesc) mDesc.textContent = desc;
+        if (modal) {
+          modal.classList.remove('hidden');
+          gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.25 });
+        }
+      });
+    });
+
+    if (closeBtn && modal) {
+      closeBtn.onclick = () => modal.classList.add('hidden');
+      modal.onclick = (e) => {
+        if (e.target === modal) modal.classList.add('hidden');
+      };
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', initGaleri);
+  document.addEventListener('astro:page-load', initGaleri);
+</script>

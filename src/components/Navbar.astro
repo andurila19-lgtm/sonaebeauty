@@ -1,0 +1,210 @@
+---
+interface Props {
+  activePage?: 'beranda' | 'layanan' | 'harga' | 'ladies-room' | 'tentang-kami' | 'lokasi' | 'artikel' | 'galeri' | 'booking';
+}
+
+const { activePage = 'beranda' } = Astro.props;
+---
+
+<!-- ================================================================= -->
+<!-- FIXED NAVBAR (MOIR SALON ARCHITECTURE - UNIFIED ASTRO COMPONENT) -->
+<!-- ================================================================= -->
+<header class="fixed top-0 left-0 right-0 z-40 flex h-[64px] sm:h-[72px] lg:h-[60px] w-full items-center justify-between bg-[#BFAF86] px-4 sm:px-8 lg:px-12 shadow-md transition-all duration-300">
+  
+  <!-- Logo Brand Sonae (Left) -->
+  <a href="/" class="flex items-center" aria-label="Sonae Beauty Studio Beranda">
+    <img 
+      alt="Sonae Beauty Studio Logo" 
+      class="h-9 sm:h-10 md:h-11 w-auto object-contain" 
+      src="/images/logo_sonae_horizontal.webp"
+    />
+  </a>
+
+  <!-- Nav Links (Desktop) -->
+  <nav class="hidden lg:flex items-center gap-7 text-sm text-[#141414] font-medium">
+    <a href="/" class={activePage === 'beranda' ? 'font-bold border-b-2 border-[#141414] pb-0.5' : 'transition-all duration-200 hover:font-bold'}>Beranda</a>
+    <a href="/layanan" class={activePage === 'layanan' ? 'font-bold border-b-2 border-[#141414] pb-0.5' : 'transition-all duration-200 hover:font-bold'}>Layanan</a>
+    <a href="/harga" class={activePage === 'harga' ? 'font-bold border-b-2 border-[#141414] pb-0.5' : 'transition-all duration-200 hover:font-bold'}>Harga</a>
+    <a href="/ladies-room" class={activePage === 'ladies-room' ? 'font-bold border-b-2 border-[#141414] pb-0.5' : 'transition-all duration-200 hover:font-bold'}>Ladies Room</a>
+    <a href="/tentang-kami" class={activePage === 'tentang-kami' ? 'font-bold border-b-2 border-[#141414] pb-0.5' : 'transition-all duration-200 hover:font-bold'}>Tentang Kami</a>
+    <a href="/lokasi" class={activePage === 'lokasi' ? 'font-bold border-b-2 border-[#141414] pb-0.5' : 'transition-all duration-200 hover:font-bold'}>Lokasi</a>
+    <a href="/artikel" class={activePage === 'artikel' ? 'font-bold border-b-2 border-[#141414] pb-0.5' : 'transition-all duration-200 hover:font-bold'}>Artikel</a>
+    <a href="/galeri" class={activePage === 'galeri' ? 'font-bold border-b-2 border-[#141414] pb-0.5' : 'transition-all duration-200 hover:font-bold'}>Galeri</a>
+  </nav>
+
+  <!-- Right Controls: On Mobile: ONLY WhatsApp + Hamburger Icon (Identik Moir) -->
+  <div class="flex items-center gap-3 sm:gap-4">
+    <a 
+      href="https://wa.me/6281234567890" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      aria-label="WhatsApp Sonae" 
+      class="inline-flex items-center justify-center size-8 sm:size-9 rounded-full bg-[#25D366] text-white shadow-sm transition-all duration-300 hover:brightness-105" 
+      title="Chat WhatsApp"
+    >
+      <span class="material-symbols-outlined text-[19px] sm:text-[21px]">chat</span>
+    </a>
+
+    <!-- Buat Janji button (Hidden on mobile navbar, visible on lg desktop) -->
+    <a 
+      href="/booking" 
+      class="hidden lg:inline-flex items-center justify-center h-9 px-5 rounded-lg bg-white text-[#141414] text-xs font-bold tracking-wide hover:bg-neutral-100 shadow-sm transition-all"
+    >
+      Buat Janji
+    </a>
+
+    <!-- Mobile Menu Hamburger Button -->
+    <button 
+      id="mobileMenuBtn" 
+      aria-label="Buka Menu" 
+      class="lg:hidden p-1 text-[#141414] focus:outline-none flex items-center justify-center"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-6 stroke-[#141414]">
+        <path d="M3 6H21" stroke-width="2" stroke-linecap="round"/>
+        <path d="M3 12H21" stroke-width="2" stroke-linecap="round"/>
+        <path d="M3 18H21" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+</header>
+
+<!-- ================================================================= -->
+<!-- MOBILE NAVIGATION MODAL CARD (IDENTIK 100% SCREENSHOT USER MOIR) -->
+<!-- ================================================================= -->
+<div 
+  id="mobileMenuOverlay" 
+  class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4 sm:p-6 lg:hidden opacity-0 transition-opacity duration-300"
+>
+  <!-- Floating White Card (Exact Screenshot: Rounded-3xl, Centered Logo, Divider, 6 Links, Gold Button) -->
+  <div 
+    id="mobileMenuCard"
+    class="w-full max-w-[340px] bg-white rounded-[28px] px-6 py-7 shadow-2xl border border-[#EFEBE4] relative flex flex-col items-center"
+  >
+    
+    <!-- Centered Brand Logo (Identik Screenshot) -->
+    <div class="w-full flex justify-center pt-1 pb-3">
+      <img 
+        alt="Sonae Beauty Studio Logo" 
+        class="h-16 sm:h-20 w-auto object-contain mx-auto" 
+        src="/images/logo_sonae_full.webp"
+      />
+    </div>
+
+    <!-- Horizontal Divider Line (Identik Screenshot) -->
+    <div class="w-full h-px bg-[#E3DCCB] mb-5"></div>
+
+    <!-- Centered Navigation Links (EXACT 6 ITEMS MATCHING USER SCREENSHOT) -->
+    <nav class="w-full flex flex-col items-center space-y-4 my-1">
+      <a href="/layanan" class="mobile-nav-link text-base font-medium text-[#1A1816] hover:text-[#7F513C] transition-colors py-1 block text-center w-full">
+        Layanan
+      </a>
+      <a href="/harga" class="mobile-nav-link text-base font-medium text-[#1A1816] hover:text-[#7F513C] transition-colors py-1 block text-center w-full">
+        Harga
+      </a>
+      <a href="/ladies-room" class="mobile-nav-link text-base font-medium text-[#1A1816] hover:text-[#7F513C] transition-colors py-1 block text-center w-full">
+        Ladies Room
+      </a>
+      <a href="/tentang-kami" class="mobile-nav-link text-base font-medium text-[#1A1816] hover:text-[#7F513C] transition-colors py-1 block text-center w-full">
+        Tentang Kami
+      </a>
+      <a href="/lokasi" class="mobile-nav-link text-base font-medium text-[#1A1816] hover:text-[#7F513C] transition-colors py-1 block text-center w-full">
+        Lokasi
+      </a>
+      <a href="/artikel" class="mobile-nav-link text-base font-medium text-[#1A1816] hover:text-[#7F513C] transition-colors py-1 block text-center w-full">
+        Artikel
+      </a>
+    </nav>
+
+    <!-- Bottom Wide Button (Warm Sand Gold #BFAF86 Identik Screenshot) -->
+    <div class="w-full mt-6 pt-1">
+      <a 
+        href="/booking" 
+        class="mobile-nav-link w-full py-3.5 rounded-xl bg-[#BFAF86] hover:brightness-95 active:opacity-90 text-[#141414] font-bold text-base text-center flex items-center justify-center shadow-sm transition-all duration-200"
+      >
+        Buat Janji
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+
+  function setupNavbar() {
+    const openBtn = document.getElementById('mobileMenuBtn');
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const card = document.getElementById('mobileMenuCard');
+
+    function isOpen() {
+      return overlay && !overlay.classList.contains('hidden');
+    }
+
+    function openMenu() {
+      if (overlay && card) {
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+
+        gsap.killTweensOf([overlay, card]);
+        gsap.to(overlay, { opacity: 1, duration: 0.3, ease: 'power2.out' });
+        gsap.fromTo(card, 
+          { y: 24, opacity: 0 }, 
+          { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out' }
+        );
+      }
+    }
+
+    function closeMenu() {
+      if (overlay && card) {
+        gsap.killTweensOf([overlay, card]);
+        gsap.to(card, { y: 15, opacity: 0, duration: 0.2, ease: 'power2.in' });
+        gsap.to(overlay, {
+          opacity: 0,
+          duration: 0.25,
+          ease: 'power2.in',
+          onComplete: () => {
+            overlay.classList.add('hidden');
+            overlay.classList.remove('flex');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+    }
+
+    if (openBtn) {
+      openBtn.onclick = (e) => {
+        e.stopPropagation();
+        if (isOpen()) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      };
+    }
+
+    if (overlay) {
+      overlay.onclick = (e) => {
+        if (!card || !card.contains(e.target as Node)) {
+          closeMenu();
+        }
+      };
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) {
+        closeMenu();
+      }
+    });
+
+    const links = document.querySelectorAll('.mobile-nav-link');
+    links.forEach(l => {
+      l.addEventListener('click', closeMenu);
+    });
+  }
+
+  // Setup on page load and support dynamic transitions
+  document.addEventListener('DOMContentLoaded', setupNavbar);
+  document.addEventListener('astro:page-load', setupNavbar);
+</script>

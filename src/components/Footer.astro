@@ -1,0 +1,126 @@
+---
+// Unified Responsive Footer Component for Sonae Beauty Studio
+---
+
+<footer class="w-full bg-[#BFAF86] font-sans text-[#141414] border-t border-[#A89870]">
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-10 pb-8">
+    
+    <!-- Top Grid: Brand, Navigation, Services, and Location -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+      
+      <!-- 1. Brand Info & Operating Hours (lg:col-span-4) -->
+      <div class="lg:col-span-4 flex flex-col gap-4">
+        <a href="/" class="inline-block" aria-label="Sonae Beauty Studio">
+          <img 
+            alt="Sonae Beauty Studio Logo" 
+            class="h-9 sm:h-11 w-auto object-contain" 
+            src="/images/logo_sonae_horizontal.webp"
+          />
+        </a>
+        
+        <p class="text-xs sm:text-sm text-[#2E2E2E] leading-relaxed">
+          Sanctuary perawatan rambut dan kecantikan terpercaya di Kota Madiun. Sentuhan profesional bersertifikasi, produk premium BPOM, dan ruang privat bernuansa hangat untuk kenyamanan paripurna Anda.
+        </p>
+        
+        <!-- Operating Hours Card -->
+        <div class="bg-black/5 rounded-2xl p-4 border border-black/5 flex flex-col gap-1 mt-1">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="size-2 rounded-full bg-[#25D366] animate-pulse"></span>
+            <p class="font-bold text-xs uppercase tracking-wider text-[#141414]">Jam Operasional Studio</p>
+          </div>
+          <div class="flex items-center justify-between text-xs text-[#2E2E2E]">
+            <span>Selasa – Minggu:</span>
+            <span class="font-semibold text-[#141414]">10.00 – 18.00 WIB</span>
+          </div>
+          <div class="flex items-center justify-between text-xs pt-1 border-t border-black/5">
+            <span class="text-[#7A2B2B] font-medium">Senin:</span>
+            <span class="text-[#7A2B2B] font-semibold">Tutup (Sterilisasi Studio)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Navigation & Popular Services (lg:col-span-4) -->
+      <div class="lg:col-span-4 grid grid-cols-2 gap-4 sm:gap-6">
+        
+        <!-- Navigation Column -->
+        <div>
+          <h4 class="text-xs sm:text-sm font-bold tracking-wider uppercase text-[#141414] mb-3 pb-1 border-b border-[#A89870]/30">
+            Navigasi
+          </h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-[#2E2E2E]">
+            <li><a href="/" class="hover:text-black hover:font-bold transition-all block py-0.5">Beranda</a></li>
+            <li><a href="/layanan" class="hover:text-black hover:font-bold transition-all block py-0.5">Layanan</a></li>
+            <li><a href="/harga" class="hover:text-black hover:font-bold transition-all block py-0.5">Daftar Harga</a></li>
+            <li><a href="/ladies-room" class="hover:text-black hover:font-bold transition-all block py-0.5">Ladies Room</a></li>
+            <li><a href="/tentang-kami" class="hover:text-black hover:font-bold transition-all block py-0.5">Tentang Kami</a></li>
+            <li><a href="/lokasi" class="hover:text-black hover:font-bold transition-all block py-0.5">Lokasi Studio</a></li>
+            <li><a href="/artikel" class="hover:text-black hover:font-bold transition-all block py-0.5">Artikel &amp; Tips</a></li>
+            <li><a href="/booking" class="hover:text-black hover:font-bold transition-all block py-0.5">Buat Janji</a></li>
+          </ul>
+        </div>
+
+        <!-- Popular Services Column -->
+        <div>
+          <h4 class="text-xs sm:text-sm font-bold tracking-wider uppercase text-[#141414] mb-3 pb-1 border-b border-[#A89870]/30">
+            Layanan Utama
+          </h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-[#2E2E2E]">
+            <li><a href="/layanan" class="hover:text-black hover:font-bold transition-all block py-0.5">Korean Smoothing</a></li>
+            <li><a href="/layanan" class="hover:text-black hover:font-bold transition-all block py-0.5">Japanese Nail Art</a></li>
+            <li><a href="/layanan" class="hover:text-black hover:font-bold transition-all block py-0.5">Keratin Lash Lift</a></li>
+            <li><a href="/layanan" class="hover:text-black hover:font-bold transition-all block py-0.5">Signature Haircut</a></li>
+            <li><a href="/layanan" class="hover:text-black hover:font-bold transition-all block py-0.5">Head Spa &amp; Scalp</a></li>
+            <li><a href="/layanan" class="hover:text-black hover:font-bold transition-all block py-0.5">Hair Coloring</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 3. Studio Location & Touch CTA Buttons (lg:col-span-4) -->
+      <div class="lg:col-span-4 flex flex-col gap-3">
+        <h4 class="text-xs sm:text-sm font-bold tracking-wider uppercase text-[#141414] mb-1 pb-1 border-b border-[#A89870]/30">
+          Lokasi Studio Madiun
+        </h4>
+        
+        <p class="text-xs sm:text-sm text-[#2E2E2E] leading-relaxed">
+          <strong>Jl. Thamrin</strong>, Klegen, Kec. Kartoharjo, Kota Madiun, Jawa Timur 63117
+        </p>
+        <p class="text-xs text-[#2E2E2E] opacity-90 -mt-1">
+          (Area parkir privat mobil &amp; motor aman di pusat kota Madiun)
+        </p>
+
+        <!-- Touch-Friendly Buttons on Mobile (Full-width on mobile, auto on desktop) -->
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-2.5 mt-2">
+          <a 
+            href="https://www.google.com/maps/place/Sonae+Beauty+Studio/@-7.6319626,111.5320524,16z/data=!4m16!1m9!3m8!1s0x2e79bf6d3ff89189:0xd9554dae719bd9ac!2sSonae+Beauty+Studio!8m2!3d-7.6307637!4d111.532938!9m1!1b1!16s%2Fg%2F11h02l60vl!3m5!1s0x2e79bf6d3ff89189:0xd9554dae719bd9ac!8m2!3d-7.6307637!4d111.532938!16s%2Fg%2F11h02l60vl?entry=ttu" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white text-[#141414] text-xs font-bold hover:bg-neutral-100 shadow-sm transition-all text-center"
+          >
+            <span class="material-symbols-outlined text-[18px] text-[#7F513C]">pin_drop</span>
+            <span>Buka di Google Maps</span>
+          </a>
+
+          <a 
+            href="https://wa.me/6281234567890" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#25D366] text-white text-xs font-bold hover:bg-[#20bd5a] shadow-sm transition-all text-center"
+          >
+            <span class="material-symbols-outlined text-[18px]">chat</span>
+            <span>WhatsApp: 0812-3456-7890</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & Tagline Bar -->
+    <div class="w-full border-t border-[#A89870]/50 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-[#2E2E2E]">
+      <p>© 2025 Sonae Beauty Studio Madiun. All rights reserved.</p>
+      <p class="font-bold tracking-wide text-[#141414]">#semuaberhakcakep</p>
+    </div>
+
+  </div>
+</footer>
+

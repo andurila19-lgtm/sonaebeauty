@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/effect-fade";
+
+@theme {
+  --color-canvas: #FBF8F4;
+  --color-canvas-alt: #F3ECE3;
+  --color-primary-salon: #7F513C;
+  --color-primary-dark: #633B2A;
+  --color-primary-light: #F6ECE6;
+  --color-cream-card: #FFFFFF;
+  --color-cream-border: #E8DFD5;
+  --color-text-dark: #1A1816;
+  --color-text-muted: #5C544E;
+  --color-text-subtle: #8E847C;
+  --color-gold-star: #C68D37;
+  --color-brand-wa: #25D366;
+  --font-serif: "Libre Baskerville", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #FBF8F4;
+    color: #1A1816;
+    font-family: var(--font-sans);
+  }
+  body {
+    overscroll-behavior: none;
+  }
+}
+
+.shadow-soft-card {
+  box-shadow: 0 10px 30px -5px rgba(26, 24, 22, 0.06), 0 2px 8px -2px rgba(26, 24, 22, 0.03);
+}
+
+.shadow-pill-button {
+  box-shadow: 0 4px 16px -2px rgba(130, 83, 62, 0.22);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scroll-touch-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  scroll-behavior: smooth;
+}

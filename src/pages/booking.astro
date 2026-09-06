@@ -1,0 +1,609 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Reservasi Waktu Perawatan — Sonae Salon Madiun"
+  description="Pilih perawatan dan jadwal favorit Anda. Konfirmasi otomatis dikirimkan ke WhatsApp tanpa perlu uang muka (Tanpa DP)."
+  activePage="booking"
+>
+
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-8 sm:py-12">
+    
+    <!-- Top Header & Assurance Banner -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#E8DFD5]">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF2EB] text-[#7F513C] text-xs font-bold tracking-wider uppercase mb-3">
+          <span class="material-symbols-outlined text-[16px]">calendar_month</span>
+          <span>Sanctuary Appointment</span>
+        </div>
+        <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1816] tracking-tight mb-2">
+          Reservasi Waktu Perawatan
+        </h1>
+        <p class="text-sm sm:text-base text-[#5C544E] max-w-2xl leading-relaxed">
+          Pilih perawatan dan jadwal favorit Anda. Konfirmasi langsung dikirimkan ke WhatsApp Anda secara otomatis tanpa perlu uang muka (Tanpa DP).
+        </p>
+      </div>
+
+      <!-- Trust Badge -->
+      <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-[#E8DFD5] shadow-sm shrink-0">
+        <div class="size-11 rounded-xl bg-[#FAF2EB] text-[#7F513C] flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-[24px]">verified</span>
+        </div>
+        <div class="text-left">
+          <span class="block text-[11px] font-bold text-[#7F513C] uppercase tracking-wider">Tanpa Biaya Reservasi</span>
+          <span class="block text-sm font-bold text-[#1A1816]">Bayar Langsung di Studio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step Tracker Indicator (Responsive Pills) -->
+    <div class="w-full my-8 bg-white rounded-2xl p-3 sm:p-4 border border-[#E8DFD5] shadow-sm">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
+        
+        <!-- Step 1 -->
+        <div class="step-indicator active flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-[#FAF2EB] border border-[#7F513C]/30 transition-all" data-step="1">
+          <div class="size-7 sm:size-8 rounded-full bg-[#7F513C] text-white text-xs font-bold flex items-center justify-center shrink-0">
+            1
+          </div>
+          <div class="min-w-0">
+            <span class="block text-[10px] font-bold text-[#7F513C] uppercase tracking-wider">Langkah 1</span>
+            <span class="block text-xs sm:text-sm font-bold text-[#1A1816] truncate">Pilih Layanan</span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-indicator flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-[#FBF8F4] border border-transparent transition-all" data-step="2">
+          <div class="size-7 sm:size-8 rounded-full bg-[#E8DFD5] text-[#5C544E] text-xs font-bold flex items-center justify-center shrink-0">
+            2
+          </div>
+          <div class="min-w-0">
+            <span class="block text-[10px] font-semibold text-[#8E847C] uppercase tracking-wider">Langkah 2</span>
+            <span class="block text-xs sm:text-sm font-semibold text-[#5C544E] truncate">Jadwal &amp; Waktu</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-indicator flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-[#FBF8F4] border border-transparent transition-all" data-step="3">
+          <div class="size-7 sm:size-8 rounded-full bg-[#E8DFD5] text-[#5C544E] text-xs font-bold flex items-center justify-center shrink-0">
+            3
+          </div>
+          <div class="min-w-0">
+            <span class="block text-[10px] font-semibold text-[#8E847C] uppercase tracking-wider">Langkah 3</span>
+            <span class="block text-xs sm:text-sm font-semibold text-[#5C544E] truncate">Data Tamu</span>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-indicator flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-[#FBF8F4] border border-transparent transition-all" data-step="4">
+          <div class="size-7 sm:size-8 rounded-full bg-[#E8DFD5] text-[#5C544E] text-xs font-bold flex items-center justify-center shrink-0">
+            4
+          </div>
+          <div class="min-w-0">
+            <span class="block text-[10px] font-semibold text-[#8E847C] uppercase tracking-wider">Langkah 4</span>
+            <span class="block text-xs sm:text-sm font-semibold text-[#5C544E] truncate">Konfirmasi</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main Booking Grid (Responsive 2-Column Desktop, Stack on Mobile) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT COLUMN: Form Steps (8 Cols) -->
+      <div class="lg:col-span-8 space-y-8">
+
+        <!-- STEP 1 CONTAINER: PILIH LAYANAN -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8DFD5] shadow-soft-card">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-[#E8DFD5] gap-2">
+            <div>
+              <span class="text-xs font-bold text-[#7F513C] uppercase tracking-wider block mb-0.5">Bagian 01</span>
+              <h2 class="font-serif text-2xl font-bold text-[#1A1816]">Pilih Layanan Perawatan</h2>
+            </div>
+            <span class="text-xs text-[#8E847C] font-medium">Bisa pilih lebih dari satu layanan</span>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
+            <button type="button" class="service-cat-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#7F513C] text-white transition-all shrink-0" data-cat="all">
+              Semua Layanan
+            </button>
+            <button type="button" class="service-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0" data-cat="hair">
+              Hair Sanctuary
+            </button>
+            <button type="button" class="service-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0" data-cat="nail">
+              Nail Art &amp; Care
+            </button>
+            <button type="button" class="service-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#F3ECE3] text-[#5C544E] hover:bg-[#E8DFD5] transition-all shrink-0" data-cat="lash">
+              Lash &amp; Facial Glow
+            </button>
+          </div>
+
+          <!-- Service Cards List -->
+          <div class="space-y-4" id="servicesList">
+            
+            <!-- Service 1 -->
+            <label class="service-card group block p-5 rounded-2xl border-2 border-[#7F513C] bg-[#FAF2EB]/40 cursor-pointer transition-all hover:shadow-md" data-category="hair" data-id="1" data-name="Korean Keratin Smoothing &amp; Haircut" data-price="435000" data-duration="150 Menit">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-start gap-3.5">
+                  <input type="checkbox" checked name="selectedServices" value="Korean Keratin Smoothing" class="service-checkbox mt-1 size-5 accent-[#7F513C] rounded cursor-pointer"/>
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                      <h3 class="font-serif text-base sm:text-lg font-bold text-[#1A1816]">Korean Keratin Smoothing &amp; Haircut</h3>
+                      <span class="px-2 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold uppercase tracking-wider">Terfavorit</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed mb-3">
+                      Treatment perbaikan batang rambut intensif dengan formula keratin sutra, diakhiri penataan Korean layers.
+                    </p>
+                    <div class="flex items-center gap-4 text-xs text-[#8E847C]">
+                      <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[16px]">schedule</span>
+                        <span>150 Menit</span>
+                      </span>
+                      <span class="flex items-center gap-1 text-[#7F513C] font-semibold">
+                        <span class="material-symbols-outlined text-[16px]">spa</span>
+                        <span>Tahan 6 Bulan</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <span class="text-[10px] text-[#8E847C] block uppercase font-medium">Mulai dari</span>
+                  <span class="font-sans text-base sm:text-lg font-extrabold text-[#7F513C]">Rp 435.000</span>
+                </div>
+              </div>
+            </label>
+
+            <!-- Service 2 -->
+            <label class="service-card group block p-5 rounded-2xl border border-[#E8DFD5] bg-white cursor-pointer transition-all hover:border-[#7F513C] hover:shadow-md" data-category="hair" data-id="2" data-name="Japanese Scalp Detox &amp; Aromatherapy Spa" data-price="275000" data-duration="90 Menit">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-start gap-3.5">
+                  <input type="checkbox" name="selectedServices" value="Japanese Scalp Detox" class="service-checkbox mt-1 size-5 accent-[#7F513C] rounded cursor-pointer"/>
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                      <h3 class="font-serif text-base sm:text-lg font-bold text-[#1A1816]">Japanese Scalp Detox &amp; Aromatherapy Spa</h3>
+                      <span class="px-2 py-0.5 rounded-full bg-[#F3ECE3] text-[#5C544E] text-[10px] font-semibold uppercase tracking-wider">Relaksasi</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed mb-3">
+                      Pembersihan folikel mendalam dengan water circulator, pemijatan leher dan pundak dengan minyak lavender murni.
+                    </p>
+                    <div class="flex items-center gap-4 text-xs text-[#8E847C]">
+                      <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[16px]">schedule</span>
+                        <span>90 Menit</span>
+                      </span>
+                      <span class="flex items-center gap-1 text-[#7F513C] font-semibold">
+                        <span class="material-symbols-outlined text-[16px]">self_improvement</span>
+                        <span>Deep Relaxation</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <span class="text-[10px] text-[#8E847C] block uppercase font-medium">Tarif</span>
+                  <span class="font-sans text-base sm:text-lg font-extrabold text-[#7F513C]">Rp 275.000</span>
+                </div>
+              </div>
+            </label>
+
+            <!-- Service 3 -->
+            <label class="service-card group block p-5 rounded-2xl border border-[#E8DFD5] bg-white cursor-pointer transition-all hover:border-[#7F513C] hover:shadow-md" data-category="hair" data-id="3" data-name="Botanical Signature Balayage Color" data-price="680000" data-duration="210 Menit">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-start gap-3.5">
+                  <input type="checkbox" name="selectedServices" value="Botanical Balayage Color" class="service-checkbox mt-1 size-5 accent-[#7F513C] rounded cursor-pointer"/>
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                      <h3 class="font-serif text-base sm:text-lg font-bold text-[#1A1816]">Botanical Signature Balayage Color</h3>
+                      <span class="px-2 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold uppercase tracking-wider">Premium</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed mb-3">
+                      Pewarnaan bergradasi alami menggunakan pigmen organik rendah amonia, dipadukan bonding complex pelindung kutikula.
+                    </p>
+                    <div class="flex items-center gap-4 text-xs text-[#8E847C]">
+                      <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[16px]">schedule</span>
+                        <span>210 Menit</span>
+                      </span>
+                      <span class="flex items-center gap-1 text-[#7F513C] font-semibold">
+                        <span class="material-symbols-outlined text-[16px]">palette</span>
+                        <span>Bebas Kering</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <span class="text-[10px] text-[#8E847C] block uppercase font-medium">Mulai dari</span>
+                  <span class="font-sans text-base sm:text-lg font-extrabold text-[#7F513C]">Rp 680.000</span>
+                </div>
+              </div>
+            </label>
+
+            <!-- Service 4 -->
+            <label class="service-card group block p-5 rounded-2xl border border-[#E8DFD5] bg-white cursor-pointer transition-all hover:border-[#7F513C] hover:shadow-md" data-category="nail" data-id="4" data-name="Japanese Gel Nail Art Custom" data-price="145000" data-duration="60 Menit">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-start gap-3.5">
+                  <input type="checkbox" name="selectedServices" value="Japanese Gel Nail Art" class="service-checkbox mt-1 size-5 accent-[#7F513C] rounded cursor-pointer"/>
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                      <h3 class="font-serif text-base sm:text-lg font-bold text-[#1A1816]">Japanese Gel Nail Art Custom</h3>
+                      <span class="px-2 py-0.5 rounded-full bg-[#F3ECE3] text-[#5C544E] text-[10px] font-semibold uppercase tracking-wider">Nail Art</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed mb-3">
+                      Dry manicure presisi tanpa perih, cat gel Jepang awet anti-gores, dan desain hand-painted aksen estetik.
+                    </p>
+                    <div class="flex items-center gap-4 text-xs text-[#8E847C]">
+                      <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[16px]">schedule</span>
+                        <span>60 Menit</span>
+                      </span>
+                      <span class="flex items-center gap-1 text-[#7F513C] font-semibold">
+                        <span class="material-symbols-outlined text-[16px]">brush</span>
+                        <span>Steril Medis</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <span class="text-[10px] text-[#8E847C] block uppercase font-medium">Tarif</span>
+                  <span class="font-sans text-base sm:text-lg font-extrabold text-[#7F513C]">Rp 145.000</span>
+                </div>
+              </div>
+            </label>
+
+            <!-- Service 5 -->
+            <label class="service-card group block p-5 rounded-2xl border border-[#E8DFD5] bg-white cursor-pointer transition-all hover:border-[#7F513C] hover:shadow-md" data-category="lash" data-id="5" data-name="Keratin Lash Lift &amp; Tint Black" data-price="150000" data-duration="60 Menit">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-start gap-3.5">
+                  <input type="checkbox" name="selectedServices" value="Keratin Lash Lift" class="service-checkbox mt-1 size-5 accent-[#7F513C] rounded cursor-pointer"/>
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                      <h3 class="font-serif text-base sm:text-lg font-bold text-[#1A1816]">Keratin Lash Lift &amp; Tint Black</h3>
+                      <span class="px-2 py-0.5 rounded-full bg-[#FAF2EB] text-[#7F513C] text-[10px] font-bold uppercase tracking-wider">Lash Lift</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#5C544E] leading-relaxed mb-3">
+                      Melentikkan bulu mata alami tanpa ekstensi palsu, diperkaya serum keratin pekat tahan hingga 2 bulan.
+                    </p>
+                    <div class="flex items-center gap-4 text-xs text-[#8E847C]">
+                      <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[16px]">schedule</span>
+                        <span>60 Menit</span>
+                      </span>
+                      <span class="flex items-center gap-1 text-[#7F513C] font-semibold">
+                        <span class="material-symbols-outlined text-[16px]">visibility</span>
+                        <span>Lentik Alami</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <span class="text-[10px] text-[#8E847C] block uppercase font-medium">Tarif</span>
+                  <span class="font-sans text-base sm:text-lg font-extrabold text-[#7F513C]">Rp 150.000</span>
+                </div>
+              </div>
+            </label>
+
+          </div>
+        </section>
+
+        <!-- STEP 2 CONTAINER: JADWAL & WAKTU -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8DFD5] shadow-soft-card">
+          <div class="pb-6 mb-6 border-b border-[#E8DFD5]">
+            <span class="text-xs font-bold text-[#7F513C] uppercase tracking-wider block mb-0.5">Bagian 02</span>
+            <h2 class="font-serif text-2xl font-bold text-[#1A1816]">Pilih Tanggal &amp; Waktu Kedatangan</h2>
+            <p class="text-xs sm:text-sm text-[#5C544E] mt-1">Studio buka Selasa sampai Minggu pukul 10.00 – 18.00 WIB (Senin Tutup).</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Date Selection -->
+            <div>
+              <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-2">Tanggal Reservasi</label>
+              <input 
+                type="date" 
+                id="bookingDateInput" 
+                class="w-full px-4 py-3 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] font-sans text-sm text-[#1A1816] focus:outline-none focus:ring-2 focus:ring-[#7F513C]"
+              />
+              <span class="text-[11px] text-[#8E847C] block mt-1.5">Pilih tanggal minimal hari ini atau hari berikutnya.</span>
+            </div>
+
+            <!-- Time Slots -->
+            <div>
+              <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-2">Pilihan Jam Kedatangan</label>
+              <div class="grid grid-cols-3 gap-2" id="timeSlotsContainer">
+                <button type="button" class="time-slot-btn px-3 py-2.5 rounded-xl border border-[#E8DFD5] text-xs font-bold text-[#1A1816] hover:border-[#7F513C] transition-all" data-time="10:00 WIB">10:00</button>
+                <button type="button" class="time-slot-btn px-3 py-2.5 rounded-xl border border-[#E8DFD5] text-xs font-bold text-[#1A1816] hover:border-[#7F513C] transition-all" data-time="11:30 WIB">11:30</button>
+                <button type="button" class="time-slot-btn active px-3 py-2.5 rounded-xl border-2 border-[#7F513C] bg-[#FAF2EB] text-xs font-bold text-[#7F513C] transition-all" data-time="13:00 WIB">13:00</button>
+                <button type="button" class="time-slot-btn px-3 py-2.5 rounded-xl border border-[#E8DFD5] text-xs font-bold text-[#1A1816] hover:border-[#7F513C] transition-all" data-time="14:30 WIB">14:30</button>
+                <button type="button" class="time-slot-btn px-3 py-2.5 rounded-xl border border-[#E8DFD5] text-xs font-bold text-[#1A1816] hover:border-[#7F513C] transition-all" data-time="16:00 WIB">16:00</button>
+                <button type="button" class="time-slot-btn px-3 py-2.5 rounded-xl border border-[#E8DFD5] text-xs font-bold text-[#1A1816] hover:border-[#7F513C] transition-all" data-time="17:00 WIB">17:00</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- STEP 3 CONTAINER: DATA TAMU -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8DFD5] shadow-soft-card">
+          <div class="pb-6 mb-6 border-b border-[#E8DFD5]">
+            <span class="text-xs font-bold text-[#7F513C] uppercase tracking-wider block mb-0.5">Bagian 03</span>
+            <h2 class="font-serif text-2xl font-bold text-[#1A1816]">Informasi Kontak Tamu</h2>
+            <p class="text-xs sm:text-sm text-[#5C544E] mt-1">Konfirmasi reservasi dan tiket akan dikirimkan otomatis ke WhatsApp Anda.</p>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-1.5">Nama Lengkap *</label>
+              <input 
+                type="text" 
+                id="guestNameInput" 
+                placeholder="Contoh: Rina Setyowati" 
+                class="w-full px-4 py-3 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] font-sans text-sm text-[#1A1816] focus:outline-none focus:ring-2 focus:ring-[#7F513C]"
+              />
+            </div>
+
+            <div>
+              <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-1.5">Nomor WhatsApp Aktif *</label>
+              <input 
+                type="tel" 
+                id="guestPhoneInput" 
+                placeholder="Contoh: 081234567890" 
+                class="w-full px-4 py-3 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] font-sans text-sm text-[#1A1816] focus:outline-none focus:ring-2 focus:ring-[#7F513C]"
+              />
+            </div>
+
+            <div>
+              <label class="text-xs font-bold text-[#1A1816] uppercase tracking-wider block mb-1.5">Catatan Tambahan (Opsional)</label>
+              <textarea 
+                id="guestNoteInput" 
+                rows="2" 
+                placeholder="Contoh: Rambut tebal sebahu, request terapis Kak Nadia..." 
+                class="w-full px-4 py-3 rounded-xl border border-[#E8DFD5] bg-[#FBF8F4] font-sans text-sm text-[#1A1816] focus:outline-none focus:ring-2 focus:ring-[#7F513C]"
+              ></textarea>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT COLUMN: STICKY RINGKASAN RESERVASI (4 Cols) -->
+      <div class="lg:col-span-4 sticky top-24">
+        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-[#E8DFD5] shadow-soft-card">
+          
+          <div class="flex items-center justify-between pb-4 border-b border-[#E8DFD5] mb-5">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[20px] text-[#7F513C]">receipt_long</span>
+              <h3 class="font-serif text-lg font-bold text-[#1A1816]">Ringkasan Reservasi</h3>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">Siap Konfirmasi</span>
+          </div>
+
+          <!-- Studio Location Pin -->
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-[#FBF8F4] mb-5">
+            <span class="material-symbols-outlined text-[20px] text-[#7F513C]">storefront</span>
+            <div>
+              <p class="font-bold text-xs text-[#1A1816]">Sonae Beauty Studio</p>
+              <p class="text-[11px] text-[#5C544E]">Jl. Thamrin, Klegen, Kec. Kartoharjo, Madiun 63117</p>
+            </div>
+          </div>
+
+          <!-- Selected Services List in Summary -->
+          <div class="space-y-3 pb-5 border-b border-[#E8DFD5]">
+            <p class="text-[11px] font-bold text-[#8E847C] uppercase tracking-wider">Perawatan Terpilih</p>
+            <div id="summaryServicesList" class="space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-semibold text-[#1A1816]">Korean Keratin Smoothing</span>
+                <span class="font-bold text-[#7F513C]">Rp 435.000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Selected Schedule in Summary -->
+          <div class="py-4 border-b border-[#E8DFD5] space-y-2">
+            <p class="text-[11px] font-bold text-[#8E847C] uppercase tracking-wider">Jadwal Kedatangan</p>
+            <div class="flex items-center gap-2 text-xs font-semibold text-[#1A1816]">
+              <span class="material-symbols-outlined text-[16px] text-[#7F513C]">calendar_today</span>
+              <span id="summaryDate">Sabtu, 18 Oktober 2025</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-semibold text-[#1A1816]">
+              <span class="material-symbols-outlined text-[16px] text-[#7F513C]">schedule</span>
+              <span id="summaryTime">Pukul 13:00 WIB</span>
+            </div>
+          </div>
+
+          <!-- Total & Payment Note -->
+          <div class="pt-4 pb-6">
+            <div class="flex items-baseline justify-between mb-1.5">
+              <span class="text-xs font-bold text-[#5C544E] uppercase">Total Estimasi</span>
+              <span id="summaryTotal" class="font-sans text-2xl font-extrabold text-[#7F513C]">Rp 435.000</span>
+            </div>
+            <p class="text-[11px] text-[#8E847C] flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">info</span>
+              <span>Tanpa DP. Bayar di studio via QRIS / Tunai.</span>
+            </p>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            id="confirmBookingBtn" 
+            type="button" 
+            class="w-full py-4 rounded-xl bg-[#7F513C] hover:bg-[#633B2A] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-pill-button transition-all duration-200 active:opacity-90 cursor-pointer"
+          >
+            <span>Konfirmasi ke WhatsApp</span>
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          </button>
+
+          <!-- Flexibility Guarantee -->
+          <div class="mt-4 p-3 rounded-xl bg-[#FAF2EB] text-[11px] text-[#5C544E] flex items-start gap-2">
+            <span class="material-symbols-outlined text-[16px] text-[#7F513C] shrink-0 mt-0.5">verified_user</span>
+            <span><strong>Garansi Fleksibilitas:</strong> Bebas ubah jadwal atau batalkan gratis kapan saja via WhatsApp.</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Set default date to today
+    const dateInput = document.getElementById('bookingDateInput') as HTMLInputElement;
+    const summaryDate = document.getElementById('summaryDate');
+    const summaryTime = document.getElementById('summaryTime');
+    const summaryTotal = document.getElementById('summaryTotal');
+    const summaryServicesList = document.getElementById('summaryServicesList');
+
+    if (dateInput) {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      dateInput.min = `${yyyy}-${mm}-${dd}`;
+      dateInput.value = `${yyyy}-${mm}-${dd}`;
+
+      dateInput.addEventListener('change', () => {
+        if (summaryDate && dateInput.value) {
+          const d = new Date(dateInput.value);
+          const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+          summaryDate.textContent = d.toLocaleDateString('id-ID', options);
+        }
+      });
+    }
+
+    // 2. Time Slot Selection
+    const timeSlots = document.querySelectorAll('.time-slot-btn');
+    timeSlots.forEach(slot => {
+      slot.addEventListener('click', () => {
+        timeSlots.forEach(s => {
+          s.classList.remove('active', 'border-2', 'border-[#7F513C]', 'bg-[#FAF2EB]', 'text-[#7F513C]');
+          s.classList.add('border', 'border-[#E8DFD5]', 'text-[#1A1816]');
+        });
+        slot.classList.add('active', 'border-2', 'border-[#7F513C]', 'bg-[#FAF2EB]', 'text-[#7F513C]');
+        slot.classList.remove('border', 'border-[#E8DFD5]', 'text-[#1A1816]');
+        const timeVal = slot.getAttribute('data-time');
+        if (summaryTime && timeVal) {
+          summaryTime.textContent = `Pukul ${timeVal}`;
+        }
+      });
+    });
+
+    // 3. Category Filter for Services
+    const catBtns = document.querySelectorAll('.service-cat-btn');
+    const serviceCards = document.querySelectorAll('.service-card');
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catBtns.forEach(b => {
+          b.classList.remove('active', 'bg-[#7F513C]', 'text-white');
+          b.classList.add('bg-[#F3ECE3]', 'text-[#5C544E]');
+        });
+        btn.classList.add('active', 'bg-[#7F513C]', 'text-white');
+        btn.classList.remove('bg-[#F3ECE3]', 'text-[#5C544E]');
+
+        const cat = btn.getAttribute('data-cat');
+        serviceCards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          if (cat === 'all' || cardCat === cat) {
+            (card as HTMLElement).style.display = 'block';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 4. Update Summary on Service Selection
+    function updateSummary() {
+      const checkedCards = document.querySelectorAll('.service-card input.service-checkbox:checked');
+      let total = 0;
+      let html = '';
+
+      checkedCards.forEach(chk => {
+        const card = chk.closest('.service-card');
+        if (card) {
+          const name = card.getAttribute('data-name') || '';
+          const price = parseInt(card.getAttribute('data-price') || '0', 10);
+          total += price;
+          html += `
+            <div class="flex items-center justify-between text-xs py-1">
+              <span class="font-semibold text-[#1A1816] truncate max-w-[170px]">${name}</span>
+              <span class="font-bold text-[#7F513C]">Rp ${price.toLocaleString('id-ID')}</span>
+            </div>
+          `;
+        }
+      });
+
+      if (summaryServicesList) {
+        summaryServicesList.innerHTML = html || '<span class="text-xs text-[#8E847C]">Belum ada layanan dipilih</span>';
+      }
+      if (summaryTotal) {
+        summaryTotal.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+      }
+    }
+
+    document.querySelectorAll('.service-checkbox').forEach(chk => {
+      chk.addEventListener('change', (e) => {
+        const card = (e.target as HTMLElement).closest('.service-card');
+        if (card) {
+          if ((e.target as HTMLInputElement).checked) {
+            card.classList.add('border-2', 'border-[#7F513C]', 'bg-[#FAF2EB]/40');
+            card.classList.remove('border-[#E8DFD5]', 'bg-white');
+          } else {
+            card.classList.remove('border-2', 'border-[#7F513C]', 'bg-[#FAF2EB]/40');
+            card.classList.add('border-[#E8DFD5]', 'bg-white');
+          }
+        }
+        updateSummary();
+      });
+    });
+
+    // 5. WhatsApp Booking Generator
+    const confirmBtn = document.getElementById('confirmBookingBtn');
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', () => {
+        const nameInput = document.getElementById('guestNameInput') as HTMLInputElement;
+        const phoneInput = document.getElementById('guestPhoneInput') as HTMLInputElement;
+        const noteInput = document.getElementById('guestNoteInput') as HTMLTextAreaElement;
+
+        const name = nameInput?.value.trim() || 'Tamu Sonae';
+        const phone = phoneInput?.value.trim() || '-';
+        const note = noteInput?.value.trim() || '-';
+        const date = summaryDate?.textContent || 'Jadwal fleksibel';
+        const time = summaryTime?.textContent || '13:00 WIB';
+
+        const selectedServices: string[] = [];
+        document.querySelectorAll('.service-card input.service-checkbox:checked').forEach(chk => {
+          const card = chk.closest('.service-card');
+          if (card) {
+            selectedServices.push(card.getAttribute('data-name') || '');
+          }
+        });
+
+        if (selectedServices.length === 0) {
+          alert('Silakan pilih minimal satu layanan terlebih dahulu!');
+          return;
+        }
+
+        const msg = 
+`Halo Sonae Beauty Studio Madiun! 👋
+Saya ingin mengonfirmasi reservasi perawatan:
+
+📋 *Layanan:* ${selectedServices.join(', ')}
+📅 *Tanggal:* ${date}
+⏰ *Waktu:* ${time}
+
+👤 *Nama Tamu:* ${name}
+📱 *No. WhatsApp:* ${phone}
+📝 *Catatan:* ${note}
+
+Mohon konfirmasi ketersediaan slotnya ya. Terima kasih! ✨`;
+
+        const waUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`;
+        window.open(waUrl, '_blank');
+      });
+    }
+  });
+</script>
